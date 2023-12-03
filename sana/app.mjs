@@ -1,4 +1,7 @@
 #! /usr/bin/env node
+
+process.removeAllListeners("warning");
+
 import { program } from "commander";
 import { readFile } from "fs/promises";
 const packageInfo = JSON.parse(
@@ -6,6 +9,7 @@ const packageInfo = JSON.parse(
 );
 import { countAccountFunctions } from "./commands/count-account-functions.mjs";
 import { getFunctionRuntimeDistribution } from "./commands/get-function-runtime-distribution.mjs";
+import { getFunctionDistributionByPackageType } from "./commands/get-function-package-type-distribution.mjs";
 
 // Constants
 const strategies = [
@@ -13,6 +17,10 @@ const strategies = [
   {
     key: "get-function-runtime-distribution",
     execute: getFunctionRuntimeDistribution,
+  },
+  {
+    key: "get-function-distribution-by-package-type",
+    execute: getFunctionDistributionByPackageType,
   },
 ];
 
