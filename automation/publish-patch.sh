@@ -2,7 +2,7 @@
 
 cd ../
 
-cp ./README.md ./sana/README/md
+cp ./README.md ./sana/README.md
 
 cd ./sana
 
