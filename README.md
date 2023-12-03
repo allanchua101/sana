@@ -6,6 +6,7 @@ A command-line interface for analyzing an AWS account's serverless resources. Fo
 
 - [Why sana?](#why-sana)
 - [Installation](#installation)
+- [Accessing Help Manual](#accessing-help-manual)
 - [Authentication Modes](#authentication-modes)
 - [Lambda Functions](#lambda-functions)
   - [Total Lambda Count](#total-lambda-count)
@@ -42,7 +43,11 @@ $ npm i -g @serverless-ninja/sana
 $ sana --version
 
 @serverless-ninja/sana 1.1.x
+```
 
+## Accessing Help Manual
+
+```sh
 $ sana --help
 A command-line interface for analyzing an AWS account's serverless resources
 
