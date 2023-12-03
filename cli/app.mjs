@@ -12,6 +12,8 @@ import { countAccountFunctions } from "./commands/lambda/count-account-functions
 import { getFunctionRuntimeDistribution } from "./commands/lambda/get-function-runtime-distribution.mjs";
 import { getFunctionDistributionByPackageType } from "./commands/lambda/get-function-package-type-distribution.mjs";
 import { getFunctionRegionDistribution } from "./commands/lambda/get-function-region-distribution.mjs";
+import { getFunctionDistributionByMemory } from "./commands/lambda/get-distribution-by-memory.mjs";
+import { getFunctionDistributionByEphemeralStorage } from "./commands/lambda/get-distribution-by-ephemeral-storage.mjs";
 // DynamoDB
 import { countDynamoDBs } from "./commands/dynamodb/count-ddbs.mjs";
 import { getDDBDistributionByRegion } from "./commands/dynamodb/get-distribution-by-region.mjs";
@@ -30,6 +32,14 @@ const strategies = [
   {
     key: "lambda-region-distribution",
     execute: getFunctionRegionDistribution,
+  },
+  {
+    key: "lambda-memory-distribution",
+    execute: getFunctionDistributionByMemory,
+  },
+  {
+    key: "lambda-ephemeral-storage-distribution",
+    execute: getFunctionDistributionByEphemeralStorage,
   },
   // DynamoDBs
   { key: "ddb-count", execute: countDynamoDBs },
@@ -57,7 +67,7 @@ program
       return;
     }
 
-    console.log(`Processing ${command}`);
+    console.log(`Analyzing ${command}`);
 
     await strategy.execute(params);
     process.exit(0);
