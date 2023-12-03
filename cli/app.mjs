@@ -4,6 +4,7 @@ process.removeAllListeners("warning");
 
 import { program } from "commander";
 import { readFile } from "fs/promises";
+import { printAsciiArt } from "./helpers/cli/print-ascii-art.mjs";
 const packageInfo = JSON.parse(
   await readFile(new URL("./package.json", import.meta.url))
 );
@@ -42,6 +43,10 @@ program
   .arguments("command")
   .option("-p, --profile <char>")
   .action(async (command, params) => {
+    const logo = await printAsciiArt("sana");
+
+    console.log(logo);
+
     const strategy = strategies.find((s) => s.key === command);
 
     if (!strategy) {

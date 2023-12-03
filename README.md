@@ -18,7 +18,6 @@ You can use the `lambda-count` command to get the account-wide Lambda function c
 
 ```sh
 $ sana lambda-count --profile foo
-Scanning account regions |████████████████████████████████████████| 100% | ETA: 0s | 17/17
 
 Found a total of 4 Lambda functions
 ```
@@ -29,7 +28,6 @@ You can use the `lambda-runtime-distribution` command to get the account-wide La
 
 ```sh
 $ sana lambda-runtime-distribution --profile foo
-Scanning account regions |████████████████████████████████████████| 100% | ETA: 0s | 17/17
 
 nodejs14.x: 1024 functions.
 nodejs16.x: 500 functions.
@@ -43,7 +41,6 @@ You can use the `lambda-package-type-distribution` command to get the account-wi
 
 ```sh
 $ sana lambda-package-type-distribution --profile foo
-Scanning account regions |████████████████████████████████████████| 100% | ETA: 0s | 17/17
 
 Zip: 254 functions.
 Image: 5 functions.
@@ -55,7 +52,6 @@ You can use the `lambda-region-distribution` command to get the account-wide Lam
 
 ```sh
 $ sana lambda-region-distribution --profile foo
-Scanning account regions |████████████████████████████████████████| 100% | ETA: 0s | 17/17
 
 ap-southeast-1: 490 functions.
 us-east-1: 1205 functions.
@@ -71,7 +67,6 @@ You can use the `ddb-count` command to get the account-wide Lambda function coun
 
 ```sh
 $ sana ddb-count --profile foo
-Scanning account regions |████████████████████████████████████████| 100% | ETA: 0s | 17/17
 
 Found a total of 490 dynamo db tables in the account.
 ```
