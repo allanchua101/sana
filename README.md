@@ -146,3 +146,14 @@ us-east-1: 250 tables.
 us-west-1: 42 tables.
 ap-southeast-1: 28 tables.
 ```
+
+### DynamoDB Table Distribution by Delete Protection
+
+Use the `ddb-delete-protection-distribution` command to get DynamoDB table count based on their delete protection flag.
+
+```sh
+$ sana ddb-delete-protection-distribution
+
+Delete Protection Enabled: 250 tables
+Delete Protection Disabled: 5 tables # Exposes potential problem due to accidental deletion.
+```

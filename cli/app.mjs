@@ -17,6 +17,7 @@ import { getFunctionDistributionByEphemeralStorage } from "./commands/lambda/get
 // DynamoDB
 import { countDynamoDBs } from "./commands/dynamodb/count-ddbs.mjs";
 import { getDDBDistributionByRegion } from "./commands/dynamodb/get-distribution-by-region.mjs";
+import { getDDBDistributionByDeleteProtection } from "./commands/dynamodb/get-distribution-by-delete-protection.mjs";
 
 // Command Strategies
 const strategies = [
@@ -44,6 +45,10 @@ const strategies = [
   // DynamoDBs
   { key: "ddb-count", execute: countDynamoDBs },
   { key: "ddb-region-distribution", execute: getDDBDistributionByRegion },
+  {
+    key: "ddb-delete-protection-distribution",
+    execute: getDDBDistributionByDeleteProtection,
+  },
 ];
 
 program
