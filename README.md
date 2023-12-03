@@ -76,7 +76,7 @@ Found a total of 490 dynamo db tables in the account.
 
 ### Account-wide DynamoDB Table Distribution by Region
 
-You can use the `ddb-region-distribution` command to get the account-wide DynamoDB table count.
+You can use the `ddb-region-distribution` command to get DynamoDB Table count per region
 
 ```sh
 $ sana ddb-region-distribution --profile foo
