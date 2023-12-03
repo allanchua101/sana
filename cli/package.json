@@ -2,7 +2,7 @@
   "name": "@serverless-ninja/sana",
   "package-name": "@serverless-ninja/sana",
   "description": "A command-line interface for running analysis on your AWS account's serverless resources",
-  "version": "1.1.18",
+  "version": "1.1.19",
   "main": "app.mjs",
   "git repository": "https://github.com/allanchua101/sana",
   "scripts": {
