@@ -5,6 +5,7 @@ A command-line interface for running analysis of an AWS account's serverless res
 ## Table of Contents
 
 - [Installation](#installation)
+- [Why sana?](#why-sana?)
 - [Lambda Functions](#lambda-functions)
   - [Total Lambda Count](#total-lambda-count)
   - [Runtime Distribution](#function-runtime-distribution)
@@ -15,6 +16,14 @@ A command-line interface for running analysis of an AWS account's serverless res
 - [DynamoDB Tables](#dynamodb-tables)
   - [Total DynamoDB Table Count](#total-dynamodb-table-count)
   - [Distribution by Region](#dynamodb-table-distribution-by-region)
+
+## Why sana?
+
+Heavily inspired by Werner Vogels' frugal architect laws mentioned at 2023 AWS re:Invent keynote, `sana` aims to provide tooling that fills in the gaps in the space of serverless observation capabilities. `sana` tries to solve the following problem statements.
+
+- Understand how many functions in an account needs to be migrated to latest runtimes
+- Ease reporting capabilities in CI/CD pipelines for greater observation
+- Provide ability to debug total health of an AWS account without leaving your VS code / terminal.
 
 ## Installation
 
