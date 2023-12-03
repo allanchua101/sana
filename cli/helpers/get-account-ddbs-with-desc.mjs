@@ -66,6 +66,8 @@ export async function getAllDynamoDBTablesWithDesc(profileName) {
       return new Promise(async (resolve) => {
         const descCmd = new DescribeTableCommand({ TableName: rt });
         const response = await ddbClient.send(descCmd);
+
+        console.log(response?.Table?.SSEDescription);
         const hasEncryption =
           response?.Table?.SSEDescription?.Status === "ENABLED" || false;
 

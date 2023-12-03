@@ -8,6 +8,8 @@ const BUCKETS = ["Encrypted", "Non-encrypted"];
  * @description Method used for retrieving DynamoDB table distribution by table encryption status.
  * @param {Object} params
  * @param {string} params.profileName AWS CLI profile name to be used for this command.
+ *
+ * TODO: Change this to mode instead of boolean flag
  */
 export async function getDDBDistributionByEncryptionFlag(params) {
   const tables = await getAllDynamoDBTablesWithDesc(params.profile || "");

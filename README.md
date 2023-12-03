@@ -22,7 +22,6 @@ A command-line interface for analyzing an AWS account's serverless resources. Fo
   - [Distribution by Region](#dynamodb-table-distribution-by-region)
   - [Distribution by Delete Protection](#distribution-by-delete-protection)
   - [Distribution by Table Status](#distribution-by-table-status)
-  - [Distribution by Encryption Enabled / Disabled](#distribution-by-encryption-status)
 
 ## Why sana?
 
@@ -31,7 +30,6 @@ Heavily inspired by Werner Vogels' frugal architect laws mentioned at 2023 AWS r
 - Understand how many functions in an account needs to be migrated to latest runtimes
 - Identify how many DynamoDB tables are not configured with delete protection
 - Identify how many DynamoDB tables are unencrypted.
-- Identify how many DynamoDB tables are creating, undergoing deletion and associated with an inaccessible encryption key.
 - Ease reporting capabilities in CI/CD pipelines to enhance observability of build impact to your AWS accounts.
 - Provide the ability to observe the total health of an AWS account without leaving your VS code / terminal.
 - And many more. StepFunctions, SQS, Event Bridge, S3 and CF commands are under development!
@@ -70,7 +68,6 @@ Commands:
   ddb-region-distribution                   Count account-wide DynamoDB table distribution by AWS region.
   ddb-delete-protection-distribution        Count account-wide DynamoDB table distribution by table protection status.
   ddb-table-status-distribution             Count account-wide DynamoDB table distribution by table status.
-  ddb-table-encryption-status-distribution  Count account-wide DynamoDB table distribution by encryption status.
 ```
 
 ## Authentication Modes
@@ -231,15 +228,4 @@ CREATING: 1 table(s)
 UPDATING: 0 table(s)
 DELETING: 0 table(s)
 INACCESSIBLE_ENCRYPTION_CREDENTIALS: 0 table(s)
-```
-
-### Distribution by Encryption Status
-
-Use the `ddb-table-encryption-status-distribution` command to get DynamoDB table count based on their table encryption status.
-
-```sh
-$ sana ddb-table-encryption-status-distribution
-
-Encrypted: 145 tables.
-Non-encrypted: 20 tables.
 ```
