@@ -33,3 +33,19 @@ Resources:
     # Specify the region for the second DynamoDB table
     Metadata:
       'AWS::Region': 'us-east-1'
+
+  EncryptedDDB:
+    Type: 'AWS::DynamoDB::Table'
+    Properties:
+      TableName: "sana-encrypted-table"
+      AttributeDefinitions:
+        - AttributeName: 'id'
+          AttributeType: 'S'
+      KeySchema:
+        - AttributeName: 'id'
+          KeyType: 'HASH'
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+      SSESpecification:
+        SSEEnabled: true

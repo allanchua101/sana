@@ -19,6 +19,7 @@ import { countDynamoDBs } from "./commands/dynamodb/count-ddbs.mjs";
 import { getDDBDistributionByRegion } from "./commands/dynamodb/get-distribution-by-region.mjs";
 import { getDDBDistributionByDeleteProtection } from "./commands/dynamodb/get-distribution-by-delete-protection.mjs";
 import { getDDBDistributionByTableStatus } from "./commands/dynamodb/get-distribution-by-status.mjs";
+import { getDDBDistributionByEncryptionFlag } from "./commands/dynamodb/get-distribution-by-encryption.mjs";
 
 // Command Strategies
 const strategies = [
@@ -53,6 +54,10 @@ const strategies = [
   {
     key: "ddb-table-status-distribution",
     execute: getDDBDistributionByTableStatus,
+  },
+  {
+    key: "ddb-table-encryption-status-distribution",
+    execute: getDDBDistributionByEncryptionFlag,
   },
 ];
 

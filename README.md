@@ -19,6 +19,7 @@ A command-line interface for running analysis of an AWS account's serverless res
   - [Distribution by Region](#dynamodb-table-distribution-by-region)
   - [Distribution by Delete Protection](#distribution-by-delete-protection)
   - [Distribution by Table Status](#distribution-by-table-status)
+  - [Distribution by Encryption Enabled / Disabled](#distribution-by-encryption-status)
 
 ## Why sana?
 
@@ -172,4 +173,15 @@ CREATING: 1 table(s)
 UPDATING: 0 table(s)
 DELETING: 0 table(s)
 INACCESSIBLE_ENCRYPTION_CREDENTIALS: 0 table(s)
+```
+
+### Distribution by Encryption Status
+
+Use the `ddb-table-encryption-status-distribution` command to get DynamoDB table count based on their table status.
+
+```sh
+$ sana ddb-table-encryption-status-distribution
+
+Encrypted: 145 tables.
+Non-encrypted: 20 tables.
 ```
