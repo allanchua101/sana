@@ -1,12 +1,18 @@
 {
-  "name": "sana",
-  "version": "1.0.0",
+  "name": "@serverless-ninja/sana",
+  "package-name": "@serverless-ninja/sana",
   "description": "A command-line interface for running analysis on your AWS account's serverless resources",
+  "version": "1.1.2",
   "main": "app.mjs",
+  "git repository": "https://github.com/allanchua101/sana",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": ""
   },
-  "keywords": [],
+  "keywords": [
+    "aws",
+    "serverless",
+    "devops"
+  ],
   "author": "Allan Chua",
   "license": "ISC",
   "dependencies": {
