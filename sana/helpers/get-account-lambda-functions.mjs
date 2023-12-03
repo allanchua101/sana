@@ -36,9 +36,7 @@ export async function getAccountLambdaFunctions(profileName) {
       const response = await lambdaClient.send(command);
 
       if (response.Functions && response.Functions.length > 0) {
-        functionList.push(
-          ...response.Functions.map((func) => func.FunctionName)
-        );
+        functionList.push(...response.Functions);
       }
 
       if (response.NextMarker) {

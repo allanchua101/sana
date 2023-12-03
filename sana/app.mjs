@@ -5,10 +5,15 @@ const packageInfo = JSON.parse(
   await readFile(new URL("./package.json", import.meta.url))
 );
 import { countAccountFunctions } from "./commands/count-account-functions.mjs";
+import { getFunctionRuntimeDistribution } from "./commands/get-function-runtime-distribution.mjs";
 
 // Constants
 const strategies = [
   { key: "count-account-functions", execute: countAccountFunctions },
+  {
+    key: "get-function-runtime-distribution",
+    execute: getFunctionRuntimeDistribution,
+  },
 ];
 
 program
