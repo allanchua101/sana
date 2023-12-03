@@ -39,4 +39,5 @@ You can use the `get-function-distribution-by-package-type` command to get the a
 $ sana get-function-distribution-by-package-type --profile foo
 
 Zip: 254 functions.
+Image: 5 functions.
 ```
