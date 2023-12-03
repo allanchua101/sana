@@ -1,4 +1,4 @@
-# sana (SErverless ANalyzer)
+# sana (SErverless aNAlyzer)
 
 A command-line interface for running analysis of an AWS account's serverless resources.
 
