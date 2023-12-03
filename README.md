@@ -4,8 +4,8 @@ A command-line interface for running analysis of an AWS account's serverless res
 
 ## Table of Contents
 
-- [Installation](#installation)
 - [Why sana?](#why-sana)
+- [Installation](#installation)
 - [Authentication Modes](#authentication-modes)
 - [Lambda Functions](#lambda-functions)
   - [Total Lambda Count](#total-lambda-count)
@@ -26,6 +26,15 @@ Heavily inspired by Werner Vogels' frugal architect laws mentioned at 2023 AWS r
 - Ease reporting capabilities in CI/CD pipelines to enhance impact of builds
 - Provide the ability to observe the total health of an AWS account without leaving your VS code / terminal.
 
+## Installation
+
+```sh
+$ npm i -g @serverless-ninja/sana
+$ sana --version
+
+@serverless-ninja/sana 1.1.x
+```
+
 ## Authentication Modes
 
 `sana` can authenticate against your AWS account by either using the default AWS CLI profile or by using named profiles. Take the example below
@@ -38,15 +47,6 @@ sana lambda-runtime-distribution
 # If you need to target multiple accounts from the same server
 # use the following approach
 sana lambda-runtime-distribution --profile foo
-```
-
-## Installation
-
-```sh
-$ npm i -g @serverless-ninja/sana
-$ sana --version
-
-@serverless-ninja/sana 1.1.x
 ```
 
 ## Lambda Functions
