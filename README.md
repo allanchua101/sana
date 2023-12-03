@@ -23,7 +23,7 @@ A command-line interface for running analysis of an AWS account's serverless res
 Heavily inspired by Werner Vogels' frugal architect laws mentioned at 2023 AWS re:Invent keynote, `sana` aims to provide tooling that fills in the gaps in the space of serverless observation capabilities. `sana` tries to solve the following problem statements.
 
 - Understand how many functions in an account needs to be migrated to latest runtimes
-- Ease reporting capabilities in CI/CD pipelines to enhance impact of builds
+- Ease reporting capabilities in CI/CD pipelines to enhance observability of build impact to your AWS accounts.
 - Provide the ability to observe the total health of an AWS account without leaving your VS code / terminal.
 
 ## Installation
