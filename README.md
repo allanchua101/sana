@@ -6,6 +6,7 @@ A command-line interface for running analysis of an AWS account's serverless res
 
 - [Installation](#installation)
 - [Why sana?](#why-sana)
+- [Authentication Modes](#authentication-modes)
 - [Lambda Functions](#lambda-functions)
   - [Total Lambda Count](#total-lambda-count)
   - [Runtime Distribution](#function-runtime-distribution)
@@ -25,6 +26,20 @@ Heavily inspired by Werner Vogels' frugal architect laws mentioned at 2023 AWS r
 - Ease reporting capabilities in CI/CD pipelines to enhance impact of builds
 - Provide the ability to observe the total health of an AWS account without leaving your VS code / terminal.
 
+## Authentication Modes
+
+`sana` can authenticate against your AWS account by either using the default AWS CLI profile or by using named profiles. Take the example below
+
+```sh
+# To use the default named profile
+# The same approach works for CI/CD agents that uses IAM roles instead
+sana lambda-runtime-distribution
+
+# If you need to target multiple accounts from the same server
+# use the following approach
+sana lambda-runtime-distribution --profile foo
+```
+
 ## Installation
 
 ```sh
@@ -43,7 +58,7 @@ Use `sana` to run basic analysis of Lambda function distribution in an AWS accou
 Use the `lambda-count` command to get the account-wide Lambda function count.
 
 ```sh
-$ sana lambda-count --profile foo
+$ sana lambda-count
 
 Found a total of 4 Lambda functions
 ```
@@ -53,7 +68,7 @@ Found a total of 4 Lambda functions
 Use the `lambda-runtime-distribution` command to get the account-wide Lambda function runtime distribution.
 
 ```sh
-$ sana lambda-runtime-distribution --profile foo
+$ sana lambda-runtime-distribution
 
 nodejs14.x: 1024 functions.
 nodejs16.x: 500 functions.
@@ -66,7 +81,7 @@ nodejs20.x: 600 functions.
 Use the `lambda-package-type-distribution` command to get the account-wide Lambda function distribution by packaging type.
 
 ```sh
-$ sana lambda-package-type-distribution --profile foo
+$ sana lambda-package-type-distribution
 
 Zip: 254 functions.
 Image: 5 functions.
@@ -77,7 +92,7 @@ Image: 5 functions.
 Use the `lambda-region-distribution` command to get the account-wide Lambda function distribution by AWS region.
 
 ```sh
-$ sana lambda-region-distribution --profile foo
+$ sana lambda-region-distribution
 
 ap-southeast-1: 490 functions.
 us-east-1: 1205 functions.
@@ -88,7 +103,7 @@ us-east-1: 1205 functions.
 Use the `lambda-memory-distribution` command to get the account-wide Lambda function distribution by memory size configuration.
 
 ```sh
-$ sana lambda-memory-distribution --profile foo
+$ sana lambda-memory-distribution
 
 128: 10 functions.
 256: 15 functions.
@@ -100,7 +115,7 @@ $ sana lambda-memory-distribution --profile foo
 Use the `lambda-ephemeral-storage-distribution` command to get the account-wide Lambda function distribution by ephemeral storage size.
 
 ```sh
-$ sana lambda-ephemeral-storage-distribution --profile foo
+$ sana lambda-ephemeral-storage-distribution
 
 512: 24 functions.
 1024: 88 functions.
@@ -115,7 +130,7 @@ Use `sana` to run basic analysis of DynamoDB table count and distribution in an 
 Use the `ddb-count` command to get the account-wide DynamoDB table count.
 
 ```sh
-$ sana ddb-count --profile foo
+$ sana ddb-count
 
 Found a total of 490 dynamo db tables in the account.
 ```
@@ -125,7 +140,7 @@ Found a total of 490 dynamo db tables in the account.
 Use the `ddb-region-distribution` command to get DynamoDB Table count per region
 
 ```sh
-$ sana ddb-region-distribution --profile foo
+$ sana ddb-region-distribution
 
 us-east-1: 250 tables.
 us-west-1: 42 tables.
