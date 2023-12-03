@@ -1,14 +1,19 @@
+#! /usr/bin/env node
 import { program } from "commander";
+import { readFile } from "fs/promises";
+const packageInfo = JSON.parse(
+  await readFile(new URL("./package.json", import.meta.url))
+);
 import { countAccountFunctions } from "./commands/count-account-functions.mjs";
-import packageConfig from "./package.json" assert { type: "json" };
+
 // Constants
 const strategies = [
   { key: "count-account-functions", execute: countAccountFunctions },
 ];
 
 program
-  .name("sana")
-  .version(packageConfig.version)
+  .name(packageInfo.name)
+  .version(`${packageInfo.name} ${packageInfo.version}`)
   .description(
     "A command-line interface for running analysis on your AWS account's serverless resources"
   )
