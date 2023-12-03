@@ -25,48 +25,70 @@ import { getDDBDistributionByEncryptionFlag } from "./commands/dynamodb/get-dist
 
 // Command Strategies
 const strategies = [
-  { key: "lambda-count", execute: countAccountFunctions },
+  {
+    key: "lambda-count",
+    desc: "Count account-wide Lambda function count.",
+    execute: countAccountFunctions,
+  },
   {
     key: "lambda-runtime-distribution",
+    desc: "Get account-wide Lambda function distribution by runtime.",
     execute: getFunctionRuntimeDistribution,
   },
   {
     key: "lambda-package-type-distribution",
+    desc: "Get account-wide Lambda function distribution by package type.",
     execute: getFunctionDistributionByPackageType,
   },
   {
     key: "lambda-region-distribution",
+    desc: "Get account-wide Lambda function distribution by AWS region.",
     execute: getFunctionRegionDistribution,
   },
   {
     key: "lambda-memory-distribution",
+    desc: "Get account-wide Lambda function distribution by memory configuration.",
     execute: getFunctionDistributionByMemory,
   },
   {
     key: "lambda-ephemeral-storage-distribution",
+    desc: "Get account-wide Lambda function distribution by ephemeral storage distribution.",
     execute: getFunctionDistributionByEphemeralStorage,
   },
   {
     key: "lambda-tracing-mode-distribution",
+    desc: "Get account-wide Lambda function distribution by X-ray tracing mode.",
     execute: getFunctionDistributionByTracingMode,
   },
   {
     key: "lambda-architecture-distribution",
+    desc: "Get account-wide Lambda function distribution by system architecture",
     execute: getFunctionDistributionByArchitecture,
   },
   // DynamoDBs
-  { key: "ddb-count", execute: countDynamoDBs },
-  { key: "ddb-region-distribution", execute: getDDBDistributionByRegion },
+  {
+    key: "ddb-count",
+    desc: "Count account-wide DynamoDB table count.",
+    execute: countDynamoDBs,
+  },
+  {
+    key: "ddb-region-distribution",
+    desc: "Count account-wide DynamoDB table distribution by AWS region.",
+    execute: getDDBDistributionByRegion,
+  },
   {
     key: "ddb-delete-protection-distribution",
+    desc: "Count account-wide DynamoDB table distribution by table protection status.",
     execute: getDDBDistributionByDeleteProtection,
   },
   {
     key: "ddb-table-status-distribution",
+    desc: "Count account-wide DynamoDB table distribution by table status.",
     execute: getDDBDistributionByTableStatus,
   },
   {
     key: "ddb-table-encryption-status-distribution",
+    desc: "Count account-wide DynamoDB table distribution by encryption status.",
     execute: getDDBDistributionByEncryptionFlag,
   },
 ];
@@ -97,6 +119,21 @@ program
     await strategy.execute(params);
     process.exit(0);
   });
+
+strategies.forEach((s) => {
+  program
+    .command(s.key)
+    .description(s.desc || "")
+    .action(async (params) => {
+      const logo = await printAsciiArt("sana");
+
+      console.log(logo);
+
+      console.log(`Analyzing ${s.key}`);
+      await s.execute(params);
+      process.exit(0);
+    });
+});
 
 program.parse(process.argv);
 

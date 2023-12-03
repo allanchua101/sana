@@ -42,6 +42,30 @@ $ npm i -g @serverless-ninja/sana
 $ sana --version
 
 @serverless-ninja/sana 1.1.x
+
+$ sana --help
+A command-line interface for analyzing an AWS account's serverless resources
+
+Options:
+  -V, --version                             output the version number
+  -p, --profile <char>
+  -h, --help                                display help for command
+
+Commands:
+  lambda-count                              Count account-wide Lambda function count.
+  lambda-runtime-distribution               Get account-wide Lambda function distribution by runtime.
+  lambda-package-type-distribution          Get account-wide Lambda function distribution by package type.
+  lambda-region-distribution                Get account-wide Lambda function distribution by AWS region.
+  lambda-memory-distribution                Get account-wide Lambda function distribution by memory configuration.
+  lambda-ephemeral-storage-distribution     Get account-wide Lambda function distribution by ephemeral storage
+                                            distribution.
+  lambda-tracing-mode-distribution          Get account-wide Lambda function distribution by X-ray tracing mode.
+  lambda-architecture-distribution          Get account-wide Lambda function distribution by system architecture
+  ddb-count                                 Count account-wide DynamoDB table count.
+  ddb-region-distribution                   Count account-wide DynamoDB table distribution by AWS region.
+  ddb-delete-protection-distribution        Count account-wide DynamoDB table distribution by table protection status.
+  ddb-table-status-distribution             Count account-wide DynamoDB table distribution by table status.
+  ddb-table-encryption-status-distribution  Count account-wide DynamoDB table distribution by encryption status.
 ```
 
 ## Authentication Modes
