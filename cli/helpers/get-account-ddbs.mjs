@@ -21,7 +21,7 @@ export async function getAllDynamoDBTables(profileName) {
   }
 
   const regions = await getAllRegions(profileName);
-  const tableNames = [];
+  const tables = [];
 
   startProgress(regions.length);
 
@@ -51,7 +51,17 @@ export async function getAllDynamoDBTables(profileName) {
 
       if (response.TableNames && response.TableNames.length > 0) {
         startTableName = response.TableNames[response.TableNames.length - 1];
-        tableNames.push(...response.TableNames);
+
+        tables.push(
+          ...response.TableNames.map((tn) => {
+            return {
+              name: tn,
+              sana: {
+                region,
+              },
+            };
+          })
+        );
         hasResults = true;
       }
     } while (hasResults);
@@ -61,5 +71,5 @@ export async function getAllDynamoDBTables(profileName) {
 
   stopProgressBar();
 
-  return tableNames;
+  return tables;
 }

@@ -14,6 +14,7 @@ import { getFunctionDistributionByPackageType } from "./commands/lambda/get-func
 import { getFunctionRegionDistribution } from "./commands/lambda/get-function-region-distribution.mjs";
 // DynamoDB
 import { countDynamoDBs } from "./commands/dynamodb/count-ddbs.mjs";
+import { getDDBDistributionByRegion } from "./commands/dynamodb/get-distribution-by-region.mjs";
 
 // Command Strategies
 const strategies = [
@@ -32,6 +33,7 @@ const strategies = [
   },
   // DynamoDBs
   { key: "ddb-count", execute: countDynamoDBs },
+  { key: "ddb-region-distribution", execute: getDDBDistributionByRegion },
 ];
 
 program
@@ -54,6 +56,8 @@ program
       process.exit(1);
       return;
     }
+
+    console.log(`Processing ${command}`);
 
     await strategy.execute(params);
     process.exit(0);

@@ -66,10 +66,22 @@ You can use `sana` to run basic analysis of DynamoDB table count and distributio
 
 ### Account-wide DynamoDB Table Count
 
-You can use the `ddb-count` command to get the account-wide Lambda function count.
+You can use the `ddb-count` command to get the account-wide DynamoDB table count.
 
 ```sh
 $ sana ddb-count --profile foo
 
 Found a total of 490 dynamo db tables in the account.
+```
+
+### Account-wide DynamoDB Table Distribution by Region
+
+You can use the `ddb-region-distribution` command to get the account-wide DynamoDB table count.
+
+```sh
+$ sana ddb-region-distribution --profile foo
+
+us-east-1: 250 tables.
+us-west-1: 42 tables.
+ap-southeast-1: 28 tables.
 ```
