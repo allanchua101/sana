@@ -2,7 +2,7 @@ import { LambdaClient, ListFunctionsCommand } from "@aws-sdk/client-lambda";
 import { getAllRegions } from "./get-account-regions.mjs";
 import { fromIni } from "@aws-sdk/credential-provider-ini";
 
-export async function getAccountFunctions(profileName) {
+export async function getAccountLambdaFunctions(profileName) {
   let credentials;
 
   // Use the provided profile name to load credentials
@@ -27,8 +27,6 @@ export async function getAccountFunctions(profileName) {
       credentials,
       region,
     });
-
-    console.log(`Reading functions from ${region}`);
 
     while (isTruncated) {
       const command = new ListFunctionsCommand({
