@@ -2,6 +2,19 @@
 
 A command-line interface for running analysis of an AWS account's serverless resources.
 
+## Table of Contents
+
+- [Installation](#Installation)
+- [Lambda Functions](#Lambda-Functions)
+  - [Total Lambda Count](####Total-Lambda-Count)
+  - [Function Runtime Distribution](####Function-Runtime-Distribution)
+  - [Function Package Type Distribution](####Function-Package-Type-Distribution)
+  - [Function Region Distribution](####Function-Region-Distribution)
+  - [Function Memory Size Distribution](####Function-Memory-Size-Distribution)
+  - [Function Ephemeral Storage Distribution](####Function-Ephemeral-Storage-Distribution)
+- [DynamoDB Tables](#DynamoDB-Tables)
+  - [Total DynamoDB Table Count](####Total DynamoDB Table Count)
+
 ## Installation
 
 ```sh
@@ -49,7 +62,7 @@ Zip: 254 functions.
 Image: 5 functions.
 ```
 
-#### Function by Region Distribution
+#### Function Region Distribution
 
 Use the `lambda-region-distribution` command to get the account-wide Lambda function distribution by AWS region.
 
@@ -83,7 +96,7 @@ $ sana lambda-ephemeral-storage-distribution --profile foo
 1024: 88 functions.
 ```
 
-## DynamoDBs
+## DynamoDB Tables
 
 Use `sana` to run basic analysis of DynamoDB table count and distribution in an AWS account.
 
