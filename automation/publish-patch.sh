@@ -2,9 +2,9 @@
 
 cd ../
 
-cp ./README.md ./sana/README.md
+cp ./README.md ./cli/README.md
 
-cd ./sana
+cd ./cli
 
 npm version "patch"
 
