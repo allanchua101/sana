@@ -70,7 +70,7 @@ program
   .name(packageInfo.name)
   .version(`${packageInfo.name} ${packageInfo.version}`)
   .description(
-    "A command-line interface for running analysis of an AWS account's serverless resources."
+    "A command-line interface for analyzing an AWS account's serverless resources"
   )
   .arguments("command")
   .option("-p, --profile <char>")
