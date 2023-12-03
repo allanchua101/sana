@@ -5,7 +5,10 @@ A command-line interface for running analysis of an AWS account's serverless res
 ## Installation
 
 ```sh
-npm i -g @serverless-ninja/sana
+$ npm i -g @serverless-ninja/sana
+$ sana --version
+
+@serverless-ninja/sana 1.1.18
 ```
 
 ## Lambda Functions
