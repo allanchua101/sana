@@ -7,14 +7,14 @@ A command-line interface for running analysis of an AWS account's serverless res
 - [Installation](#installation)
 - [Lambda Functions](#lambda-functions)
   - [Total Lambda Count](#total-lambda-count)
-  - [Function Runtime Distribution](#function-runtime-distribution)
-  - [Function Package Type Distribution](#function-package-type-distribution)
-  - [Function Region Distribution](#function-region-distribution)
-  - [Function Memory Size Distribution](#function-memory-size-distribution)
-  - [Function Ephemeral Storage Distribution](#function-ephemeral-storage-distribution)
+  - [Runtime Distribution](#function-runtime-distribution)
+  - [Package Type Distribution](#function-package-type-distribution)
+  - [Region Distribution](#function-region-distribution)
+  - [Memory Size Distribution](#function-memory-size-distribution)
+  - [Ephemeral Storage Distribution](#function-ephemeral-storage-distribution)
 - [DynamoDB Tables](#dynamodb-tables)
   - [Total DynamoDB Table Count](#total-dynamodb-table-count)
-  - [DynamoDB Table Distribution by Region](#dynamodb-table-distribution-by-region)
+  - [Distribution by Region](#dynamodb-table-distribution-by-region)
 
 ## Installation
 
