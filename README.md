@@ -15,6 +15,7 @@ A command-line interface for analyzing an AWS account's serverless resources. Fo
   - [Distribution by Memory Size](#function-memory-size-distribution)
   - [Distribution by Ephemeral Storage](#function-ephemeral-storage-distribution)
   - [Distribution by Tracing Mode](#function-distribution-by-tracing-mode)
+  - [Distribution by Architecture](#function-distribution-by-architecture)
 - [DynamoDB Tables](#dynamodb-tables)
   - [Total DynamoDB Table Count](#total-dynamodb-table-count)
   - [Distribution by Region](#dynamodb-table-distribution-by-region)
@@ -138,6 +139,18 @@ $ sana lambda-tracing-mode-distribution
 
 PassThrough: 450 functions.
 Active: 280 functions
+```
+
+### Function Distribution by Architecture
+
+Use the `lambda-architecture-distribution` command to get the account-wide Lambda function distribution by underlying architecture. This command is useful for optimizing cost of systems. (ARM chips are cheaper than x86_64)
+
+```sh
+$ sana lambda-architecture-distribution
+
+ARMv8: 500 functions.
+ARMv7: 220 functions.
+x86_64: 1405 functions.
 ```
 
 ## DynamoDB Tables
