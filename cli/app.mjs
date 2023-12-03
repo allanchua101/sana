@@ -11,8 +11,10 @@ import { countAccountFunctions } from "./commands/lambda/count-account-functions
 import { getFunctionRuntimeDistribution } from "./commands/lambda/get-function-runtime-distribution.mjs";
 import { getFunctionDistributionByPackageType } from "./commands/lambda/get-function-package-type-distribution.mjs";
 import { getFunctionRegionDistribution } from "./commands/lambda/get-function-region-distribution.mjs";
+// DynamoDB
+import { countDynamoDBs } from "./commands/dynamodb/count-ddbs.mjs";
 
-// Constants
+// Command Strategies
 const strategies = [
   { key: "lambda-count", execute: countAccountFunctions },
   {
@@ -27,6 +29,8 @@ const strategies = [
     key: "lambda-region-distribution",
     execute: getFunctionRegionDistribution,
   },
+  // DynamoDBs
+  { key: "ddb-count", execute: countDynamoDBs },
 ];
 
 program

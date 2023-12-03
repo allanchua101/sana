@@ -1,6 +1,11 @@
 import { LambdaClient, ListFunctionsCommand } from "@aws-sdk/client-lambda";
 import { getAllRegions } from "./get-account-regions.mjs";
 import { fromIni } from "@aws-sdk/credential-provider-ini";
+import {
+  startProgress,
+  incrementProgress,
+  stopProgressBar,
+} from "./progress-bar/global-progress-bar.mjs";
 
 export async function getAccountLambdaFunctions(profileName) {
   let credentials;
@@ -17,6 +22,8 @@ export async function getAccountLambdaFunctions(profileName) {
 
   const functionList = [];
   const regions = await getAllRegions(profileName);
+
+  startProgress(regions.length);
 
   for (let i = 0, len = regions.length; i < len; i++) {
     const region = regions[i];
@@ -56,7 +63,11 @@ export async function getAccountLambdaFunctions(profileName) {
         isTruncated = false;
       }
     }
+
+    incrementProgress();
   }
+
+  stopProgressBar();
 
   return functionList;
 }

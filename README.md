@@ -56,3 +56,17 @@ $ sana lambda-region-distribution --profile foo
 ap-southeast-1: 490 functions.
 us-east-1: 1205 functions.
 ```
+
+## DynamoDBs
+
+You can use `sana` to run basic analysis of DynamoDB table count and distribution in an AWS account.
+
+### Account-wide DynamoDB Table Count
+
+You can use the `ddb-count` command to get the account-wide Lambda function count.
+
+```sh
+$ sana ddb-count --profile foo
+
+Found a total of 490 dynamo db tables in the account.
+```

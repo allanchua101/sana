@@ -1,0 +1,35 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+  DynamoDBTable1:
+    Type: 'AWS::DynamoDB::Table'
+    Properties:
+      TableName: "sana-table-1"
+      AttributeDefinitions:
+        - AttributeName: 'id'
+          AttributeType: 'S'
+      KeySchema:
+        - AttributeName: 'id'
+          KeyType: 'HASH'
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+    # Specify the region for the first DynamoDB table
+    Metadata:
+      'AWS::Region': 'us-west-1'
+
+  DynamoDBTable2:
+    Type: 'AWS::DynamoDB::Table'
+    Properties:
+      TableName: "sana-table-2"
+      AttributeDefinitions:
+        - AttributeName: 'id'
+          AttributeType: 'S'
+      KeySchema:
+        - AttributeName: 'id'
+          KeyType: 'HASH'
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+    # Specify the region for the second DynamoDB table
+    Metadata:
+      'AWS::Region': 'us-east-1'
