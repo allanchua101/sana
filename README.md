@@ -18,6 +18,7 @@ A command-line interface for running analysis of an AWS account's serverless res
   - [Total DynamoDB Table Count](#total-dynamodb-table-count)
   - [Distribution by Region](#dynamodb-table-distribution-by-region)
   - [Distribution by Delete Protection](#distribution-by-delete-protection)
+  - [Distribution by Table Status](#distribution-by-table-status)
 
 ## Why sana?
 
@@ -157,4 +158,18 @@ $ sana ddb-delete-protection-distribution
 
 Delete Protection Enabled: 250 tables
 Delete Protection Disabled: 5 tables # Exposes potential problem due to accidental deletion.
+```
+
+### Distribution by Table Status
+
+Use the `ddb-table-status-distribution` command to get DynamoDB table count based on their table status.
+
+```sh
+$ sana ddb-table-status-distribution
+
+ACTIVE: 10500 table(s)
+CREATING: 1 table(s)
+UPDATING: 0 table(s)
+DELETING: 0 table(s)
+INACCESSIBLE_ENCRYPTION_CREDENTIALS: 0 table(s)
 ```
