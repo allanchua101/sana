@@ -1,5 +1,6 @@
 import { program } from "commander";
 import { countAccountFunctions } from "./commands/count-account-functions.mjs";
+import versionConfig from "./version-config.json" assert { type: "json" };
 // Constants
 const strategies = [
   { key: "count-account-functions", execute: countAccountFunctions },
@@ -7,7 +8,7 @@ const strategies = [
 
 program
   .name("sana")
-  .version("1.0.0")
+  .version(versionConfig.version)
   .description(
     "A command-line interface for running analysis on your AWS account's serverless resources"
   )
