@@ -16,9 +16,6 @@ export async function getAccountLambdaFunctions(profileName) {
   }
 
   const functionList = [];
-  let isTruncated = true;
-  let marker = undefined;
-
   const regions = await getAllRegions(profileName);
 
   for (let i = 0, len = regions.length; i < len; i++) {
@@ -27,6 +24,9 @@ export async function getAccountLambdaFunctions(profileName) {
       credentials,
       region,
     });
+
+    let isTruncated = true;
+    let marker = undefined;
 
     while (isTruncated) {
       const command = new ListFunctionsCommand({
