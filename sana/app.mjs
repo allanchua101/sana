@@ -6,7 +6,7 @@ const strategies = [
 ];
 
 program
-  .name("samx")
+  .name("sana")
   .version("1.0.0")
   .description(
     "A command-line interface for running analysis on your AWS account's serverless resources"
