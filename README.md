@@ -53,7 +53,7 @@ A command-line interface for analyzing an AWS account's serverless resources
 
 Options:
   -V, --version                             output the version number
-  -p, --profile <char>
+  -p, --profile                             AWS profile (Optional)
   -h, --help                                display help for command
 
 Commands:

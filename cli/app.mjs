@@ -100,7 +100,7 @@ program
     "A command-line interface for analyzing an AWS account's serverless resources"
   )
   .arguments("command")
-  .option("-p, --profile <char>")
+  .option("-p, --profile", "AWS profile (Optional)")
   .action(async (command, params) => {
     const logo = await printAsciiArt("sana");
 
