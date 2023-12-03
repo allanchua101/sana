@@ -8,7 +8,11 @@ A command-line interface for running analysis of an AWS account's serverless res
 npm i -g @serverless-ninja/sana
 ```
 
-### Counting Account-wide Functions
+## Lambda Functions
+
+You can use `sana` to run basic analysis of Lambda function distribution in an AWS account.
+
+#### Counting Account-wide Functions
 
 You can use the `count-account-functions` command to get the account-wide Lambda function count.
 
@@ -18,7 +22,7 @@ $ sana count-account-functions --profile foo
 Found a total of 4 Lambda functions
 ```
 
-### Account-wide Function Runtime Distribution
+#### Account-wide Function Runtime Distribution
 
 You can use the `get-function-runtime-distribution` command to get the account-wide Lambda function runtime distribution.
 
@@ -31,7 +35,7 @@ nodejs18.x: 200 functions.
 nodejs20.x: 600 functions.
 ```
 
-### Account-wide Function Package Type Distribution
+#### Account-wide Function Package Type Distribution
 
 You can use the `get-function-distribution-by-package-type` command to get the account-wide Lambda function distribution by packaging type.
 
@@ -42,7 +46,7 @@ Zip: 254 functions.
 Image: 5 functions.
 ```
 
-### Account-wide Function by Region Distribution
+#### Account-wide Function by Region Distribution
 
 You can use the `get-function-distribution-by-region` command to get the account-wide Lambda function distribution by AWS region.
 
