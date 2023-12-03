@@ -7,24 +7,24 @@ import { readFile } from "fs/promises";
 const packageInfo = JSON.parse(
   await readFile(new URL("./package.json", import.meta.url))
 );
-import { countAccountFunctions } from "./commands/count-account-functions.mjs";
-import { getFunctionRuntimeDistribution } from "./commands/get-function-runtime-distribution.mjs";
-import { getFunctionDistributionByPackageType } from "./commands/get-function-package-type-distribution.mjs";
-import { getFunctionRegionDistribution } from "./commands/get-function-region-distribution.mjs";
+import { countAccountFunctions } from "./commands/lambda/count-account-functions.mjs";
+import { getFunctionRuntimeDistribution } from "./commands/lambda/get-function-runtime-distribution.mjs";
+import { getFunctionDistributionByPackageType } from "./commands/lambda/get-function-package-type-distribution.mjs";
+import { getFunctionRegionDistribution } from "./commands/lambda/get-function-region-distribution.mjs";
 
 // Constants
 const strategies = [
-  { key: "count-account-functions", execute: countAccountFunctions },
+  { key: "lambda-count", execute: countAccountFunctions },
   {
-    key: "get-function-runtime-distribution",
+    key: "lambda-runtime-distribution",
     execute: getFunctionRuntimeDistribution,
   },
   {
-    key: "get-function-distribution-by-package-type",
+    key: "lambda-package-type-distribution",
     execute: getFunctionDistributionByPackageType,
   },
   {
-    key: "get-function-distribution-by-region",
+    key: "lambda-region-distribution",
     execute: getFunctionRegionDistribution,
   },
 ];

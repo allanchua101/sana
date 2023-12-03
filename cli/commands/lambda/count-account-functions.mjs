@@ -1,4 +1,4 @@
-import { getAccountLambdaFunctions } from "../helpers/get-account-lambda-functions.mjs";
+import { getAccountLambdaFunctions } from "../../helpers/get-account-lambda-functions.mjs";
 
 /**
  * @async

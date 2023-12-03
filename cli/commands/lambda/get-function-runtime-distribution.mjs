@@ -1,5 +1,5 @@
-import { getAccountLambdaFunctions } from "../helpers/get-account-lambda-functions.mjs";
-import { reduceByProp } from "../helpers/reducers/reduce-by-prop.mjs";
+import { getAccountLambdaFunctions } from "../../helpers/get-account-lambda-functions.mjs";
+import { reduceByProp } from "../../helpers/reducers/reduce-by-prop.mjs";
 
 /**
  * @async
