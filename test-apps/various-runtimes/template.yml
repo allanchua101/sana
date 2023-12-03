@@ -1,0 +1,59 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+
+Globals:
+  Function:
+    Timeout: 10
+
+Resources:
+  FunctionNodeJS20:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs20.x
+      CodeUri: node20
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /node20
+            Method: GET
+
+  FunctionNodeJS18:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs18.x
+      CodeUri: node18
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /node18
+            Method: GET
+
+  FunctionNodeJS16:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs16.x
+      CodeUri: node16
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /node16
+            Method: GET
+
+  FunctionNodeJS14:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs14.x
+      CodeUri: node14
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /node14
+            Method: GET
