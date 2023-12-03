@@ -5,7 +5,7 @@ A command-line interface for running analysis of an AWS account's serverless res
 ## Table of Contents
 
 - [Installation](#installation)
-- [Why sana?](#why-sana?)
+- [Why sana?](#why-sana)
 - [Lambda Functions](#lambda-functions)
   - [Total Lambda Count](#total-lambda-count)
   - [Runtime Distribution](#function-runtime-distribution)
