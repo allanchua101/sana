@@ -2,6 +2,12 @@
 
 A command-line interface for running analysis on your AWS account's serverless resources.
 
+## Installation
+
+```sh
+npm i -g @serverless-ninja/sana
+```
+
 ### Counting Account-wide Functions
 
 You can use the `count-account-functions` command to get the account-wide Lambda function count.
