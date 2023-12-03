@@ -177,7 +177,7 @@ INACCESSIBLE_ENCRYPTION_CREDENTIALS: 0 table(s)
 
 ### Distribution by Encryption Status
 
-Use the `ddb-table-encryption-status-distribution` command to get DynamoDB table count based on their table status.
+Use the `ddb-table-encryption-status-distribution` command to get DynamoDB table count based on their table encryption status.
 
 ```sh
 $ sana ddb-table-encryption-status-distribution
