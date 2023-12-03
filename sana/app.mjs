@@ -10,6 +10,7 @@ const packageInfo = JSON.parse(
 import { countAccountFunctions } from "./commands/count-account-functions.mjs";
 import { getFunctionRuntimeDistribution } from "./commands/get-function-runtime-distribution.mjs";
 import { getFunctionDistributionByPackageType } from "./commands/get-function-package-type-distribution.mjs";
+import { getFunctionRegionDistribution } from "./commands/get-function-region-distribution.mjs";
 
 // Constants
 const strategies = [
@@ -21,6 +22,10 @@ const strategies = [
   {
     key: "get-function-distribution-by-package-type",
     execute: getFunctionDistributionByPackageType,
+  },
+  {
+    key: "get-function-distribution-by-region",
+    execute: getFunctionRegionDistribution,
   },
 ];
 

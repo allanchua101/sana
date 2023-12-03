@@ -41,3 +41,14 @@ $ sana get-function-distribution-by-package-type --profile foo
 Zip: 254 functions.
 Image: 5 functions.
 ```
+
+### Account-wide Function by Region Distribution
+
+You can use the `get-function-distribution-by-region` command to get the account-wide Lambda function distribution by AWS region.
+
+```sh
+$ sana get-function-distribution-by-region --profile foo
+
+ap-southeast-1: 490 functions.
+us-east-1: 1205 functions.
+```
