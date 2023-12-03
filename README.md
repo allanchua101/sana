@@ -130,7 +130,7 @@ $ sana lambda-ephemeral-storage-distribution
 
 ### Function Distribution by Tracing Mode
 
-Use the `lambda-tracing-mode-distribution` command to get the account-wide Lambda function distribution by ephemeral storage size.
+Use the `lambda-tracing-mode-distribution` command to get the account-wide Lambda function distribution by X-ray tracing mode.
 
 ```sh
 $ sana lambda-tracing-mode-distribution
