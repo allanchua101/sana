@@ -8,7 +8,7 @@ A command-line interface for running analysis of an AWS account's serverless res
 $ npm i -g @serverless-ninja/sana
 $ sana --version
 
-@serverless-ninja/sana 1.1.18
+@serverless-ninja/sana 1.1.x
 ```
 
 ## Lambda Functions
