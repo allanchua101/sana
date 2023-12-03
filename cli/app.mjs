@@ -14,6 +14,7 @@ import { getFunctionDistributionByPackageType } from "./commands/lambda/get-func
 import { getFunctionRegionDistribution } from "./commands/lambda/get-function-region-distribution.mjs";
 import { getFunctionDistributionByMemory } from "./commands/lambda/get-distribution-by-memory.mjs";
 import { getFunctionDistributionByEphemeralStorage } from "./commands/lambda/get-distribution-by-ephemeral-storage.mjs";
+import { getFunctionDistributionByTracingMode } from "./commands/lambda/distribution-by-tracing-mode.mjs";
 // DynamoDB
 import { countDynamoDBs } from "./commands/dynamodb/count-ddbs.mjs";
 import { getDDBDistributionByRegion } from "./commands/dynamodb/get-distribution-by-region.mjs";
@@ -43,6 +44,10 @@ const strategies = [
   {
     key: "lambda-ephemeral-storage-distribution",
     execute: getFunctionDistributionByEphemeralStorage,
+  },
+  {
+    key: "lambda-tracing-mode-distribution",
+    execute: getFunctionDistributionByTracingMode,
   },
   // DynamoDBs
   { key: "ddb-count", execute: countDynamoDBs },

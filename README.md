@@ -9,11 +9,12 @@ A command-line interface for running analysis of an AWS account's serverless res
 - [Authentication Modes](#authentication-modes)
 - [Lambda Functions](#lambda-functions)
   - [Total Lambda Count](#total-lambda-count)
-  - [Runtime Distribution](#function-runtime-distribution)
-  - [Package Type Distribution](#function-package-type-distribution)
-  - [Region Distribution](#function-region-distribution)
-  - [Memory Size Distribution](#function-memory-size-distribution)
-  - [Ephemeral Storage Distribution](#function-ephemeral-storage-distribution)
+  - [Distribution by Runtime](#function-runtime-distribution)
+  - [Distribution by Package Type](#function-package-type-distribution)
+  - [Distribution by Region](#function-region-distribution)
+  - [Distribution by Memory Size](#function-memory-size-distribution)
+  - [Distribution by Ephemeral Storage](#function-ephemeral-storage-distribution)
+  - [Distribution by Tracing Mode](#function-distribution-by-tracing-mode)
 - [DynamoDB Tables](#dynamodb-tables)
   - [Total DynamoDB Table Count](#total-dynamodb-table-count)
   - [Distribution by Region](#dynamodb-table-distribution-by-region)
@@ -125,6 +126,17 @@ $ sana lambda-ephemeral-storage-distribution
 
 512: 24 functions.
 1024: 88 functions.
+```
+
+### Function Distribution by Tracing Mode
+
+Use the `lambda-tracing-mode-distribution` command to get the account-wide Lambda function distribution by ephemeral storage size.
+
+```sh
+$ sana lambda-tracing-mode-distribution
+
+PassThrough: 450 functions.
+Active: 280 functions
 ```
 
 ## DynamoDB Tables
