@@ -1,6 +1,6 @@
 # sana (SErverless aNAlyzer)
 
-A command-line interface for running analysis of an AWS account's serverless resources. For AWS serverless engineers by AWS serverless engineers.
+A command-line interface for analyzing an AWS account's serverless resources. For AWS serverless engineers by AWS serverless engineers.
 
 ## Table of Contents
 
