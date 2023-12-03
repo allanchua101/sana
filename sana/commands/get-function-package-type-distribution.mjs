@@ -3,7 +3,7 @@ import { reduceByProp } from "../helpers/reducers/reduce-by-prop.mjs";
 
 /**
  * @async
- * @function getFunctionRuntimeDistribution
+ * @function getFunctionDistributionByPackageType
  * @description Method used for retrieving the function distribution by package type for an AWS account.
  * @param {Object} params
  * @param {string} params.profileName AWS CLI profile name to be used for this command.
