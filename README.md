@@ -4,16 +4,16 @@ A command-line interface for running analysis of an AWS account's serverless res
 
 ## Table of Contents
 
-- [Installation](#Installation)
-- [Lambda Functions](#Lambda-Functions)
-  - [Total Lambda Count](####Total-Lambda-Count)
-  - [Function Runtime Distribution](####Function-Runtime-Distribution)
-  - [Function Package Type Distribution](####Function-Package-Type-Distribution)
-  - [Function Region Distribution](####Function-Region-Distribution)
-  - [Function Memory Size Distribution](####Function-Memory-Size-Distribution)
-  - [Function Ephemeral Storage Distribution](####Function-Ephemeral-Storage-Distribution)
-- [DynamoDB Tables](#DynamoDB-Tables)
-  - [Total DynamoDB Table Count](####Total DynamoDB Table Count)
+- [Installation](##Installation)
+- [Lambda Functions](##Lambda-Functions)
+  - [Total Lambda Count](###Total-Lambda-Count)
+  - [Function Runtime Distribution](###Function-Runtime-Distribution)
+  - [Function Package Type Distribution](###Function-Package-Type-Distribution)
+  - [Function Region Distribution](###Function-Region-Distribution)
+  - [Function Memory Size Distribution](###Function-Memory-Size-Distribution)
+  - [Function Ephemeral Storage Distribution](###Function-Ephemeral-Storage-Distribution)
+- [DynamoDB Tables](##DynamoDB-Tables)
+  - [Total DynamoDB Table Count](###Total-DynamoDB-Table-Count)
 
 ## Installation
 
@@ -28,7 +28,7 @@ $ sana --version
 
 Use `sana` to run basic analysis of Lambda function distribution in an AWS account.
 
-#### Total Lambda Count
+### Total Lambda Count
 
 Use the `lambda-count` command to get the account-wide Lambda function count.
 
@@ -38,7 +38,7 @@ $ sana lambda-count --profile foo
 Found a total of 4 Lambda functions
 ```
 
-#### Function Runtime Distribution
+### Function Runtime Distribution
 
 Use the `lambda-runtime-distribution` command to get the account-wide Lambda function runtime distribution.
 
@@ -51,7 +51,7 @@ nodejs18.x: 200 functions.
 nodejs20.x: 600 functions.
 ```
 
-#### Function Package Type Distribution
+### Function Package Type Distribution
 
 Use the `lambda-package-type-distribution` command to get the account-wide Lambda function distribution by packaging type.
 
@@ -62,7 +62,7 @@ Zip: 254 functions.
 Image: 5 functions.
 ```
 
-#### Function Region Distribution
+### Function Region Distribution
 
 Use the `lambda-region-distribution` command to get the account-wide Lambda function distribution by AWS region.
 
@@ -73,7 +73,7 @@ ap-southeast-1: 490 functions.
 us-east-1: 1205 functions.
 ```
 
-#### Function Memory Size Distribution
+### Function Memory Size Distribution
 
 Use the `lambda-memory-distribution` command to get the account-wide Lambda function distribution by memory size configuration.
 
@@ -85,7 +85,7 @@ $ sana lambda-memory-distribution --profile foo
 512: 24 functions.
 ```
 
-#### Function Ephemeral Storage Distribution
+### Function Ephemeral Storage Distribution
 
 Use the `lambda-ephemeral-storage-distribution` command to get the account-wide Lambda function distribution by ephemeral storage size.
 
@@ -100,7 +100,7 @@ $ sana lambda-ephemeral-storage-distribution --profile foo
 
 Use `sana` to run basic analysis of DynamoDB table count and distribution in an AWS account.
 
-#### Total DynamoDB Table Count
+### Total DynamoDB Table Count
 
 Use the `ddb-count` command to get the account-wide DynamoDB table count.
 
@@ -110,7 +110,7 @@ $ sana ddb-count --profile foo
 Found a total of 490 dynamo db tables in the account.
 ```
 
-#### DynamoDB Table Distribution by Region
+### DynamoDB Table Distribution by Region
 
 Use the `ddb-region-distribution` command to get DynamoDB Table count per region
 
