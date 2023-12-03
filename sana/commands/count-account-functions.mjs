@@ -11,7 +11,6 @@ import { getAccountLambdaFunctions } from "../helpers/get-account-lambda-functio
 export async function countAccountFunctions(params) {
   const functions = await getAccountLambdaFunctions(params.profile || "");
 
-  console.log(functions);
   console.log(`Found ${functions.length} functions in the account.`);
 
   return functions.length;
