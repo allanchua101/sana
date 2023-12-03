@@ -17,6 +17,7 @@ A command-line interface for running analysis of an AWS account's serverless res
 - [DynamoDB Tables](#dynamodb-tables)
   - [Total DynamoDB Table Count](#total-dynamodb-table-count)
   - [Distribution by Region](#dynamodb-table-distribution-by-region)
+  - [Distribution by Delete Protection](#distribution-by-delete-protection)
 
 ## Why sana?
 
@@ -147,7 +148,7 @@ us-west-1: 42 tables.
 ap-southeast-1: 28 tables.
 ```
 
-### DynamoDB Table Distribution by Delete Protection
+### Distribution by Delete Protection
 
 Use the `ddb-delete-protection-distribution` command to get DynamoDB table count based on their delete protection flag.
 
