@@ -131,6 +131,11 @@ nodejs18.x: 200 functions.
 nodejs20.x: 600 functions.
 ```
 
+Use-cases:
+
+- This function is useful when measuring the progress of your migration initiatives.
+- Enables developers to identify how many functions are about to be deprecated
+
 ### Function Package Type Distribution
 
 Use the `lambda-package-type-distribution` command to get the account-wide Lambda function distribution by packaging type.
@@ -152,6 +157,12 @@ $ sana lambda-region-distribution
 ap-southeast-1: 490 functions.
 us-east-1: 1205 functions.
 ```
+
+Use-cases:
+
+- Identification of regions in an account that contains Lambda functions.
+- Useful when running cost analysis for sudden cost spikes.
+- Useful for measuring concurrency / function ratio of a particular region.
 
 ### Function Memory Size Distribution
 
