@@ -26,7 +26,7 @@ A command-line interface for analyzing an AWS account's serverless resources. Fo
 
 Heavily inspired by Werner Vogels' frugal architect laws mentioned at 2023 AWS re:Invent keynote, `sana` aims to provide tooling that fills in the gaps in the space of serverless observation capabilities. Here are some problem statements that `sana` tries to solve.
 
-- Understand how many functions in an account needs to be migrated to latest runtimes
+- Understand how many functions in an account needs to be migrated to the latest posible runtimes
 - Identify how many DynamoDB tables are not configured with delete protection
 - Identify how many DynamoDB tables are unencrypted.
 - Ease reporting capabilities in CI/CD pipelines to enhance observability of build impact to your AWS accounts.
