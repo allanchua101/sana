@@ -82,7 +82,7 @@ sana lambda-count --no-progress-bar
 
 ### Scanning Specific Regions
 
-You can use the `scanning-specific-regions` flag to scan specific region(s) of interest.
+You can use the `--region` or `-r` flag to scan specific region(s) of interest.
 
 ```sh
 # Single region syntax
