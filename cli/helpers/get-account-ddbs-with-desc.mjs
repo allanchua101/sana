@@ -3,15 +3,15 @@ import {
   ListTablesCommand,
   DescribeTableCommand,
 } from "@aws-sdk/client-dynamodb";
-import { getAllRegions } from "./get-account-regions.mjs";
+import { getAccountRegions } from "./get-account-regions.mjs";
 import {
   startProgress,
   incrementProgress,
   stopProgressBar,
 } from "./progress-bar/global-progress-bar.mjs";
 
-export async function getAllDynamoDBTablesWithDesc(credentials) {
-  const regions = await getAllRegions(credentials);
+export async function getAllDynamoDBTablesWithDesc(params, credentials) {
+  const regions = await getAccountRegions(params, credentials);
   const tables = [];
 
   startProgress(regions.length);

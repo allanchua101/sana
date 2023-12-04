@@ -14,7 +14,7 @@ export async function getFunctionDistributionByTracingMode(
   credentials,
   logger
 ) {
-  const functions = await getAccountLambdaFunctions(credentials);
+  const functions = await getAccountLambdaFunctions(params, credentials);
   const distribution = reduceByProp(functions, "TracingConfig.Mode");
 
   distribution.forEach((d) => {

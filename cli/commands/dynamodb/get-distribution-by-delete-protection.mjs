@@ -14,7 +14,7 @@ export async function getDDBDistributionByDeleteProtection(
   credentials,
   logger
 ) {
-  const tables = await getAllDynamoDBTablesWithDesc(credentials);
+  const tables = await getAllDynamoDBTablesWithDesc(params, credentials);
   const distribution = reduceByProp(
     tables,
     "sana.table.DeletionProtectionEnabled"

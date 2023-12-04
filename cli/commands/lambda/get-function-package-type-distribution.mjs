@@ -14,7 +14,7 @@ export async function getFunctionDistributionByPackageType(
   credentials,
   logger
 ) {
-  const functions = await getAccountLambdaFunctions(credentials);
+  const functions = await getAccountLambdaFunctions(params, credentials);
   const distribution = reduceByProp(functions, "PackageType");
 
   distribution.forEach((d) => {

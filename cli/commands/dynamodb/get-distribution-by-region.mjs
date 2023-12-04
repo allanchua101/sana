@@ -10,7 +10,7 @@ import { reduceByProp } from "../../helpers/reducers/reduce-by-prop.mjs";
  * @param {Object} logger Logger instance
  */
 export async function getDDBDistributionByRegion(params, credentials, logger) {
-  const tables = await getAllDynamoDBTables(credentials);
+  const tables = await getAllDynamoDBTables(params, credentials);
   const distribution = reduceByProp(tables, "sana.region");
 
   distribution.forEach((d) => {

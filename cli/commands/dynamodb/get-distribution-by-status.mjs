@@ -20,7 +20,7 @@ export async function getDDBDistributionByTableStatus(
   credentials,
   logger
 ) {
-  const tables = await getAllDynamoDBTablesWithDesc(credentials);
+  const tables = await getAllDynamoDBTablesWithDesc(params, credentials);
   const temp = reduceByProp(tables, "sana.table.TableStatus");
   const distribution = BUCKETS.map((b) => {
     const bucketRow = temp.find((t) => t.lbl === b);

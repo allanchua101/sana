@@ -14,7 +14,7 @@ export async function getFunctionRegionDistribution(
   credentials,
   logger
 ) {
-  const functions = await getAccountLambdaFunctions(credentials);
+  const functions = await getAccountLambdaFunctions(params, credentials);
   const distribution = reduceByProp(functions, "sana.region");
 
   distribution.forEach((d) => {

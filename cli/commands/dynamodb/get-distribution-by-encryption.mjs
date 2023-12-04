@@ -17,7 +17,7 @@ export async function getDDBDistributionByEncryptionFlag(
   credentials,
   logger
 ) {
-  const tables = await getAllDynamoDBTablesWithDesc(credentials);
+  const tables = await getAllDynamoDBTablesWithDesc(params, credentials);
   const temp = reduceByProp(tables, "sana.hasEncryption").map((rt) => {
     return {
       lbl: rt.lbl ? "Encrypted" : "Non-encrypted",

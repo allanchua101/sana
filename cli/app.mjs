@@ -123,6 +123,7 @@ program
       process.exit(0);
     } catch (err) {
       logger.log(err.toString());
+      logger.log(err.stack.toString());
 
       process.exit(1);
     }

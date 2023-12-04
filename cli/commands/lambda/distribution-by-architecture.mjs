@@ -15,7 +15,7 @@ export async function getFunctionDistributionByArchitecture(
   credentials,
   logger
 ) {
-  const functions = await getAccountLambdaFunctions(credentials);
+  const functions = await getAccountLambdaFunctions(params, credentials);
   const temp = reduceByItemInArrayProp(functions, "Architectures");
   const distribution = BUCKETS.map((b) => {
     const dist = temp.find((t) => t.lbl === b);

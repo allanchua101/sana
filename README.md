@@ -6,7 +6,11 @@ A command-line interface for analyzing an AWS account's serverless resources. Fo
 
 - [Why sana?](#why-sana)
 - [Installation](#installation)
-- [Authentication Modes](#authentication-modes)
+- [Basic Usage](#global-flags)
+  - [Authentication Modes](#authentication-modes)
+  - [Silent Mode](#silent-mode)
+  - [Disable progress bar](#disable-progress-bar)
+  - [Scanning specific regions](#scanning-specific-regions)
 - [Lambda Functions](#lambda-functions)
   - [Total Lambda Count](#total-lambda-count)
   - [Distribution by Runtime](#function-runtime-distribution)
@@ -21,8 +25,6 @@ A command-line interface for analyzing an AWS account's serverless resources. Fo
   - [Distribution by Region](#dynamodb-table-distribution-by-region)
   - [Distribution by Delete Protection](#distribution-by-delete-protection)
   - [Distribution by Table Status](#distribution-by-table-status)
-- [Silent Mode](#silent-mode)
-- [Disable progress bar](#disable-progress-bar)
 
 ## Why sana?
 
@@ -44,7 +46,11 @@ $ sana --version
 @serverless-ninja/sana 1.1.x
 ```
 
-## Authentication Modes
+## Basic Usage
+
+List of global flags that you can pass on all commands.
+
+### Authentication Modes
 
 `sana` can authenticate against your AWS account by either using the default AWS CLI profile or by using named profiles. Take the example below
 
@@ -56,6 +62,37 @@ sana lambda-runtime-distribution
 # If you need to target multiple accounts from the same server
 # use the following approach
 sana lambda-runtime-distribution --profile foo
+```
+
+### Silent Mode
+
+You can pass the `--silent-mode` flag to disable all logs.
+
+```sh
+sana lambda-count --silent-mode
+```
+
+### Disable Progress Bar
+
+You can use the `--no-progress-bar` flag to disable the progress bar. This flag is often used in build servers.
+
+```sh
+sana lambda-count --no-progress-bar
+```
+
+### Scanning Specific Regions
+
+You can use the `scanning-specific-regions` flag to scan specific region(s) of interest.
+
+```sh
+# Single region syntax
+sana ddb-count --region ap-southeast-1
+
+# Multi-region syntax
+sana ddb-count --region ap-southeast-1,us-east-1
+
+# shorthand
+sana ddb-count -r ap-southeast-1,us-east-1
 ```
 
 ## Lambda Functions
@@ -202,20 +239,4 @@ CREATING: 1 table(s)
 UPDATING: 0 table(s)
 DELETING: 0 table(s)
 INACCESSIBLE_ENCRYPTION_CREDENTIALS: 0 table(s)
-```
-
-## Silent Mode
-
-You can pass the `--silent-mode` flag to disable all logs.
-
-```sh
-sana lambda-count --silent-mode
-```
-
-## Disable Progress Bar
-
-You can use the `--no-progress-bar` flag to disable the progress bar. This flag is often used in build servers.
-
-```sh
-sana lambda-count --no-progress-bar
 ```

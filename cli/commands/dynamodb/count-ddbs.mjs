@@ -10,7 +10,7 @@ import { getAllDynamoDBTables } from "../../helpers/get-account-ddbs.mjs";
  * @returns {Promise<number>} Account-wide Lambda function count.
  */
 export async function countDynamoDBs(params, credentials, logger) {
-  const tables = await getAllDynamoDBTables(credentials);
+  const tables = await getAllDynamoDBTables(params, credentials);
 
   logger.log(`Found ${tables.length} dynamo db tables in the account.`);
 
