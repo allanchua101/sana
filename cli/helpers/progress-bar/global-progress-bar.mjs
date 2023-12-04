@@ -1,4 +1,5 @@
 import { SingleBar } from "cli-progress";
+let isProgressBarEnabled = true;
 
 const progressBar = new SingleBar({
   format:
@@ -9,13 +10,23 @@ const progressBar = new SingleBar({
 });
 
 export function startProgress(total, seed = 0) {
-  progressBar.start(total, seed);
+  if (isProgressBarEnabled) {
+    progressBar.start(total, seed);
+  }
 }
 
 export function incrementProgress() {
-  progressBar.increment();
+  if (isProgressBarEnabled) {
+    progressBar.increment();
+  }
 }
 
 export function stopProgressBar() {
-  progressBar.stop();
+  if (isProgressBarEnabled) {
+    progressBar.stop();
+  }
+}
+
+export function configureProgressBar(isEnabled) {
+  isProgressBarEnabled = isEnabled;
 }

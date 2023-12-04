@@ -4,27 +4,14 @@ import {
   DescribeTableCommand,
 } from "@aws-sdk/client-dynamodb";
 import { getAllRegions } from "./get-account-regions.mjs";
-import { fromIni } from "@aws-sdk/credential-provider-ini";
 import {
   startProgress,
   incrementProgress,
   stopProgressBar,
 } from "./progress-bar/global-progress-bar.mjs";
 
-export async function getAllDynamoDBTablesWithDesc(profileName) {
-  let credentials;
-
-  // Use the provided profile name to load credentials
-  if (profileName) {
-    credentials = fromIni({ profile: profileName });
-  }
-
-  // If no profile name is provided, use the default credentials provider chain
-  if (!profileName) {
-    credentials = fromIni({});
-  }
-
-  const regions = await getAllRegions(profileName);
+export async function getAllDynamoDBTablesWithDesc(credentials) {
+  const regions = await getAllRegions(credentials);
   const tables = [];
 
   startProgress(regions.length);

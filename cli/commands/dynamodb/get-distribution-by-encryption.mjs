@@ -7,12 +7,17 @@ const BUCKETS = ["Encrypted", "Non-encrypted"];
  * @function getDDBDistributionByEncryptionFlag
  * @description Method used for retrieving DynamoDB table distribution by table encryption status.
  * @param {Object} params
- * @param {string} params.profileName AWS CLI profile name to be used for this command.
+ * @param {AwsCredentialIdentityProvider} credentials AWS credentials
+ * @param {Object} logger Logger instance
  *
  * TODO: Change this to mode instead of boolean flag
  */
-export async function getDDBDistributionByEncryptionFlag(params) {
-  const tables = await getAllDynamoDBTablesWithDesc(params.profile || "");
+export async function getDDBDistributionByEncryptionFlag(
+  params,
+  credentials,
+  logger
+) {
+  const tables = await getAllDynamoDBTablesWithDesc(credentials);
   const temp = reduceByProp(tables, "sana.hasEncryption").map((rt) => {
     return {
       lbl: rt.lbl ? "Encrypted" : "Non-encrypted",
@@ -29,7 +34,7 @@ export async function getDDBDistributionByEncryptionFlag(params) {
   });
 
   distribution.forEach((d) => {
-    console.log(`${d.lbl}: ${d.count} tables.`);
+    logger.log(`${d.lbl}: ${d.count} tables.`);
   });
 
   return distribution;

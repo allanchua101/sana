@@ -21,12 +21,14 @@ A command-line interface for analyzing an AWS account's serverless resources. Fo
   - [Distribution by Region](#dynamodb-table-distribution-by-region)
   - [Distribution by Delete Protection](#distribution-by-delete-protection)
   - [Distribution by Table Status](#distribution-by-table-status)
+- [Silent Mode](#silent-mode)
+- [Disable progress bar](#disable-progress-bar)
 
 ## Why sana?
 
 Heavily inspired by Werner Vogels' frugal architect laws mentioned at 2023 AWS re:Invent keynote, `sana` aims to provide tooling that fills in the gaps in the space of serverless observation capabilities. Here are some problem statements that `sana` tries to solve.
 
-- Understand how many functions in an account needs to be migrated to the latest posible runtimes
+- Understand how many functions in an account needs to be migrated to the latest possible runtime.
 - Identify how many DynamoDB tables are not configured with delete protection
 - Identify how many DynamoDB tables are unencrypted.
 - Ease reporting capabilities in CI/CD pipelines to enhance observability of build impact to your AWS accounts.
@@ -200,4 +202,20 @@ CREATING: 1 table(s)
 UPDATING: 0 table(s)
 DELETING: 0 table(s)
 INACCESSIBLE_ENCRYPTION_CREDENTIALS: 0 table(s)
+```
+
+## Silent Mode
+
+You can pass the `--silent-mode` flag to disable all logs.
+
+```sh
+sana lambda-count --silent-mode
+```
+
+## Disable Progress Bar
+
+You can use the `--no-progress-bar` flag to disable the progress bar. This flag is often used in build servers.
+
+```sh
+sana lambda-count --no-progress-bar
 ```

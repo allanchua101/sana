@@ -12,10 +12,15 @@ const BUCKETS = [
  * @function getDDBDistributionByTableStatus
  * @description Method used for retrieving DynamoDB table distribution by table status.
  * @param {Object} params
- * @param {string} params.profileName AWS CLI profile name to be used for this command.
+ * @param {AwsCredentialIdentityProvider} credentials AWS credentials
+ * @param {Object} logger Logger instance
  */
-export async function getDDBDistributionByTableStatus(params) {
-  const tables = await getAllDynamoDBTablesWithDesc(params.profile || "");
+export async function getDDBDistributionByTableStatus(
+  params,
+  credentials,
+  logger
+) {
+  const tables = await getAllDynamoDBTablesWithDesc(credentials);
   const temp = reduceByProp(tables, "sana.table.TableStatus");
   const distribution = BUCKETS.map((b) => {
     const bucketRow = temp.find((t) => t.lbl === b);
@@ -27,7 +32,7 @@ export async function getDDBDistributionByTableStatus(params) {
   });
 
   distribution.forEach((d) => {
-    console.log(`${d.lbl}: ${d.count} tables.`);
+    logger.log(`${d.lbl}: ${d.count} tables.`);
   });
 
   return distribution;

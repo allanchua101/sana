@@ -4,10 +4,12 @@ process.removeAllListeners("warning");
 
 import { program } from "commander";
 import { readFile } from "fs/promises";
-import { printAsciiArt } from "./helpers/cli/print-ascii-art.mjs";
+import { buildLogger } from "./helpers/logging/logging-utility.mjs";
+import { configureProgressBar } from "./helpers/progress-bar/global-progress-bar.mjs";
 const packageInfo = JSON.parse(
   await readFile(new URL("./package.json", import.meta.url))
 );
+import { loadAWSCredentials } from "./helpers/aws/credential-loader.mjs";
 import { countAccountFunctions } from "./commands/lambda/count-account-functions.mjs";
 import { getFunctionRuntimeDistribution } from "./commands/lambda/get-function-runtime-distribution.mjs";
 import { getFunctionDistributionByPackageType } from "./commands/lambda/get-function-package-type-distribution.mjs";
@@ -95,23 +97,35 @@ program
   )
   .arguments("command")
   .option("-p, --profile <char>", "AWS profile (Optional)")
+  .option("-r, --region <char>", "AWS region (Optional)")
+  .option("--silent-mode", "Run without logs")
+  .option("--no-progress-bar", "Run without progress bar")
   .action(async (command, params) => {
-    const logo = await printAsciiArt("sana");
+    const logger = buildLogger(params.silentMode);
 
-    console.log(logo);
+    configureProgressBar(params.progressBar);
 
-    const strategy = strategies.find((s) => s.key === command);
+    try {
+      await logger.printHeader();
 
-    if (!strategy) {
-      console.log(`Command ${command} not found`);
+      const strategy = strategies.find((s) => s.key === command);
+
+      if (!strategy) {
+        logger.log(`Command ${command} not found`);
+        process.exit(1);
+        return;
+      }
+
+      const profileName = params.profile || "";
+      const credentials = loadAWSCredentials(command, profileName, logger);
+
+      await strategy.execute(params, credentials, logger);
+      process.exit(0);
+    } catch (err) {
+      logger.log(err.toString());
+
       process.exit(1);
-      return;
     }
-
-    console.log(`Analyzing ${command} using`);
-
-    await strategy.execute(params);
-    process.exit(0);
   });
 
 program.parse(process.argv);

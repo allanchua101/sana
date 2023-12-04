@@ -6,14 +6,19 @@ import { reduceByProp } from "../../helpers/reducers/reduce-by-prop.mjs";
  * @function getFunctionRuntimeDistribution
  * @description Method used for retrieving the function runtime distribution for an AWS account.
  * @param {Object} params
- * @param {string} params.profileName AWS CLI profile name to be used for this command.
+ * @param {AwsCredentialIdentityProvider} credentials AWS credentials
+ * @param {Object} logger Logger instance
  */
-export async function getFunctionRuntimeDistribution(params) {
-  const functions = await getAccountLambdaFunctions(params.profile || "");
+export async function getFunctionRuntimeDistribution(
+  params,
+  credentials,
+  logger
+) {
+  const functions = await getAccountLambdaFunctions(credentials);
   const distribution = reduceByProp(functions, "Runtime");
 
   distribution.forEach((d) => {
-    console.log(`${d.lbl}: ${d.count} functions.`);
+    logger.log(`${d.lbl}: ${d.count} functions.`);
   });
 
   return distribution;

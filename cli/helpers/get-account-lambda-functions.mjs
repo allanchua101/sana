@@ -1,27 +1,14 @@
 import { LambdaClient, ListFunctionsCommand } from "@aws-sdk/client-lambda";
 import { getAllRegions } from "./get-account-regions.mjs";
-import { fromIni } from "@aws-sdk/credential-provider-ini";
 import {
   startProgress,
   incrementProgress,
   stopProgressBar,
 } from "./progress-bar/global-progress-bar.mjs";
 
-export async function getAccountLambdaFunctions(profileName) {
-  let credentials;
-
-  // Use the provided profile name to load credentials
-  if (profileName) {
-    credentials = fromIni({ profile: profileName });
-  }
-
-  // If no profile name is provided, use the default credentials provider chain
-  if (!profileName) {
-    credentials = fromIni({});
-  }
-
+export async function getAccountLambdaFunctions(credentials) {
   const functionList = [];
-  const regions = await getAllRegions(profileName);
+  const regions = await getAllRegions(credentials);
 
   startProgress(regions.length);
 

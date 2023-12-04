@@ -6,10 +6,15 @@ import { reduceByProp } from "../../helpers/reducers/reduce-by-prop.mjs";
  * @function getDDBDistributionByDeleteProtection
  * @description Method used for retrieving DynamoDB table distribution by delete protection.
  * @param {Object} params
- * @param {string} params.profileName AWS CLI profile name to be used for this command.
+ * @param {AwsCredentialIdentityProvider} credentials AWS credentials
+ * @param {Object} logger Logger instance
  */
-export async function getDDBDistributionByDeleteProtection(params) {
-  const tables = await getAllDynamoDBTablesWithDesc(params.profile || "");
+export async function getDDBDistributionByDeleteProtection(
+  params,
+  credentials,
+  logger
+) {
+  const tables = await getAllDynamoDBTablesWithDesc(credentials);
   const distribution = reduceByProp(
     tables,
     "sana.table.DeletionProtectionEnabled"
@@ -35,7 +40,7 @@ export async function getDDBDistributionByDeleteProtection(params) {
   }
 
   distribution.forEach((d) => {
-    console.log(`${d.lbl}: ${d.count} tables.`);
+    logger.log(`${d.lbl}: ${d.count} tables.`);
   });
 
   return distribution;
