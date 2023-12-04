@@ -46,6 +46,16 @@ $ sana --version
 @serverless-ninja/sana 1.1.x
 ```
 
+## Upgrading Existing Installation
+
+```sh
+$ npm uninstall -g @serverless-ninja/sana
+$ npm i -g @serverless-ninja/sana
+$ sana --version
+
+@serverless-ninja/sana 1.1.x
+```
+
 ## Basic Usage
 
 List of global flags that you can pass on all commands.
