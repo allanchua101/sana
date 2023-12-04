@@ -94,7 +94,7 @@ program
     "A command-line interface for analyzing an AWS account's serverless resources"
   )
   .arguments("command")
-  .option("-p, --profile", "AWS profile (Optional)")
+  .option("-p, --profile <char>", "AWS profile (Optional)")
   .action(async (command, params) => {
     const logo = await printAsciiArt("sana");
 
@@ -108,26 +108,11 @@ program
       return;
     }
 
-    console.log(`Analyzing ${command}`);
+    console.log(`Analyzing ${command} using`);
 
     await strategy.execute(params);
     process.exit(0);
   });
-
-strategies.forEach((s) => {
-  program
-    .command(s.key)
-    .description(s.desc || "")
-    .action(async (params) => {
-      const logo = await printAsciiArt("sana");
-
-      console.log(logo);
-
-      console.log(`Analyzing ${s.key}`);
-      await s.execute(params);
-      process.exit(0);
-    });
-});
 
 program.parse(process.argv);
 
