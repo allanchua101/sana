@@ -24,12 +24,15 @@ program
   .arguments("command")
   .option("-p, --profile <char>", "AWS profile (Optional)")
   .option("-r, --region <char>", "AWS region (Optional)")
+  .option("-o, --output <char>", "Output mode (text, chart)")
   .option("--silent-mode", "Run without logs")
   .option("--no-progress-bar", "Run without progress bar")
   .action(async (command, params) => {
     const logger = buildLogger(params.silentMode);
 
     try {
+      console.clear();
+
       configureProgressBar(params.progressBar);
 
       await logger.printHeader();
