@@ -1,5 +1,7 @@
 # sana (SErverless aNAlyzer)
 
+![Sample Function Distribution by Runtime](https://github.com/allanchua101/sana/blob/main/assets/screenshots/lambda-runtime-dist.png?raw=true, "Charted Function Distribution by Runtime")
+
 A command-line interface for analyzing an AWS account's serverless resources. For AWS serverless engineers by AWS serverless engineers.
 
 ## Table of Contents
