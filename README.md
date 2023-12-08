@@ -10,10 +10,10 @@ A command-line interface for analyzing an AWS account's serverless resources. Fo
 - [Installation](#installation)
 - [Global Flags](#global-flags)
   - [Authentication Modes](#authentication-modes)
-  - [Silent Mode](#silent-mode)
-  - [Disable progress bar](#disable-progress-bar)
   - [Scanning specific regions](#scanning-specific-regions)
   - [Distribution charts](#distribution-charts)
+  - [Silent Mode](#silent-mode)
+  - [Disable progress bar](#disable-progress-bar)
 - [Lambda Functions](#lambda-functions)
   - [Total Lambda Count](#total-lambda-count)
   - [Distribution by Runtime](#function-runtime-distribution)
@@ -78,22 +78,6 @@ sana lambda-runtime-distribution
 sana lambda-runtime-distribution --profile foo
 ```
 
-### Silent Mode
-
-You can pass the `--silent-mode` flag to disable all logs.
-
-```sh
-sana lambda-count --silent-mode
-```
-
-### Disable Progress Bar
-
-You can use the `--no-progress-bar` flag to disable the progress bar. This flag is often used in build servers.
-
-```sh
-sana lambda-count --no-progress-bar
-```
-
 ### Scanning Specific Regions
 
 You can use the `--region` or `-r` flag to scan specific region(s) of interest.
@@ -135,6 +119,22 @@ Lambda Distribution by Runtime
  nodejs18.x (1000/4000 25.00%) **********
 
  nodejs20.x (1000/4000 25.00%) **********
+```
+
+### Silent Mode
+
+You can pass the `--silent-mode` flag to disable all logs.
+
+```sh
+sana lambda-count --silent-mode
+```
+
+### Disable Progress Bar
+
+You can use the `--no-progress-bar` flag to disable the progress bar. This flag is often used in build servers.
+
+```sh
+sana lambda-count --no-progress-bar
 ```
 
 ## Lambda Functions
