@@ -67,10 +67,12 @@ List of global flags that you can pass on all commands.
 
 ```sh
 # To use the default named profile
-# The same approach works for CI/CD agents that uses IAM roles instead
+# The same approach works for CI/CD
+# agents that relies on IAM roles
 sana lambda-runtime-distribution
 
-# If you need to target multiple accounts from the same server
+# If you need to target multiple
+# accounts from the same server
 # use the following approach
 sana lambda-runtime-distribution --profile foo
 ```
