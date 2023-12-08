@@ -20,8 +20,8 @@ export async function getDDBDistributionByEncryptionFlag(
   const tables = await getAllDynamoDBTablesWithDesc(params, credentials);
   const temp = reduceByProp(tables, "sana.hasEncryption").map((rt) => {
     return {
+      ...rt,
       lbl: rt.lbl ? "Encrypted" : "Non-encrypted",
-      count: rt.count,
     };
   });
   const distribution = BUCKETS.map((b) => {
@@ -29,6 +29,7 @@ export async function getDDBDistributionByEncryptionFlag(
 
     return {
       lbl: b,
+      pct: bucketRow ? bucketRow.pct : 0,
       count: bucketRow ? bucketRow.count : 0,
     };
   });

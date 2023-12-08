@@ -1,5 +1,7 @@
 import { getAllDynamoDBTablesWithDesc } from "../../helpers/get-account-ddbs-with-desc.mjs";
 import { reduceByProp } from "../../helpers/reducers/reduce-by-prop.mjs";
+import { displayDistributionChart } from "../../helpers/visualizers/chart.mjs";
+const BUCKETS = ["Delete Protection Enabled", "Delete Protection Disabled"];
 
 /**
  * @async
@@ -15,28 +17,33 @@ export async function getDDBDistributionByDeleteProtection(
   logger
 ) {
   const tables = await getAllDynamoDBTablesWithDesc(params, credentials);
-  const distribution = reduceByProp(
-    tables,
-    "sana.table.DeletionProtectionEnabled"
-  ).map((rt) => {
+  const temp = reduceByProp(tables, "sana.table.DeletionProtectionEnabled").map(
+    (rt) => {
+      return {
+        ...rt,
+        lbl: rt ? "Delete Protection Enabled" : "Delete Protection Disabled",
+      };
+    }
+  );
+  const distribution = BUCKETS.map((b) => {
+    const bucketRow = temp.find((t) => t.lbl === b);
+
     return {
-      lbl: rt ? "Delete Protection Enabled" : "Delete Protection Disabled",
-      count: rt.count,
+      lbl: b,
+      pct: bucketRow ? bucketRow.pct : 0,
+      count: bucketRow ? bucketRow.count : 0,
     };
   });
 
-  if (!distribution.some((d) => d.lbl === "Delete Protection Enabled")) {
-    distribution.push({
-      lbl: "Delete Protection Enabled",
-      count: 0,
+  if (params.output === "chart") {
+    displayDistributionChart({
+      title: "DynamoDB Table Distribution by Delete Protection",
+      distribution,
+      array: tables,
+      logger,
     });
-  }
 
-  if (!distribution.some((d) => d.lbl === "Delete Protection Disabled")) {
-    distribution.push({
-      lbl: "Delete Protection Disabled",
-      count: 0,
-    });
+    return distribution;
   }
 
   distribution.forEach((d) => {

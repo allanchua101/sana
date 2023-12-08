@@ -38,5 +38,11 @@ export function displayDistributionChart(options = {}) {
   logger.log("");
   logger.log("");
 
+  if (!chartData || chartData.length <= 0) {
+    logger.log("No DynamoDB tables found.");
+    logger.log("");
+    return;
+  }
+
   logger.log(strategy.execute(chartData));
 }

@@ -23,6 +23,7 @@ export async function getFunctionDistributionByArchitecture(
 
     return {
       lbl: b,
+      pct: dist ? dist.pct : 0,
       count: dist ? dist.count : 0,
     };
   }).sort((a, b) => {

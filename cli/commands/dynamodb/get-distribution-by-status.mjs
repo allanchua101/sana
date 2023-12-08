@@ -1,5 +1,6 @@
 import { getAllDynamoDBTablesWithDesc } from "../../helpers/get-account-ddbs-with-desc.mjs";
 import { reduceByProp } from "../../helpers/reducers/reduce-by-prop.mjs";
+import { displayDistributionChart } from "../../helpers/visualizers/chart.mjs";
 const BUCKETS = [
   "ACTIVE",
   "CREATING",
@@ -27,9 +28,21 @@ export async function getDDBDistributionByTableStatus(
 
     return {
       lbl: b,
+      pct: bucketRow ? bucketRow.pct : 0,
       count: bucketRow ? bucketRow.count : 0,
     };
   });
+
+  if (params.output === "chart") {
+    displayDistributionChart({
+      title: "DynamoDB Table Distribution by Status",
+      distribution,
+      array: tables,
+      logger,
+    });
+
+    return distribution;
+  }
 
   distribution.forEach((d) => {
     logger.log(`${d.lbl}: ${d.count} tables.`);
