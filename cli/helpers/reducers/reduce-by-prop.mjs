@@ -25,6 +25,12 @@ export function reduceByProp(array, property) {
 
       return agg;
     }, [])
+    .map((i) => {
+      return {
+        ...i,
+        pct: i.count > 0 && array.length > 0 ? i.count / array.length : 0,
+      };
+    })
     .sort((a, b) => {
       return a.lbl > b.lbl ? 1 : -1;
     });

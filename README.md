@@ -1,6 +1,6 @@
 # sana (SErverless aNAlyzer)
 
-![Sample Function Distribution by Runtime](https://github.com/allanchua101/sana/blob/main/assets/screenshots/lambda-runtime-dist.png?raw=true, "Charted Function Distribution by Runtime")
+![Sample Function Distribution by Runtime](https://github.com/allanchua101/sana/blob/main/assets/screenshots/lambda-runtime-dist-v2.png?raw=true, "Charted Function Distribution by Runtime")
 
 A command-line interface for analyzing an AWS account's serverless resources. For AWS serverless engineers by AWS serverless engineers.
 
@@ -8,7 +8,7 @@ A command-line interface for analyzing an AWS account's serverless resources. Fo
 
 - [Why sana?](#why-sana)
 - [Installation](#installation)
-- [Basic Usage](#global-flags)
+- [Global Flags](#global-flags)
   - [Authentication Modes](#authentication-modes)
   - [Silent Mode](#silent-mode)
   - [Disable progress bar](#disable-progress-bar)
@@ -57,7 +57,7 @@ $ sana --version
 @serverless-ninja/sana 1.1.x
 ```
 
-## Basic Usage
+## Global Flags
 
 List of global flags that you can pass on all commands.
 
@@ -127,16 +127,17 @@ Use the `lambda-runtime-distribution` command to get the account-wide Lambda fun
 ```sh
 $ sana lambda-runtime-distribution
 
-nodejs14.x: 1024 functions.
-nodejs16.x: 500 functions.
-nodejs18.x: 200 functions.
-nodejs20.x: 600 functions.
+nodejs14.x: 1000 functions (50.00%)
+nodejs16.x: 250 functions (12.50%)
+nodejs18.x: 500 functions (25.00%)
+nodejs20.x: 250 functions (12.50%)
 ```
 
-Notes:
+Tips:
 
 - Useful when measuring the progress of your migration initiatives.
-- Enables developers to identify how many functions are about to be deprecated
+- Useful in identification of functions that are about to be deprecated.
+- You can pass the `-o chart` flag to print out a horizontal bar chart.
 
 ### Function Package Type Distribution
 

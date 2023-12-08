@@ -57,3 +57,16 @@ Resources:
           Properties:
             Path: /node14
             Method: GET
+
+  GreedyFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs20.x
+      CodeUri: node20
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /rabbits/{id}/{cute}
+            Method: ANY
