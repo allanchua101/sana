@@ -67,15 +67,18 @@ List of global flags that you can pass on all commands.
 `sana` can authenticate against your AWS account by either using the default AWS CLI profile or by using named profiles. Take the example below
 
 ```sh
-# Use default profile in you dev machine.
+# Use default AWS profile in you dev machine.
 sana lambda-runtime-distribution
 
-# The same approach works for CI/CD agents
+# The same syntax works for CI/CD agents
 # that relies on IAM roles
 sana lambda-runtime-distribution
 
-# If you need to target multiple accounts
+# If you need to target multiple accounts,
+# You can use named profiles
 sana lambda-runtime-distribution --profile foo
+
+# Environment variable support is under development
 ```
 
 ### Scanning Specific Regions
