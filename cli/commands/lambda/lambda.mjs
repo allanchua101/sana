@@ -1,11 +1,12 @@
 import { countAccountFunctions } from "./count-account-functions.mjs";
-import { getFunctionRuntimeDistribution } from "./get-function-runtime-distribution.mjs";
-import { getFunctionDistributionByPackageType } from "./get-function-package-type-distribution.mjs";
-import { getFunctionRegionDistribution } from "./get-function-region-distribution.mjs";
-import { getFunctionDistributionByMemory } from "./get-distribution-by-memory.mjs";
-import { getFunctionDistributionByEphemeralStorage } from "./get-distribution-by-ephemeral-storage.mjs";
-import { getFunctionDistributionByTracingMode } from "./distribution-by-tracing-mode.mjs";
+// Distribution strategies
 import { getFunctionDistributionByArchitecture } from "./distribution-by-architecture.mjs";
+import { getFunctionDistributionByEphemeralStorage } from "./distribution-by-ephemeral-storage.mjs";
+import { getFunctionDistributionByMemory } from "./distribution-by-memory.mjs";
+import { getFunctionDistributionByPackageType } from "./distribution-by-package-type.mjs";
+import { getFunctionRegionDistribution } from "./distribution-by-region.mjs";
+import { getFunctionRuntimeDistribution } from "./distribution-by-runtime.mjs";
+import { getFunctionDistributionByTracingMode } from "./distribution-by-tracing-mode.mjs";
 
 export const LAMBDA_STRATEGIES = [
   {

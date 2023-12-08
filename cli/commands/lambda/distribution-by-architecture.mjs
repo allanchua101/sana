@@ -1,6 +1,7 @@
 import { getAccountLambdaFunctions } from "../../helpers/get-account-lambda-functions.mjs";
 import { reduceByItemInArrayProp } from "../../helpers/reducers/reduce-by-item-in-array.mjs";
-const BUCKETS = ["ARMv8", "x86_64", "ARMv7"];
+import { displayDistributionChart } from "../../helpers/visualizers/chart.mjs";
+const BUCKETS = ["ARMv7", "ARMv8", "x86_64"];
 
 /**
  * @async
@@ -27,6 +28,17 @@ export async function getFunctionDistributionByArchitecture(
   }).sort((a, b) => {
     return a.lbl > b.lbl ? 1 : -1;
   });
+
+  if (params.output === "chart") {
+    displayDistributionChart({
+      title: "Lambda Distribution by Architecture",
+      distribution,
+      array: functions,
+      logger,
+    });
+
+    return distribution;
+  }
 
   distribution.forEach((d) => {
     logger.log(`${d.lbl}: ${d.count} functions.`);

@@ -3,7 +3,7 @@ let isProgressBarEnabled = true;
 
 const progressBar = new SingleBar({
   format:
-    "Scanning account regions |{bar}| {percentage}% | ETA: {eta}s | {value}/{total}",
+    "Scanning regions enabled in the account |{bar}| {percentage}% | ETA: {eta}s | {value}/{total}",
   barCompleteChar: "\u2588",
   barIncompleteChar: "\u2591",
   hideCursor: true,

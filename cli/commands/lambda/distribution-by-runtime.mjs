@@ -1,25 +1,6 @@
 import { getAccountLambdaFunctions } from "../../helpers/get-account-lambda-functions.mjs";
 import { reduceByProp } from "../../helpers/reducers/reduce-by-prop.mjs";
-import { buildHBarChart } from "../../helpers/visualizers/hbar-chart.mjs";
-
-function displayChart(distribution, functions, logger) {
-  const chartData = distribution.map((d) => {
-    const strPct = d.pct > 0 ? `${(d.pct * 100).toFixed(2)}%` : "0%";
-
-    return {
-      key: `${d.lbl} (${d.count}/${functions.length} ${strPct})`,
-      value: d.count,
-    };
-  });
-
-  logger.log("");
-  logger.log("");
-  logger.log("Lambda Distribution by Runtime");
-  logger.log("");
-  logger.log("");
-  const chartText = buildHBarChart(chartData);
-  logger.log(chartText);
-}
+import { displayDistributionChart } from "../../helpers/visualizers/chart.mjs";
 
 /**
  * @async
@@ -38,7 +19,12 @@ export async function getFunctionRuntimeDistribution(
   const distribution = reduceByProp(functions, "Runtime");
 
   if (params.output === "chart") {
-    displayChart(distribution, functions, logger);
+    displayDistributionChart({
+      title: "Lambda Distribution by Runtime",
+      distribution,
+      array: functions,
+      logger,
+    });
 
     return distribution;
   }

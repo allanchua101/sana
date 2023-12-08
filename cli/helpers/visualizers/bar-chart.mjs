@@ -1,6 +1,6 @@
 import { bar } from "ervy";
 
-export function displayBarChart(data, options = {}) {
+export function buildBarChart(data, options = {}) {
   const asciiChart = bar(data, options);
 
   return asciiChart;

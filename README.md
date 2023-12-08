@@ -13,6 +13,7 @@ A command-line interface for analyzing an AWS account's serverless resources. Fo
   - [Silent Mode](#silent-mode)
   - [Disable progress bar](#disable-progress-bar)
   - [Scanning specific regions](#scanning-specific-regions)
+  - [Distribution charts](#distribution-charts)
 - [Lambda Functions](#lambda-functions)
   - [Total Lambda Count](#total-lambda-count)
   - [Distribution by Runtime](#function-runtime-distribution)
@@ -66,14 +67,14 @@ List of global flags that you can pass on all commands.
 `sana` can authenticate against your AWS account by either using the default AWS CLI profile or by using named profiles. Take the example below
 
 ```sh
-# To use the default named profile
-# The same approach works for CI/CD
-# agents that relies on IAM roles
+# Use default profile in you dev machine.
 sana lambda-runtime-distribution
 
-# If you need to target multiple
-# accounts from the same server
-# use the following approach
+# The same approach works for CI/CD agents
+# that relies on IAM roles
+sana lambda-runtime-distribution
+
+# If you need to target multiple accounts
 sana lambda-runtime-distribution --profile foo
 ```
 
@@ -108,6 +109,34 @@ sana ddb-count --region ap-southeast-1,us-east-1
 sana ddb-count -r ap-southeast-1,us-east-1
 ```
 
+### Distribution Charts
+
+For distribution queries, you can pass the `-o chart` flag to get the results printed in horizontal charts
+
+```sh
+sana lambda-runtime-distribution -o chart
+
+  ___  __ _ _ __   __ _
+ / __|/ _` | '_ \ / _` |
+ \__ \ (_| | | | | (_| |
+ |___/\__,_|_| |_|\__,_|
+
+Analyzing lambda-runtime-distribution using the default profile.
+Scanning account enabled regions |████████████████████████████████████████| 100% | ETA: 0s | 17/17
+
+
+Lambda Distribution by Runtime
+
+
+ nodejs14.x (1000/4000 25.00%) **********
+
+ nodejs16.x (1000/4000 25.00%) **********
+
+ nodejs18.x (1000/4000 25.00%) **********
+
+ nodejs20.x (1000/4000 25.00%) **********
+```
+
 ## Lambda Functions
 
 Use `sana` to run basic analysis of Lambda function distribution in an AWS account.
@@ -139,7 +168,6 @@ Tips:
 
 - Useful when measuring the progress of your migration initiatives.
 - Useful in identification of functions that are about to be deprecated.
-- You can pass the `-o chart` flag to print out a horizontal bar chart.
 
 ### Function Package Type Distribution
 
