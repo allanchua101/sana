@@ -32,7 +32,7 @@ A command-line interface for analyzing an AWS account's serverless resources. Fo
 
 Heavily inspired by Werner Vogels' frugal architect laws mentioned at 2023 AWS re:Invent keynote, `sana` aims to provide tooling that fills in the gaps in the space of serverless observation capabilities. Here are some problem statements that `sana` tries to solve.
 
-- Understand how many functions in an account needs to be migrated to the latest possible runtime.
+- Detect how many functions in an account needs to be migrated to the latest possible runtime.
 - Identify how many DynamoDB tables were not configured with delete protection
 - Ease reporting capabilities in CI/CD pipelines to enhance observability of build impact to your AWS accounts.
 - Provide the ability to observe the total health of an AWS account without leaving your VS code / terminal.
@@ -41,8 +41,8 @@ Heavily inspired by Werner Vogels' frugal architect laws mentioned at 2023 AWS r
 ## Installation
 
 ```sh
-$ npm i -g @serverless-ninja/sana
-$ sana --version
+npm i -g @serverless-ninja/sana
+sana --version
 
 @serverless-ninja/sana 1.1.x
 ```
@@ -50,9 +50,9 @@ $ sana --version
 ## Upgrading Existing Installation
 
 ```sh
-$ npm uninstall -g @serverless-ninja/sana
-$ npm i -g @serverless-ninja/sana
-$ sana --version
+npm uninstall -g @serverless-ninja/sana
+npm i -g @serverless-ninja/sana
+sana --version
 
 @serverless-ninja/sana 1.1.x
 ```
@@ -115,7 +115,7 @@ Use `sana` to run basic analysis of Lambda function distribution in an AWS accou
 Use the `lambda-count` command to get the account-wide Lambda function count.
 
 ```sh
-$ sana lambda-count
+sana lambda-count
 
 Found a total of 4 Lambda functions
 ```
@@ -125,7 +125,7 @@ Found a total of 4 Lambda functions
 Use the `lambda-runtime-distribution` command to get the account-wide Lambda function runtime distribution.
 
 ```sh
-$ sana lambda-runtime-distribution
+sana lambda-runtime-distribution
 
 nodejs14.x: 1000 functions (50.00%)
 nodejs16.x: 250 functions (12.50%)
@@ -144,7 +144,7 @@ Tips:
 Use the `lambda-package-type-distribution` command to get the account-wide Lambda function distribution by packaging type.
 
 ```sh
-$ sana lambda-package-type-distribution
+sana lambda-package-type-distribution
 
 Zip: 254 functions.
 Image: 5 functions.
@@ -155,7 +155,7 @@ Image: 5 functions.
 Use the `lambda-region-distribution` command to get the account-wide Lambda function distribution by AWS region.
 
 ```sh
-$ sana lambda-region-distribution
+sana lambda-region-distribution
 
 ap-southeast-1: 490 functions.
 us-east-1: 1205 functions.
@@ -172,7 +172,7 @@ Notes:
 Use the `lambda-memory-distribution` command to get the account-wide Lambda function distribution by memory size configuration.
 
 ```sh
-$ sana lambda-memory-distribution
+sana lambda-memory-distribution
 
 128: 10 functions.
 256: 15 functions.
@@ -184,7 +184,7 @@ $ sana lambda-memory-distribution
 Use the `lambda-ephemeral-storage-distribution` command to get the account-wide Lambda function distribution by ephemeral storage size.
 
 ```sh
-$ sana lambda-ephemeral-storage-distribution
+sana lambda-ephemeral-storage-distribution
 
 512: 24 functions.
 1024: 88 functions.
@@ -195,7 +195,7 @@ $ sana lambda-ephemeral-storage-distribution
 Use the `lambda-tracing-mode-distribution` command to get the account-wide Lambda function distribution by X-ray tracing mode.
 
 ```sh
-$ sana lambda-tracing-mode-distribution
+sana lambda-tracing-mode-distribution
 
 PassThrough: 450 functions.
 Active: 280 functions
@@ -206,7 +206,7 @@ Active: 280 functions
 Use the `lambda-architecture-distribution` command to get the account-wide Lambda function distribution by underlying architecture. This command is useful for optimizing cost of systems. (ARM chips are cheaper than x86_64)
 
 ```sh
-$ sana lambda-architecture-distribution
+sana lambda-architecture-distribution
 
 ARMv8: 500 functions.
 ARMv7: 220 functions.
@@ -222,7 +222,7 @@ Use `sana` to run basic analysis of DynamoDB table count and distribution in an 
 Use the `ddb-count` command to get the account-wide DynamoDB table count.
 
 ```sh
-$ sana ddb-count
+sana ddb-count
 
 Found a total of 490 dynamo db tables in the account.
 ```
@@ -232,7 +232,7 @@ Found a total of 490 dynamo db tables in the account.
 Use the `ddb-region-distribution` command to get DynamoDB Table count per region
 
 ```sh
-$ sana ddb-region-distribution
+sana ddb-region-distribution
 
 us-east-1: 250 tables.
 us-west-1: 42 tables.
@@ -244,7 +244,7 @@ ap-southeast-1: 28 tables.
 Use the `ddb-delete-protection-distribution` command to get DynamoDB table count based on their delete protection flag.
 
 ```sh
-$ sana ddb-delete-protection-distribution
+sana ddb-delete-protection-distribution
 
 Delete Protection Enabled: 250 tables
 Delete Protection Disabled: 5 tables # Exposes potential problem due to accidental deletion.
@@ -255,7 +255,7 @@ Delete Protection Disabled: 5 tables # Exposes potential problem due to accident
 Use the `ddb-table-status-distribution` command to get DynamoDB table count based on their table status.
 
 ```sh
-$ sana ddb-table-status-distribution
+sana ddb-table-status-distribution
 
 ACTIVE: 10500 table(s)
 CREATING: 1 table(s)
