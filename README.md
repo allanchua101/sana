@@ -135,7 +135,7 @@ Use `sana` to run basic analysis of Lambda function distribution in an AWS accou
 
 #### Total Count
 
-Use the `lambda-count` command to get the account-wide Lambda function count.
+`lambda-count` is used to get the total number of Lambda functions.
 
 ```sh
 sana lambda-count
@@ -178,9 +178,13 @@ sana lambda-avg-memory
 Average Memory Size: 184 MB
 ```
 
+Tips:
+
+- Useful when measuring global optimization impact to global KPIs of an account/region.
+
 #### Function Runtime Distribution
 
-Use the `lambda-runtime-distribution` command to get the account-wide Lambda function runtime distribution.
+`lambda-runtime-distribution` is used to get the Lambda function runtime distribution.
 
 ```sh
 sana lambda-runtime-distribution
@@ -198,7 +202,7 @@ Tips:
 
 #### Function Package Type Distribution
 
-Use the `lambda-package-type-distribution` command to get the account-wide Lambda function distribution by packaging type.
+`lambda-package-type-distribution` is used to get the Lambda function distribution by packaging type.
 
 ```sh
 sana lambda-package-type-distribution
@@ -209,7 +213,7 @@ Image: 5 functions.
 
 #### Function Region Distribution
 
-Use the `lambda-region-distribution` command to get the account-wide Lambda function distribution by AWS region.
+`lambda-region-distribution` is used to get the Lambda function distribution by AWS region.
 
 ```sh
 sana lambda-region-distribution
@@ -226,7 +230,7 @@ Notes:
 
 #### Function Memory Size Distribution
 
-Use the `lambda-memory-distribution` command to get the account-wide Lambda function distribution by memory size configuration.
+`lambda-memory-distribution` is used to get the Lambda function distribution by memory size.
 
 ```sh
 sana lambda-memory-distribution
@@ -238,7 +242,7 @@ sana lambda-memory-distribution
 
 #### Function Ephemeral Storage Distribution
 
-Use the `lambda-ephemeral-storage-distribution` command to get the account-wide Lambda function distribution by ephemeral storage size.
+`lambda-ephemeral-storage-distribution` is used to get the Lambda function distribution by ephemeral storage size.
 
 ```sh
 sana lambda-ephemeral-storage-distribution
@@ -249,7 +253,7 @@ sana lambda-ephemeral-storage-distribution
 
 #### Function Distribution by Tracing Mode
 
-Use the `lambda-tracing-mode-distribution` command to get the account-wide Lambda function distribution by X-ray tracing mode.
+`lambda-tracing-mode-distribution` is used to get the Lambda function distribution by X-ray tracing mode.
 
 ```sh
 sana lambda-tracing-mode-distribution
@@ -260,7 +264,7 @@ Active: 280 functions
 
 #### Function Distribution by Architecture
 
-Use the `lambda-architecture-distribution` command to get the account-wide Lambda function distribution by underlying architecture.
+`lambda-architecture-distribution` is used to get the Lambda function distribution by underlying architecture.
 
 ```sh
 sana lambda-architecture-distribution
@@ -276,7 +280,7 @@ Tips:
 
 #### Function Distribution by Layer Count
 
-Use the command `lambda-attached-layer-count-distribution` to retrieve the account-wide distribution of Lambda functions based on the number of attached Lambda layers
+`lambda-attached-layer-count-distribution` is used to get the Lambda functions distribution based on the number of attached Lambda layers.
 
 ```sh
 sana lambda-attached-layer-count-distribution -o chart
@@ -288,7 +292,7 @@ sana lambda-attached-layer-count-distribution -o chart
 
 #### Function Distribution by DLQ
 
-Use the command `lambda-dlq-distribution` to retrieve the account-wide Lambda function distribution by DLQ arn. Functions with no DLQ configured, are displayed under the `No DLQ` label.
+`lambda-dlq-distribution` is used to get the Lambda function distribution by DLQ arn.
 
 ```sh
 sana lambda-dlq-distribution -o chart
@@ -305,6 +309,10 @@ Tips:
 - Useful for measuring amount of functions with no dead-letter queue.
 - Useful for tracking progress of clean-up activities.
 - Useful for installing CI-based quality gates.
+
+Notes:
+
+- Functions with no DLQ configured, are displayed under the `No DLQ` label.
 
 ## DynamoDB Tables
 
