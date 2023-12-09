@@ -5,11 +5,11 @@ import { bytesToHumanReadableMetric } from "../../helpers/formatters/bytes-to-hu
 /**
  * @async
  * @function getAveragePackageSize
- * @description Method used for retrieving the total number of lambda functions inside an AWS account.
+ * @description Method used for retrieving the average package size in an account/region(s)
  * @param {Object} params
  * @param {AwsCredentialIdentityProvider} credentials AWS credentials
  * @param {Object} logger Logger instance
- * @returns {Promise<number>} Account-wide Lambda function count.
+ * @returns {Promise<number>} Account/region(s) average package size.
  */
 export async function getAveragePackageSize(params, credentials, logger) {
   const functions = await getAccountLambdaFunctions(params, credentials);
