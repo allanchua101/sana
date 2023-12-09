@@ -32,15 +32,15 @@ export function displayDistributionChart(options = {}) {
     throw new Error("Unsupported charting strategy.");
   }
 
-  logger.log("");
-  logger.log("");
-  logger.log(title);
-  logger.log("");
-  logger.log("");
+  logger.logResults("");
+  logger.logResults("");
+  logger.logResults(title);
+  logger.logResults("");
+  logger.logResults("");
 
   if (!chartData || chartData.length <= 0) {
-    logger.log("No DynamoDB tables found.");
-    logger.log("");
+    logger.logResults("No DynamoDB tables found.");
+    logger.logResults("");
     return;
   }
 

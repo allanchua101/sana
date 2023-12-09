@@ -12,7 +12,7 @@ import { getAllDynamoDBTables } from "../../helpers/get-account-ddbs.mjs";
 export async function countDynamoDBs(params, credentials, logger) {
   const tables = await getAllDynamoDBTables(params, credentials);
 
-  logger.log(`Found ${tables.length} dynamo db tables in the account.`);
+  logger.logResults(`Found ${tables.length} dynamo db tables in the account.`);
 
   return tables.length;
 }

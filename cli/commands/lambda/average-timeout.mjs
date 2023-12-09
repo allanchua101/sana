@@ -14,7 +14,9 @@ export async function getAverageTimeout(params, credentials, logger) {
   const functions = await getAccountLambdaFunctions(params, credentials);
   const avgTimeout = getAverageByProp(functions, "Timeout");
 
-  logger.log(`Average Function Timeout: ${avgTimeout.toFixed(2)} seconds`);
+  logger.logResults(
+    `Average Function Timeout: ${avgTimeout.toFixed(2)} seconds`
+  );
 
   return avgTimeout;
 }

@@ -63,7 +63,5 @@ export async function getAccountLambdaFunctions(params, credentials) {
 
   stopProgressBar();
 
-  // functionList.forEach((fl) => console.log(fl));
-
   return functionList;
 }

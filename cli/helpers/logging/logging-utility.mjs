@@ -12,6 +12,10 @@ export function buildLogger(isSilentMode) {
       console.log(str);
     },
 
+    logResults(str) {
+      console.log(str);
+    },
+
     async printHeader() {
       if (!this.isLoggerEnabled) {
         return;

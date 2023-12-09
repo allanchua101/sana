@@ -12,7 +12,7 @@ import { getAccountLambdaFunctions } from "../../helpers/get-account-lambda-func
 export async function countAccountFunctions(params, credentials, logger) {
   const functions = await getAccountLambdaFunctions(params, credentials);
 
-  logger.log(`Found ${functions.length} functions in the account.`);
+  logger.logResults(`Found ${functions.length} functions in the account.`);
 
   return functions.length;
 }

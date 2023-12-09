@@ -31,7 +31,7 @@ export async function getFunctionDLQDistribution(params, credentials, logger) {
   }
 
   distribution.forEach((d) => {
-    logger.log(`${d.lbl}: ${d.count} functions.`);
+    logger.logResults(`${d.lbl}: ${d.count} functions.`);
   });
 
   return distribution;

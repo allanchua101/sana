@@ -35,7 +35,7 @@ export async function getFunctionDistributionByLayerCount(
   }
 
   distribution.forEach((d) => {
-    logger.log(`${d.lbl}: ${d.count} functions.`);
+    logger.logResults(`${d.lbl}: ${d.count} functions.`);
   });
 
   return distribution;

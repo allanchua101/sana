@@ -32,7 +32,7 @@ export async function getFunctionRuntimeDistribution(
   distribution.forEach((d) => {
     const strPct = d.pct > 0 ? `${(d.pct * 100).toFixed(2)}%` : "0%";
 
-    logger.log(`${d.lbl}: ${d.count} functions (${strPct})`);
+    logger.logResults(`${d.lbl}: ${d.count} functions (${strPct})`);
   });
 
   return distribution;

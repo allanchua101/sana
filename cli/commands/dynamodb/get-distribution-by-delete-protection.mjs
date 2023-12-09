@@ -47,7 +47,7 @@ export async function getDDBDistributionByDeleteProtection(
   }
 
   distribution.forEach((d) => {
-    logger.log(`${d.lbl}: ${d.count} tables.`);
+    logger.logResults(`${d.lbl}: ${d.count} tables.`);
   });
 
   return distribution;
