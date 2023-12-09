@@ -31,6 +31,9 @@ Resources:
     Properties:
       Handler: dummy-fn/handler.execute
       Runtime: nodejs20.x
+      DeadLetterQueue:
+        Type: SQS
+        TargetArn: !GetAtt GlobalAppDLQ.Arn 
       Layers:
         - !Ref Node20Layer
       Events:
@@ -45,6 +48,9 @@ Resources:
     Properties:
       Handler: dummy-fn/handler.execute
       Runtime: nodejs18.x
+      DeadLetterQueue:
+        Type: SQS
+        TargetArn: !GetAtt GlobalAppDLQ.Arn 
       Layers:
         - !Ref Node18Layer
       Events:
@@ -59,6 +65,9 @@ Resources:
     Properties:
       Handler: dummy-fn/handler.execute
       Runtime: nodejs16.x
+      DeadLetterQueue:
+        Type: SQS
+        TargetArn: !GetAtt GlobalAppDLQ.Arn 
       Layers:
         - !Ref Node16Layer
       Events:
@@ -73,6 +82,9 @@ Resources:
     Properties:
       Handler: dummy-fn/handler.execute
       Runtime: nodejs16.x
+      DeadLetterQueue:
+        Type: SQS
+        TargetArn: !GetAtt GlobalAppDLQ.Arn 
       Layers:
         - !Ref Node16Layer
         - !Ref Node18Layer
@@ -83,3 +95,8 @@ Resources:
           Properties:
             Path: /hello/i-need-3-layers
             Method: get
+
+  GlobalAppDLQ:
+    Type: AWS::SQS::Queue
+    Properties:
+      QueueName: "my-app-dlq"

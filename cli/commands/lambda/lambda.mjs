@@ -8,6 +8,7 @@ import { getFunctionRegionDistribution } from "./distribution-by-region.mjs";
 import { getFunctionRuntimeDistribution } from "./distribution-by-runtime.mjs";
 import { getFunctionDistributionByTracingMode } from "./distribution-by-tracing-mode.mjs";
 import { getFunctionDistributionByLayerCount } from "./distribution-by-attached-layer-count.mjs";
+import { getFunctionDLQDistribution } from "./distribution-by-dlq.mjs";
 
 export const LAMBDA_STRATEGIES = [
   {
@@ -54,5 +55,10 @@ export const LAMBDA_STRATEGIES = [
     key: "lambda-attached-layer-count-distribution",
     desc: "Get Lambda function distribution by attached layer count.",
     execute: getFunctionDistributionByLayerCount,
+  },
+  {
+    key: "lambda-dlq-distribution",
+    desc: "Get Lambda function distribution by DLQ",
+    execute: getFunctionDLQDistribution,
   },
 ];

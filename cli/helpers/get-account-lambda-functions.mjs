@@ -32,12 +32,17 @@ export async function getAccountLambdaFunctions(params, credentials) {
       if (response.Functions && response.Functions.length > 0) {
         functionList.push(
           ...response.Functions.map((f) => {
+            const layerCount =
+              f.Layers && f.Layers.length > 0 ? f.Layers.length : 0;
+            const hasDLQ = !!f.DeadLetterConfig;
+
             return {
               ...f,
               sana: {
                 region: region,
-                layerCount:
-                  f.Layers && f.Layers.length > 0 ? f.Layers.length : 0,
+                layerCount,
+                hasDLQ,
+                dlqArn: hasDLQ ? f.DeadLetterConfig.TargetArn : null,
               },
             };
           })

@@ -23,7 +23,8 @@ A command-line interface for analyzing an AWS account's serverless resources. De
   - [Distribution by Ephemeral Storage](#function-ephemeral-storage-distribution)
   - [Distribution by Tracing Mode](#function-distribution-by-tracing-mode)
   - [Distribution by Architecture](#function-distribution-by-architecture)
-  - [Distribution by Layer Count](#function-distribution-by-layer-count)
+  - [Distribution by Lambda Layer Count](#function-distribution-by-layer-count)
+  - [Distribution by DLQ](#function-distribution-by-dlq)
 - [DynamoDB Tables](#dynamodb-tables)
   - [DynamoDB Table Count](#total-count-1)
   - [Distribution by Region](#dynamodb-table-distribution-by-region)
@@ -246,6 +247,25 @@ sana lambda-attached-layer-count-distribution -o chart
   1 Layers (3/16 18.75%) ***
    3 Layers (1/16 6.25%) *
 ```
+
+#### Function Distribution by DLQ
+
+Use the command `lambda-dlq-distribution` to retrieve the account-wide Lambda function distribution by DLQ arn. Functions with no DLQ configured, are displayed under the `No DLQ` label.
+
+```sh
+sana lambda-dlq-distribution -o chart
+
+Lambda Distribution by DLQ
+
+ arn:aws:sqs:us-east-2::my-app-dlq (4/16 25.00%) ***
+
+                           No DLQ (12/16 75.00%) **********
+```
+
+Tips:
+
+- Useful for searching functions that were not configured with a dead-letter queue.
+- Useful for governance controls
 
 ## DynamoDB Tables
 
