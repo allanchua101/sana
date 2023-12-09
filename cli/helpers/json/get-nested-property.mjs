@@ -8,6 +8,7 @@
  */
 export function getNestedProperty(obj, path) {
   const keys = path.split(".");
+
   return keys.reduce(
     (acc, key) => (acc && acc[key] !== "undefined" ? acc[key] : undefined),
     obj

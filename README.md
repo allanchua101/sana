@@ -16,6 +16,7 @@ A command-line interface for analyzing an AWS account's serverless resources. De
   - [Disable progress bar](#disable-progress-bar)
 - [Lambda Functions](#lambda-functions)
   - [Lambda Count](#total-count)
+  - [Average Package Size](#average-package-size)
   - [Distribution by Runtime](#function-runtime-distribution)
   - [Distribution by Package Type](#function-package-type-distribution)
   - [Distribution by Region](#function-region-distribution)
@@ -139,6 +140,21 @@ sana lambda-count
 
 Found a total of 4 Lambda functions
 ```
+
+#### Average Package Size
+
+`lambda-avg-package-size` is used to retrieve the account-wide average Lambda function package size.
+
+```sh
+$ sana lambda-avg-package-size
+
+Average Package Size: 759.92 Bytes
+```
+
+Tips:
+
+- Useful for package size and cold start optimization activities.
+- Useful for measuring the impact of `esbuild` to global / regional package size metrics.
 
 #### Function Runtime Distribution
 

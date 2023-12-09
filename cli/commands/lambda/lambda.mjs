@@ -9,6 +9,8 @@ import { getFunctionRuntimeDistribution } from "./distribution-by-runtime.mjs";
 import { getFunctionDistributionByTracingMode } from "./distribution-by-tracing-mode.mjs";
 import { getFunctionDistributionByLayerCount } from "./distribution-by-attached-layer-count.mjs";
 import { getFunctionDLQDistribution } from "./distribution-by-dlq.mjs";
+// Average strategies
+import { getAveragePackageSize } from "./average-package-size.mjs";
 
 export const LAMBDA_STRATEGIES = [
   {
@@ -60,5 +62,13 @@ export const LAMBDA_STRATEGIES = [
     key: "lambda-dlq-distribution",
     desc: "Get Lambda function distribution by DLQ",
     execute: getFunctionDLQDistribution,
+  },
+
+  // avg commands
+
+  {
+    key: "lambda-avg-package-size",
+    desc: "Get average package size of Lambda functions.",
+    execute: getAveragePackageSize,
   },
 ];
