@@ -264,8 +264,9 @@ Lambda Distribution by DLQ
 
 Tips:
 
-- Useful for searching functions that were not configured with a dead-letter queue.
-- Useful for governance controls
+- Useful for measuring amount of functions with no dead-letter queue.
+- Useful for tracking progress of clean-up activities.
+- Useful for installing CI-based quality gates.
 
 ## DynamoDB Tables
 
