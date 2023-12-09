@@ -44,5 +44,5 @@ export function displayDistributionChart(options = {}) {
     return;
   }
 
-  logger.log(strategy.execute(chartData));
+  logger.logResults(strategy.execute(chartData));
 }

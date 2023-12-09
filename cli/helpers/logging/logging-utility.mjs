@@ -23,7 +23,7 @@ export function buildLogger(isSilentMode) {
     },
 
     logResults(str) {
-      console.log(str);
+      console.log(chalk.greenBright(str));
     },
 
     async printHeader() {
