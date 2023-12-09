@@ -1,6 +1,6 @@
 # sana (SErverless aNAlyzer)
 
-![Sample Function Distribution by Runtime](https://imgur.com/mxM2vTe.gif, "Charted Function Distribution by Runtime")
+![Sample Function Distribution by Runtime](https://imgur.com/a/RjXZZP8.gif, "Charted Function Distribution by Runtime")
 
 A command-line interface for analyzing an AWS account's serverless resources. Designed by AWS serverless engineers, for AWS serverless engineers.
 
