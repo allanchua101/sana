@@ -17,6 +17,7 @@ A command-line interface for analyzing an AWS account's serverless resources. De
 - [Lambda Functions](#lambda-functions)
   - [Lambda Count](#total-count)
   - [Average Package Size](#average-package-size)
+  - [Average Function Timeout](#average-timeout)
   - [Distribution by Runtime](#function-runtime-distribution)
   - [Distribution by Package Type](#function-package-type-distribution)
   - [Distribution by Region](#function-region-distribution)
