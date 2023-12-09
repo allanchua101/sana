@@ -237,7 +237,7 @@ Tips:
 
 #### Function Distribution by Layer Count
 
-Use the `lambda-attached-layer-count-distribution` command to get the account-wide Lambda function distribution by how many Lambda layers are attached.
+Use the command `lambda-attached-layer-count-distribution` to retrieve the account-wide distribution of Lambda functions based on the number of attached Lambda layers
 
 ```sh
 sana lambda-attached-layer-count-distribution -o chart
