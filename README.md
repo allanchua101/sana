@@ -156,6 +156,16 @@ Tips:
 - Useful for package size and cold start optimization activities.
 - Useful for measuring the impact of `esbuild` to global / regional package size metrics.
 
+#### Average Timeout
+
+`lambda-avg-timeout` is used to retrieve the average timeout.
+
+```sh
+$ sana lambda-avg-timeout
+
+Average Function Timeout: 8.25 seconds
+```
+
 #### Function Runtime Distribution
 
 Use the `lambda-runtime-distribution` command to get the account-wide Lambda function runtime distribution.

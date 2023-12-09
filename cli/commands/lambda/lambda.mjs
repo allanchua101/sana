@@ -11,6 +11,7 @@ import { getFunctionDistributionByLayerCount } from "./distribution-by-attached-
 import { getFunctionDLQDistribution } from "./distribution-by-dlq.mjs";
 // Average strategies
 import { getAveragePackageSize } from "./average-package-size.mjs";
+import { getAverageTimeout } from "./average-timeout.mjs";
 
 export const LAMBDA_STRATEGIES = [
   {
@@ -70,5 +71,10 @@ export const LAMBDA_STRATEGIES = [
     key: "lambda-avg-package-size",
     desc: "Get average package size of Lambda functions.",
     execute: getAveragePackageSize,
+  },
+  {
+    key: "lambda-avg-timeout",
+    desc: "Get average timeout of Lambda functions.",
+    execute: getAverageTimeout,
   },
 ];
