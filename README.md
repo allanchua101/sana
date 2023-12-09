@@ -17,7 +17,8 @@ A command-line interface for analyzing an AWS account's serverless resources. De
 - [Lambda Functions](#lambda-functions)
   - [Lambda Count](#total-count)
   - [Average Package Size](#average-package-size)
-  - [Average Function Timeout](#average-timeout)
+  - [Average Timeout](#average-timeout)
+  - [Average Memory Size](#average-memory-size)
   - [Distribution by Runtime](#function-runtime-distribution)
   - [Distribution by Package Type](#function-package-type-distribution)
   - [Distribution by Region](#function-region-distribution)
@@ -162,9 +163,19 @@ Tips:
 `lambda-avg-timeout` is used to retrieve the average timeout.
 
 ```sh
-$ sana lambda-avg-timeout
+sana lambda-avg-timeout
 
 Average Function Timeout: 8.25 seconds
+```
+
+### Average Memory Size
+
+`lambda-avg-memory` is used to retrieve the average memory size.
+
+```sh
+sana lambda-avg-memory
+
+Average Memory Size: 184 MB
 ```
 
 #### Function Runtime Distribution

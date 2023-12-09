@@ -82,6 +82,7 @@ Resources:
     Properties:
       Handler: dummy-fn/handler.execute
       Runtime: nodejs16.x
+      MemorySize: 1024
       DeadLetterQueue:
         Type: SQS
         TargetArn: !GetAtt GlobalAppDLQ.Arn 

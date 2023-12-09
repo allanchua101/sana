@@ -12,6 +12,7 @@ import { getFunctionDLQDistribution } from "./distribution-by-dlq.mjs";
 // Average strategies
 import { getAveragePackageSize } from "./average-package-size.mjs";
 import { getAverageTimeout } from "./average-timeout.mjs";
+import { getAverageMemorySize } from "./average-memory-size.mjs";
 
 export const LAMBDA_STRATEGIES = [
   {
@@ -76,5 +77,10 @@ export const LAMBDA_STRATEGIES = [
     key: "lambda-avg-timeout",
     desc: "Get average timeout of Lambda functions.",
     execute: getAverageTimeout,
+  },
+  {
+    key: "lambda-avg-memory",
+    desc: "Get average memory size of Lambda functions.",
+    execute: getAverageMemorySize,
   },
 ];
