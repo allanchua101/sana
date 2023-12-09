@@ -25,7 +25,7 @@ export async function getFunctionDistributionByLayerCount(
 
   if (params.output === "chart") {
     displayDistributionChart({
-      title: "Lambda Distribution by Lambda Layer Count",
+      title: "Lambda Distribution by Number of Attached Lambda Layers",
       distribution,
       array: functions,
       logger,
