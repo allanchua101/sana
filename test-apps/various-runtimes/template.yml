@@ -58,6 +58,45 @@ Resources:
             Path: /node14
             Method: GET
 
+  FunctionNodeJS14V2:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs14.x
+      CodeUri: node14
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /node14/v2
+            Method: GET
+
+  FunctionNodeJS14V3:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs14.x
+      CodeUri: node14
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /node14/v3
+            Method: GET
+
+  FunctionNodeJS14V4:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs14.x
+      CodeUri: node14
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /node14/v4
+            Method: GET
+
   GreedyFunction:
     Type: AWS::Serverless::Function
     Properties:

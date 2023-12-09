@@ -1,8 +1,8 @@
 # sana (SErverless aNAlyzer)
 
-![Sample Function Distribution by Runtime](https://github.com/allanchua101/sana/blob/main/assets/screenshots/lambda-runtime-dist-v2.png?raw=true, "Charted Function Distribution by Runtime")
+![Sample Function Distribution by Runtime](https://imgur.com/PKeDUeY, "Charted Function Distribution by Runtime")
 
-A command-line interface for analyzing an AWS account's serverless resources. For AWS serverless engineers by AWS serverless engineers.
+A command-line interface for analyzing an AWS account's serverless resources. Designed by AWS serverless engineers, for AWS serverless engineers.
 
 ## Table of Contents
 
@@ -15,7 +15,7 @@ A command-line interface for analyzing an AWS account's serverless resources. Fo
   - [Silent mode](#silent-mode)
   - [Disable progress bar](#disable-progress-bar)
 - [Lambda Functions](#lambda-functions)
-  - [Total Lambda Count](#total-lambda-count)
+  - [Lambda Count](#total-count)
   - [Distribution by Runtime](#function-runtime-distribution)
   - [Distribution by Package Type](#function-package-type-distribution)
   - [Distribution by Region](#function-region-distribution)
@@ -24,20 +24,20 @@ A command-line interface for analyzing an AWS account's serverless resources. Fo
   - [Distribution by Tracing Mode](#function-distribution-by-tracing-mode)
   - [Distribution by Architecture](#function-distribution-by-architecture)
 - [DynamoDB Tables](#dynamodb-tables)
-  - [Total DynamoDB Table Count](#total-dynamodb-table-count)
+  - [DynamoDB Table Count](#total-count-1)
   - [Distribution by Region](#dynamodb-table-distribution-by-region)
   - [Distribution by Delete Protection](#distribution-by-delete-protection)
   - [Distribution by Table Status](#distribution-by-table-status)
 
 ## Why sana?
 
-Heavily inspired by Werner Vogels' frugal architect laws mentioned at 2023 AWS re:Invent keynote, `sana` aims to provide tooling that fills in the gaps in the space of serverless observation capabilities. Here are some problem statements that `sana` tries to solve.
+Inspired heavily by Werner Vogels' frugal architect laws mentioned at the 2023 AWS re:Invent keynote, `sana` aims to provide tooling that fills in the gaps in the space of serverless observation capabilities. Here are some problem statements that `sana` tries to solve.
 
-- Detect how many functions in an account needs to be migrated to the latest possible runtime.
-- Identify how many DynamoDB tables were not configured with delete protection
-- Ease reporting capabilities in CI/CD pipelines to enhance observability of build impact to your AWS accounts.
-- Provide the ability to observe the total health of an AWS account without leaving your VS code / terminal.
-- And many more. StepFunctions, SQS, Event Bridge, S3 and CF commands are under development!
+- Detects how many functions in an account need to be migrated to the latest possible runtime.
+- Identifies how many DynamoDB tables were not configured with delete protection.
+- Eases reporting capabilities in CI/CD pipelines to enhance observability of build impact on your AWS accounts.
+- Provides the ability to observe the total health of an AWS account without leaving your VS Code/terminal.
+- And much more. StepFunctions, SQS, Event Bridge, S3, and CF commands are under development!"
 
 ## Installation
 
@@ -144,7 +144,7 @@ sana lambda-count --no-progress-bar
 
 Use `sana` to run basic analysis of Lambda function distribution in an AWS account.
 
-### Total Lambda Count
+### Total Count
 
 Use the `lambda-count` command to get the account-wide Lambda function count.
 
@@ -250,7 +250,7 @@ x86_64: 1405 functions.
 
 Use `sana` to run basic analysis of DynamoDB table count and distribution in an AWS account.
 
-### Total DynamoDB Table Count
+### Total Count
 
 Use the `ddb-count` command to get the account-wide DynamoDB table count.
 
