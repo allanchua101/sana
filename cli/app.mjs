@@ -40,7 +40,7 @@ program
       const strategy = strategies.find((s) => s.key === command);
 
       if (!strategy) {
-        logger.log(`Command ${command} not found`);
+        logger.error(`Command ${command} not found`);
         process.exit(1);
         return;
       }
@@ -49,10 +49,12 @@ program
       const credentials = loadAWSCredentials(command, profileName, logger);
 
       await strategy.execute(params, credentials, logger);
+
+      logger.log("Have a nice day! \u{1F37A}\u{1F37A}");
       process.exit(0);
     } catch (err) {
-      logger.log(err.toString());
-      logger.log(err.stack.toString());
+      logger.error(err.toString());
+      logger.error(err.stack.toString());
 
       process.exit(1);
     }

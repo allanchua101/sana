@@ -2,7 +2,7 @@
   "name": "@serverless-ninja/sana",
   "package-name": "@serverless-ninja/sana",
   "description": "A command-line interface for analyzing an AWS account's serverless resources",
-  "version": "1.1.91",
+  "version": "1.1.92",
   "main": "app.mjs",
   "repository": "https://github.com/allanchua101/sana",
   "scripts": {
@@ -24,6 +24,7 @@
     "@aws-sdk/client-ec2": "^3.465.0",
     "@aws-sdk/client-lambda": "^3.465.0",
     "@aws-sdk/credential-provider-ini": "^3.465.0",
+    "chalk": "^5.3.0",
     "cli-progress": "^3.12.0",
     "commander": "^11.1.0",
     "ervy": "^1.0.7",

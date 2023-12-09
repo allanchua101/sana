@@ -1,4 +1,10 @@
 import { printAsciiArt } from "../cli/print-ascii-art.mjs";
+import chalk from "chalk";
+const AWS_ORANGE = "#FF9900";
+const AWS_NAV_BLUE = "#252F3E";
+
+const awsOrange = chalk.hex(AWS_ORANGE);
+const awsNavBlue = chalk.hex(AWS_NAV_BLUE);
 
 export function buildLogger(isSilentMode) {
   return {
@@ -9,7 +15,11 @@ export function buildLogger(isSilentMode) {
         return;
       }
 
-      console.log(str);
+      console.log(awsNavBlue(str));
+    },
+
+    error(str) {
+      console.error(chalk.redBright(str));
     },
 
     logResults(str) {
@@ -23,7 +33,7 @@ export function buildLogger(isSilentMode) {
 
       const logo = await printAsciiArt("sana");
 
-      console.log(logo);
+      console.log(awsOrange(logo));
     },
   };
 }
