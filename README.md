@@ -101,27 +101,11 @@ sana ddb-count -r ap-southeast-1,us-east-1
 For distribution queries, you can pass the `-o chart` flag to get the results printed in horizontal charts
 
 ```sh
+# Lambda runtime distribution chart
 sana lambda-runtime-distribution -o chart
 
-  ___  __ _ _ __   __ _
- / __|/ _` | '_ \ / _` |
- \__ \ (_| | | | | (_| |
- |___/\__,_|_| |_|\__,_|
-
-Analyzing lambda-runtime-distribution using the default profile.
-Scanning account enabled regions |████████████████████████████████████████| 100% | ETA: 0s | 17/17
-
-
-Lambda Distribution by Runtime
-
-
- nodejs14.x (1000/4000 25.00%) **********
-
- nodejs16.x (1000/4000 25.00%) **********
-
- nodejs18.x (1000/4000 25.00%) **********
-
- nodejs20.x (1000/4000 25.00%) **********
+# DynamoDB chart for delete protection status
+sana ddb-delete-protection-distribution -r us-east-1  -o chart
 ```
 
 ### Silent Mode
