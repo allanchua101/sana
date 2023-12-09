@@ -50,7 +50,7 @@ program
 
       await strategy.execute(params, credentials, logger);
 
-      logger.log("Have a nice day! \u{1F37A}\u{1F37A}");
+      logger.log(`Done!`);
       process.exit(0);
     } catch (err) {
       logger.error(err.toString());

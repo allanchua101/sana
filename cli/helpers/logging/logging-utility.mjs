@@ -15,7 +15,7 @@ export function buildLogger(isSilentMode) {
         return;
       }
 
-      console.log(awsNavBlue(str));
+      console.log(str);
     },
 
     error(str) {
@@ -34,6 +34,7 @@ export function buildLogger(isSilentMode) {
       const logo = await printAsciiArt("sana");
 
       console.log(awsOrange(logo));
+      console.log("");
     },
   };
 }
