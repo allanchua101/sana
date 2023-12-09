@@ -36,6 +36,8 @@ export async function getAccountLambdaFunctions(params, credentials) {
               ...f,
               sana: {
                 region: region,
+                layerCount:
+                  f.Layers && f.Layers.length > 0 ? f.Layers.length : 0,
               },
             };
           })
@@ -55,6 +57,8 @@ export async function getAccountLambdaFunctions(params, credentials) {
   }
 
   stopProgressBar();
+
+  // functionList.forEach((fl) => console.log(fl));
 
   return functionList;
 }

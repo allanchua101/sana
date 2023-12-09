@@ -7,46 +7,52 @@ import { getFunctionDistributionByPackageType } from "./distribution-by-package-
 import { getFunctionRegionDistribution } from "./distribution-by-region.mjs";
 import { getFunctionRuntimeDistribution } from "./distribution-by-runtime.mjs";
 import { getFunctionDistributionByTracingMode } from "./distribution-by-tracing-mode.mjs";
+import { getFunctionDistributionByLayerCount } from "./distribution-by-attached-layer-count.mjs";
 
 export const LAMBDA_STRATEGIES = [
   {
     key: "lambda-count",
-    desc: "Count account-wide Lambda function count.",
+    desc: "Count Lambda function count.",
     execute: countAccountFunctions,
   },
   {
     key: "lambda-runtime-distribution",
-    desc: "Get account-wide Lambda function distribution by runtime.",
+    desc: "Get Lambda function distribution by runtime.",
     execute: getFunctionRuntimeDistribution,
   },
   {
     key: "lambda-package-type-distribution",
-    desc: "Get account-wide Lambda function distribution by package type.",
+    desc: "Get Lambda function distribution by package type.",
     execute: getFunctionDistributionByPackageType,
   },
   {
     key: "lambda-region-distribution",
-    desc: "Get account-wide Lambda function distribution by AWS region.",
+    desc: "Get Lambda function distribution by AWS region.",
     execute: getFunctionRegionDistribution,
   },
   {
     key: "lambda-memory-distribution",
-    desc: "Get account-wide Lambda function distribution by memory configuration.",
+    desc: "Get Lambda function distribution by memory configuration.",
     execute: getFunctionDistributionByMemory,
   },
   {
     key: "lambda-ephemeral-storage-distribution",
-    desc: "Get account-wide Lambda function distribution by ephemeral storage distribution.",
+    desc: "Get Lambda function distribution by ephemeral storage distribution.",
     execute: getFunctionDistributionByEphemeralStorage,
   },
   {
     key: "lambda-tracing-mode-distribution",
-    desc: "Get account-wide Lambda function distribution by X-ray tracing mode.",
+    desc: "Get Lambda function distribution by X-ray tracing mode.",
     execute: getFunctionDistributionByTracingMode,
   },
   {
     key: "lambda-architecture-distribution",
-    desc: "Get account-wide Lambda function distribution by system architecture",
+    desc: "Get Lambda function distribution by system architecture",
     execute: getFunctionDistributionByArchitecture,
+  },
+  {
+    key: "lambda-attached-layer-count-distribution",
+    desc: "Get Lambda function distribution by attached layer count.",
+    execute: getFunctionDistributionByLayerCount,
   },
 ];

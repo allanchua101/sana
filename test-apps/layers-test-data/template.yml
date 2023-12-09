@@ -1,0 +1,85 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Resources:
+  Node18Layer:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      LayerName: "node-layer-18"
+      ContentUri: layer/
+      CompatibleRuntimes:
+        - nodejs18.x
+
+  Node16Layer:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      LayerName: "node-layer-16"
+      ContentUri: layer/
+      CompatibleRuntimes:
+        - nodejs16.x
+
+  Node20Layer:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      LayerName: "node-layer-20"
+      ContentUri: layer/
+      CompatibleRuntimes:
+        - nodejs20.x
+             
+  LayerConsumerA:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: dummy-fn/handler.execute
+      Runtime: nodejs20.x
+      Layers:
+        - !Ref Node20Layer
+      Events:
+        HelloWorldApi:
+          Type: Api
+          Properties:
+            Path: /hello/v20
+            Method: get
+
+  LayerConsumerB:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: dummy-fn/handler.execute
+      Runtime: nodejs18.x
+      Layers:
+        - !Ref Node18Layer
+      Events:
+        HelloWorldApi:
+          Type: Api
+          Properties:
+            Path: /hello/v18
+            Method: get
+
+  LayerConsumerC:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: dummy-fn/handler.execute
+      Runtime: nodejs16.x
+      Layers:
+        - !Ref Node16Layer
+      Events:
+        HelloWorldApi:
+          Type: Api
+          Properties:
+            Path: /hello/v16
+            Method: get
+
+  LayerConsumerD:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: dummy-fn/handler.execute
+      Runtime: nodejs16.x
+      Layers:
+        - !Ref Node16Layer
+        - !Ref Node18Layer
+        - !Ref Node20Layer
+      Events:
+        HelloWorldApi:
+          Type: Api
+          Properties:
+            Path: /hello/i-need-3-layers
+            Method: get

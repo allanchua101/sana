@@ -23,6 +23,7 @@ A command-line interface for analyzing an AWS account's serverless resources. De
   - [Distribution by Ephemeral Storage](#function-ephemeral-storage-distribution)
   - [Distribution by Tracing Mode](#function-distribution-by-tracing-mode)
   - [Distribution by Architecture](#function-distribution-by-architecture)
+  - [Distribution by Layer Count](#function-distribution-by-layer-count)
 - [DynamoDB Tables](#dynamodb-tables)
   - [DynamoDB Table Count](#total-count-1)
   - [Distribution by Region](#dynamodb-table-distribution-by-region)
@@ -62,7 +63,7 @@ sana --version
 
 List of global flags that you can pass on all commands.
 
-### Authentication Modes
+#### Authentication Modes
 
 `sana` can authenticate against your AWS account by either using the default AWS CLI profile or by using named profiles. Take the example below
 
@@ -81,7 +82,7 @@ sana lambda-runtime-distribution --profile foo
 # Environment variable support is under development
 ```
 
-### Scanning Specific Regions
+#### Scanning Specific Regions
 
 You can use the `--region` or `-r` flag to scan specific region(s) of interest.
 
@@ -96,7 +97,7 @@ sana ddb-count --region ap-southeast-1,us-east-1
 sana ddb-count -r ap-southeast-1,us-east-1
 ```
 
-### Distribution Charts
+#### Distribution Charts
 
 For distribution queries, you can pass the `-o chart` flag to get the results printed in horizontal charts
 
@@ -108,7 +109,7 @@ sana lambda-runtime-distribution -o chart
 sana ddb-delete-protection-distribution -r us-east-1  -o chart
 ```
 
-### Silent Mode
+#### Silent Mode
 
 You can pass the `--silent-mode` flag to disable all logs.
 
@@ -116,7 +117,7 @@ You can pass the `--silent-mode` flag to disable all logs.
 sana lambda-count --silent-mode
 ```
 
-### Disable Progress Bar
+#### Disable Progress Bar
 
 You can use the `--no-progress-bar` flag to disable the progress bar. This flag is often used in build servers.
 
@@ -128,7 +129,7 @@ sana lambda-count --no-progress-bar
 
 Use `sana` to run basic analysis of Lambda function distribution in an AWS account.
 
-### Total Count
+#### Total Count
 
 Use the `lambda-count` command to get the account-wide Lambda function count.
 
@@ -138,7 +139,7 @@ sana lambda-count
 Found a total of 4 Lambda functions
 ```
 
-### Function Runtime Distribution
+#### Function Runtime Distribution
 
 Use the `lambda-runtime-distribution` command to get the account-wide Lambda function runtime distribution.
 
@@ -156,7 +157,7 @@ Tips:
 - Useful when measuring the progress of your migration initiatives.
 - Useful in identification of functions that are about to be deprecated.
 
-### Function Package Type Distribution
+#### Function Package Type Distribution
 
 Use the `lambda-package-type-distribution` command to get the account-wide Lambda function distribution by packaging type.
 
@@ -167,7 +168,7 @@ Zip: 254 functions.
 Image: 5 functions.
 ```
 
-### Function Region Distribution
+#### Function Region Distribution
 
 Use the `lambda-region-distribution` command to get the account-wide Lambda function distribution by AWS region.
 
@@ -184,7 +185,7 @@ Notes:
 - Useful when running cost analysis for sudden cost spikes.
 - Useful for measuring concurrency / function ratio of a particular region.
 
-### Function Memory Size Distribution
+#### Function Memory Size Distribution
 
 Use the `lambda-memory-distribution` command to get the account-wide Lambda function distribution by memory size configuration.
 
@@ -196,7 +197,7 @@ sana lambda-memory-distribution
 512: 24 functions.
 ```
 
-### Function Ephemeral Storage Distribution
+#### Function Ephemeral Storage Distribution
 
 Use the `lambda-ephemeral-storage-distribution` command to get the account-wide Lambda function distribution by ephemeral storage size.
 
@@ -207,7 +208,7 @@ sana lambda-ephemeral-storage-distribution
 1024: 88 functions.
 ```
 
-### Function Distribution by Tracing Mode
+#### Function Distribution by Tracing Mode
 
 Use the `lambda-tracing-mode-distribution` command to get the account-wide Lambda function distribution by X-ray tracing mode.
 
@@ -218,9 +219,9 @@ PassThrough: 450 functions.
 Active: 280 functions
 ```
 
-### Function Distribution by Architecture
+#### Function Distribution by Architecture
 
-Use the `lambda-architecture-distribution` command to get the account-wide Lambda function distribution by underlying architecture. This command is useful for optimizing cost of systems. (ARM chips are cheaper than x86_64)
+Use the `lambda-architecture-distribution` command to get the account-wide Lambda function distribution by underlying architecture.
 
 ```sh
 sana lambda-architecture-distribution
@@ -230,11 +231,27 @@ ARMv7: 220 functions.
 x86_64: 1405 functions.
 ```
 
+Tips:
+
+- This command is useful for optimizing cost of systems. (ARM chips are cheaper than x86_64)
+
+#### Function Distribution by Layer Count
+
+Use the `lambda-attached-layer-count-distribution` command to get the account-wide Lambda function distribution by how many Lambda layers are attached.
+
+```sh
+sana lambda-attached-layer-count-distribution -o chart
+
+ 0 Layers (12/16 75.00%) **********
+  1 Layers (3/16 18.75%) ***
+   3 Layers (1/16 6.25%) *
+```
+
 ## DynamoDB Tables
 
 Use `sana` to run basic analysis of DynamoDB table count and distribution in an AWS account.
 
-### Total Count
+#### Total Count
 
 Use the `ddb-count` command to get the account-wide DynamoDB table count.
 
@@ -244,7 +261,7 @@ sana ddb-count
 Found a total of 490 dynamo db tables in the account.
 ```
 
-### DynamoDB Table Distribution by Region
+#### DynamoDB Table Distribution by Region
 
 Use the `ddb-region-distribution` command to get DynamoDB Table count per region
 
@@ -256,7 +273,7 @@ us-west-1: 42 tables.
 ap-southeast-1: 28 tables.
 ```
 
-### Distribution by Delete Protection
+#### Distribution by Delete Protection
 
 Use the `ddb-delete-protection-distribution` command to get DynamoDB table count based on their delete protection flag.
 
@@ -267,7 +284,7 @@ Delete Protection Enabled: 250 tables
 Delete Protection Disabled: 5 tables # Exposes potential problem due to accidental deletion.
 ```
 
-### Distribution by Table Status
+#### Distribution by Table Status
 
 Use the `ddb-table-status-distribution` command to get DynamoDB table count based on their table status.
 
