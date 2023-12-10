@@ -18,6 +18,7 @@ import { getFunctionDLQDistribution } from "./distribution-by-dlq.mjs";
 import { getAveragePackageSize } from "./average-package-size.mjs";
 import { getAverageTimeout } from "./average-timeout.mjs";
 import { getAverageMemorySize } from "./average-memory-size.mjs";
+import { getAverageEphemeralStorageSize } from "./average-ephemeral-storage-size.mjs";
 const LAMBDAS_EXTRACTOR = "get-all-lambdas";
 
 export const LAMBDA_EXTRACTORS = [
@@ -43,21 +44,27 @@ export const LAMBDA_STRATEGIES = [
   // Average
   {
     key: "lambda-avg-package-size",
-    desc: "Get average package size of Lambda functions.",
+    desc: "Get the average package size of Lambda functions.",
     extractorKey: LAMBDAS_EXTRACTOR,
     execute: getAveragePackageSize,
   },
   {
     key: "lambda-avg-timeout",
-    desc: "Get average timeout of Lambda functions.",
+    desc: "Get the average timeout of Lambda functions.",
     extractorKey: LAMBDAS_EXTRACTOR,
     execute: getAverageTimeout,
   },
   {
     key: "lambda-avg-memory",
-    desc: "Get average memory size of Lambda functions.",
+    desc: "Get the average memory size of Lambda functions.",
     extractorKey: LAMBDAS_EXTRACTOR,
     execute: getAverageMemorySize,
+  },
+  {
+    key: "lambda-avg-ephemeral-storage-size",
+    desc: "Get the average ephemeral storage size of Lambda functions.",
+    extractorKey: LAMBDAS_EXTRACTOR,
+    execute: getAverageEphemeralStorageSize,
   },
   // Distributions
   {

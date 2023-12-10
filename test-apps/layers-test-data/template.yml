@@ -90,6 +90,8 @@ Resources:
         - !Ref Node16Layer
         - !Ref Node18Layer
         - !Ref Node20Layer
+      EphemeralStorage: 
+        Size: 1024
       Events:
         HelloWorldApi:
           Type: Api

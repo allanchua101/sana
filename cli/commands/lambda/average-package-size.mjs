@@ -14,7 +14,7 @@ export async function getAveragePackageSize(params, functions, logger) {
   const avgPackageSize = getAverageByProp(functions, "CodeSize");
   const strAvg = bytesToHumanReadableMetric(avgPackageSize);
 
-  logger.logResults(`Average Package Size: ${strAvg}`);
+  logger.logResults(`Avg Package Size: ${strAvg}`);
   logger.logSeparator();
 
   return avgPackageSize;

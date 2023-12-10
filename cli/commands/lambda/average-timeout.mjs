@@ -12,9 +12,7 @@ import { getAverageByProp } from "../../helpers/reducers/avg-by-prop.mjs";
 export async function getAverageTimeout(params, functions, logger) {
   const avgTimeout = getAverageByProp(functions, "Timeout");
 
-  logger.logResults(
-    `Average Function Timeout: ${avgTimeout.toFixed(2)} seconds`
-  );
+  logger.logResults(`Avg Function Timeout: ${avgTimeout.toFixed(2)} seconds`);
   logger.logSeparator();
 
   return avgTimeout;

@@ -164,11 +164,11 @@ Running Full Lambda Analysis
 --------------------------------------------
 Found 16 functions in the account.
 --------------------------------------------
-Average Package Size: 535 Bytes
+Avg Package Size: 535 Bytes
 --------------------------------------------
-Average Function Timeout: 8.25 seconds
+Avg Function Timeout: 8.25 seconds
 --------------------------------------------
-Average Memory Size: 184 MB
+Avg Memory Size: 184 MB
 --------------------------------------------
 Lambda Distribution by Runtime
 
@@ -271,7 +271,7 @@ Tips:
 ```sh
 $ sana lambda-avg-package-size
 
-Average Package Size: 759.92 Bytes
+Avg Package Size: 759.92 Bytes
 ```
 
 Tips:
@@ -286,17 +286,31 @@ Tips:
 ```sh
 sana lambda-avg-timeout
 
-Average Function Timeout: 8.25 seconds
+Avg Function Timeout: 8.25 seconds
 ```
 
-### Average Memory Size
+#### Average Memory Size
 
 `lambda-avg-memory` is used to retrieve the average memory size.
 
 ```sh
 sana lambda-avg-memory
 
-Average Memory Size: 184 MB
+Avg Memory Size: 184 MB
+```
+
+Tips:
+
+- Useful when measuring global optimization impact to global KPIs of an account/region.
+
+#### Average Ephemeral Storage Size
+
+`lambda-avg-ephemeral-storage-size` is used to retrieve the average ephemeral storage size.
+
+```sh
+sana lambda-avg-ephemeral-storage-size
+
+Avg Ephemeral Storage Size: 512 MB
 ```
 
 Tips:

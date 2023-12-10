@@ -21,7 +21,7 @@ export function getAverageByProp(array, property) {
   }
 
   const total = (array || []).reduce(
-    (total, item) => total + getNestedProperty(item, property),
+    (total, item) => total + (getNestedProperty(item, property) || 0),
     0
   );
 

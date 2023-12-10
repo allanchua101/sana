@@ -10,11 +10,15 @@ import { mbToHumanReadableMetric } from "../../helpers/formatters/mb-to-human-re
  * @param {object} logger Logger instance
  * @returns {Promise<number>} Account/region(s) average function memory size.
  */
-export async function getAverageMemorySize(params, functions, logger) {
-  const avgMemorySize = getAverageByProp(functions, "MemorySize");
+export async function getAverageEphemeralStorageSize(
+  params,
+  functions,
+  logger
+) {
+  const avgMemorySize = getAverageByProp(functions, "EphemeralStorage.Size");
   const strAvg = mbToHumanReadableMetric(avgMemorySize);
 
-  logger.logResults(`Avg Memory Size: ${strAvg}`);
+  logger.logResults(`Avg Ephemeral Storage Size: ${strAvg}`);
   logger.logSeparator();
 
   return avgMemorySize;
