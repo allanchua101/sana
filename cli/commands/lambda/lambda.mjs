@@ -40,6 +40,25 @@ export const LAMBDA_STRATEGIES = [
     extractorKey: LAMBDAS_EXTRACTOR,
     execute: countAccountFunctions,
   },
+  // Average
+  {
+    key: "lambda-avg-package-size",
+    desc: "Get average package size of Lambda functions.",
+    extractorKey: LAMBDAS_EXTRACTOR,
+    execute: getAveragePackageSize,
+  },
+  {
+    key: "lambda-avg-timeout",
+    desc: "Get average timeout of Lambda functions.",
+    extractorKey: LAMBDAS_EXTRACTOR,
+    execute: getAverageTimeout,
+  },
+  {
+    key: "lambda-avg-memory",
+    desc: "Get average memory size of Lambda functions.",
+    extractorKey: LAMBDAS_EXTRACTOR,
+    execute: getAverageMemorySize,
+  },
   // Distributions
   {
     key: "lambda-runtime-distribution",
@@ -94,26 +113,5 @@ export const LAMBDA_STRATEGIES = [
     desc: "Get Lambda function distribution by DLQ",
     extractorKey: LAMBDAS_EXTRACTOR,
     execute: getFunctionDLQDistribution,
-  },
-
-  // avg commands
-
-  {
-    key: "lambda-avg-package-size",
-    desc: "Get average package size of Lambda functions.",
-    extractorKey: LAMBDAS_EXTRACTOR,
-    execute: getAveragePackageSize,
-  },
-  {
-    key: "lambda-avg-timeout",
-    desc: "Get average timeout of Lambda functions.",
-    extractorKey: LAMBDAS_EXTRACTOR,
-    execute: getAverageTimeout,
-  },
-  {
-    key: "lambda-avg-memory",
-    desc: "Get average memory size of Lambda functions.",
-    extractorKey: LAMBDAS_EXTRACTOR,
-    execute: getAverageMemorySize,
   },
 ];
