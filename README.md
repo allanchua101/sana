@@ -143,6 +143,11 @@ sana lambda-count
 Found a total of 4 Lambda functions
 ```
 
+Tips:
+
+- Useful when measuring the impact of deployments
+- Could be used for both pre-deployment, post-deployment and rollback steps.
+
 #### Average Package Size
 
 `lambda-avg-package-size` is used to retrieve the account-wide average Lambda function package size.
