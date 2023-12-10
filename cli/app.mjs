@@ -51,7 +51,6 @@ program
         cmdHandlers.find((chs) => chs.key === cmd)
       );
       const extractors = transformers.reduce((agg, item) => {
-        // Skip item if loader is already found
         if (agg.some((trf) => trf.key === item.extractorKey)) {
           return agg;
         }

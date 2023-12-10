@@ -245,9 +245,9 @@ Lambda Distribution by Number of Attached Lambda Layers
 Lambda Distribution by DLQ
 
 
- arn:aws:sqs:us-east-2:494971102270:my-app-dlq (4/16 25.00%) ***
+ arn:aws:sqs:us-east-2::my-app-dlq (4/16 25.00%) ***
 
-                                       No DLQ (12/16 75.00%) **********
+                           No DLQ (12/16 75.00%) **********
 
 --------------------------------------------
 Done!
