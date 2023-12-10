@@ -20,9 +20,10 @@ export function getAverageByProp(array, property) {
     return 0;
   }
 
-  const total = (array || [])
-    .map((i) => getNestedProperty(i, property))
-    .reduce((total, item) => total + item, 0);
+  const total = (array || []).reduce(
+    (total, item) => total + getNestedProperty(item, property),
+    0
+  );
 
   return total / array.length;
 }
