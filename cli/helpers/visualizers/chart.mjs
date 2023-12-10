@@ -32,8 +32,6 @@ export function displayDistributionChart(options = {}) {
     throw new Error("Unsupported charting strategy.");
   }
 
-  logger.logResults("");
-  logger.logResults("");
   logger.logResults(title);
   logger.logResults("");
   logger.logResults("");

@@ -70,7 +70,7 @@ sana --version
 You can easily run full service analysis using the following commands:
 
 ```sh
-sana ddb # Full DynamoDB Table Analysis
+sana ddb# Full DynamoDB Table Analysis
 
 sana lambda # Full Lambda Function Analysis
 ```
@@ -158,49 +158,11 @@ sana lambda-count --no-progress-bar
 `sana lambda` is used to run full analysis of all lambda functions in the specified account.
 
 ```sh
-$ sana lambda
+$ sana lambda -o chart
 
 Running Full Lambda Analysis
 --------------------------------------------
 Found 16 functions in the account.
---------------------------------------------
-Lambda Distribution by Runtime
-nodejs14.x: 5 functions (31.25%)
-nodejs16.x: 4 functions (25.00%)
-nodejs18.x: 3 functions (18.75%)
-nodejs20.x: 4 functions (25.00%)
---------------------------------------------
-Lambda Distribution by Package Type
-Zip: 16 functions.
---------------------------------------------
-Lambda Distribution by Region
-ap-southeast-1: 4 functions.
-us-east-1: 8 functions.
-us-east-2: 4 functions.
---------------------------------------------
-Lambda Distribution by Memory
-128: 15 functions.
-1024: 1 functions.
---------------------------------------------
-Lambda Distribution by Ephemeral Storage
-512: 16 functions.
---------------------------------------------
-Lambda Distribution by Tracing Mode
-PassThrough: 16 functions.
---------------------------------------------
-Lambda Distribution by Architecture
-ARMv7: 0 functions.
-ARMv8: 0 functions.
-x86_64: 16 functions.
---------------------------------------------
-Lambda Distribution by Number of Attached Layers
-0 Layers: 12 functions.
-1 Layers: 3 functions.
-3 Layers: 1 functions.
---------------------------------------------
-Lambda Distribution by DLQ
-arn:aws:sqs:us-east-2:494971102270:my-app-dlq: 4 functions.
-No DLQ: 12 functions.
 --------------------------------------------
 Average Package Size: 535 Bytes
 --------------------------------------------
@@ -208,6 +170,83 @@ Average Function Timeout: 8.25 seconds
 --------------------------------------------
 Average Memory Size: 184 MB
 --------------------------------------------
+Lambda Distribution by Runtime
+
+
+ nodejs14.x (5/16 31.25%) **********
+
+ nodejs16.x (4/16 25.00%) ********
+
+ nodejs18.x (3/16 18.75%) ******
+
+ nodejs20.x (4/16 25.00%) ********
+
+--------------------------------------------
+Lambda Distribution by Package Type
+
+
+ Zip (16/16 100.00%) **********
+
+--------------------------------------------
+Lambda Distribution by Region
+
+
+ ap-southeast-1 (4/16 25.00%) *****
+
+      us-east-1 (8/16 50.00%) **********
+
+      us-east-2 (4/16 25.00%) *****
+
+--------------------------------------------
+Lambda Distribution by Memory
+
+
+ 128 (15/16 93.75%) **********
+
+  1024 (1/16 6.25%) *
+
+--------------------------------------------
+Lambda Distribution by Ephemeral Storage
+
+
+ 512 (16/16 100.00%) **********
+
+--------------------------------------------
+Lambda Distribution by Tracing Mode
+
+
+ PassThrough (16/16 100.00%) **********
+
+--------------------------------------------
+Lambda Distribution by Architecture
+
+
+        ARMv7 (0/16 0%)
+
+        ARMv8 (0/16 0%)
+
+ x86_64 (16/16 100.00%) **********
+
+--------------------------------------------
+Lambda Distribution by Number of Attached Lambda Layers
+
+
+ 0 Layers (12/16 75.00%) **********
+
+  1 Layers (3/16 18.75%) ***
+
+   3 Layers (1/16 6.25%) *
+
+--------------------------------------------
+Lambda Distribution by DLQ
+
+
+ arn:aws:sqs:us-east-2:494971102270:my-app-dlq (4/16 25.00%) ***
+
+                                       No DLQ (12/16 75.00%) **********
+
+--------------------------------------------
+Done!
 ```
 
 #### Total Count
@@ -401,26 +440,41 @@ Notes:
 `sana ddb` is used to run full analysis of DynamoDB tables.
 
 ```sh
-$ sana ddb
+$ sana ddb -o chart
 
 Running Full DynamoDB Analysis
 --------------------------------------------
 DynamoDB Table Count: 3
 --------------------------------------------
-Distribution by Region
-us-east-1: 3 tables.
+DynamoDB Table Distribution by Region
+
+
+ us-east-1 (3/3 100.00%) **********
+
 --------------------------------------------
-Distribution by Delete Protection
-Delete Protection Enabled: 3 tables.
-Delete Protection Disabled: 0 tables.
+DynamoDB Table Distribution by Delete Protection
+
+
+ Delete Protection Enabled (3/3 100.00%) **********
+
+     Delete Protection Disabled (0/3 0%)
+
 --------------------------------------------
-Distribution by Table Status
-ACTIVE: 3 tables.
-CREATING: 0 tables.
-UPDATING: 0 tables.
-DELETING: 0 tables.
-INACCESSIBLE_ENCRYPTION_CREDENTIALS: 0 tables.
+DynamoDB Table Distribution by Status
+
+
+                         ACTIVE (3/3 100.00%) **********
+
+                            CREATING (0/3 0%)
+
+                            UPDATING (0/3 0%)
+
+                            DELETING (0/3 0%)
+
+ INACCESSIBLE_ENCRYPTION_CREDENTIALS (0/3 0%)
+
 --------------------------------------------
+Done!
 ```
 
 #### Total Count
