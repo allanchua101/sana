@@ -18,23 +18,27 @@ A command-line interface for analyzing an AWS account's serverless resources. De
   - [Disable progress bar](#disable-progress-bar)
 - [Lambda Functions](#lambda-functions)
   - [Lambda Count](#total-count)
-  - [Average Package Size](#average-package-size)
-  - [Average Timeout](#average-timeout)
-  - [Average Memory Size](#average-memory-size)
-  - [Distribution by Runtime](#function-runtime-distribution)
-  - [Distribution by Package Type](#function-package-type-distribution)
-  - [Distribution by Region](#function-region-distribution)
-  - [Distribution by Memory Size](#function-memory-size-distribution)
-  - [Distribution by Ephemeral Storage](#function-ephemeral-storage-distribution)
-  - [Distribution by Tracing Mode](#function-distribution-by-tracing-mode)
-  - [Distribution by Architecture](#function-distribution-by-architecture)
-  - [Distribution by Lambda Layer Count](#function-distribution-by-layer-count)
-  - [Distribution by DLQ](#function-distribution-by-dlq)
+  - [Average](#average-ephemeral-storage-size)
+    - [Ephemeral Storage Size](#average-ephemeral-storage-size)
+    - [Memory Size](#average-memory-size)
+    - [Package Size](#average-package-size)
+    - [Timeout](#average-timeout)
+  - [Distribution Analysis](#function-distribution-by-architecture)
+    - [By Architecture](#function-distribution-by-architecture)
+    - [By Runtime](#function-runtime-distribution)
+    - [By Package Type](#function-package-type-distribution)
+    - [By Region](#function-region-distribution)
+    - [By Memory Size](#function-memory-size-distribution)
+    - [By Ephemeral Storage](#function-ephemeral-storage-distribution)
+    - [By Tracing Mode](#function-distribution-by-tracing-mode)
+    - [By Lambda Layer Count](#function-distribution-by-layer-count)
+    - [By DLQ](#function-distribution-by-dlq)
 - [DynamoDB Tables](#dynamodb-tables)
   - [DynamoDB Table Count](#total-count-1)
-  - [Distribution by Region](#dynamodb-table-distribution-by-region)
-  - [Distribution by Delete Protection](#distribution-by-delete-protection)
-  - [Distribution by Table Status](#distribution-by-table-status)
+  - [Distribution Analysis](#distribution-by-delete-protection)
+    - [By Delete Protection](#distribution-by-delete-protection)
+    - [By Region](#dynamodb-table-distribution-by-region)
+    - [By Status](#distribution-by-table-status)
 
 ## Why sana?
 
@@ -264,9 +268,33 @@ Tips:
 - Useful when measuring the impact of deployments
 - Could be used for both pre-deployment, post-deployment and rollback steps.
 
+#### Average Ephemeral Storage Size
+
+`lambda-avg-ephemeral-storage-size` is used to retrieve the average ephemeral storage size.
+
+```sh
+sana lambda-avg-ephemeral-storage-size
+
+Avg Ephemeral Storage Size: 512 MB
+```
+
+#### Average Memory Size
+
+`lambda-avg-memory` is used to retrieve the average memory size.
+
+```sh
+sana lambda-avg-memory
+
+Avg Memory Size: 184 MB
+```
+
+Tips:
+
+- Useful when measuring global optimization impact to global KPIs of an account/region.
+
 #### Average Package Size
 
-`lambda-avg-package-size` is used to retrieve the account-wide average Lambda function package size.
+`lambda-avg-package-size` is used to retrieve the average Lambda function package size.
 
 ```sh
 $ sana lambda-avg-package-size
@@ -288,34 +316,6 @@ sana lambda-avg-timeout
 
 Avg Function Timeout: 8.25 seconds
 ```
-
-#### Average Memory Size
-
-`lambda-avg-memory` is used to retrieve the average memory size.
-
-```sh
-sana lambda-avg-memory
-
-Avg Memory Size: 184 MB
-```
-
-Tips:
-
-- Useful when measuring global optimization impact to global KPIs of an account/region.
-
-#### Average Ephemeral Storage Size
-
-`lambda-avg-ephemeral-storage-size` is used to retrieve the average ephemeral storage size.
-
-```sh
-sana lambda-avg-ephemeral-storage-size
-
-Avg Ephemeral Storage Size: 512 MB
-```
-
-Tips:
-
-- Useful when measuring global optimization impact to global KPIs of an account/region.
 
 #### Function Runtime Distribution
 
