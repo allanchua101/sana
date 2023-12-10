@@ -1,4 +1,4 @@
-import { getAverageByProp } from "../../helpers/reducers/avg-by-prop.mjs";
+import { getAverageByProp } from "#helpers/reducers/avg-by-prop.mjs";
 
 /**
  * @async

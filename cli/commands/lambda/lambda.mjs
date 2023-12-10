@@ -1,5 +1,5 @@
 // Data Loaders
-import { getAccountLambdaFunctions } from "../../helpers/get-account-lambda-functions.mjs";
+import { getAccountLambdaFunctions } from "#helpers/get-account-lambda-functions.mjs";
 // Global Command
 import { runFullLambdaAnalysis } from "./lambda-all.mjs";
 // Counting strategies

@@ -1,5 +1,5 @@
 // Data-loading strategies
-import { getAllDynamoDBTablesWithDesc } from "../../helpers/get-account-ddbs-with-desc.mjs";
+import { getAllDynamoDBTablesWithDesc } from "#helpers/get-account-ddbs-with-desc.mjs";
 // DynamoDB
 import { countDynamoDBs } from "./count-ddbs.mjs";
 import { getDDBDistributionByRegion } from "./get-distribution-by-region.mjs";

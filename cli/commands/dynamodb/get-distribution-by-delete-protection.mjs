@@ -1,5 +1,5 @@
-import { reduceByProp } from "../../helpers/reducers/reduce-by-prop.mjs";
-import { displayDistributionChart } from "../../helpers/visualizers/chart.mjs";
+import { reduceByProp } from "#helpers/reducers/reduce-by-prop.mjs";
+import { displayDistributionChart } from "#helpers/visualizers/chart.mjs";
 const BUCKETS = ["Delete Protection Enabled", "Delete Protection Disabled"];
 
 /**

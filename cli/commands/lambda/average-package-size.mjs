@@ -1,5 +1,5 @@
-import { getAverageByProp } from "../../helpers/reducers/avg-by-prop.mjs";
-import { bytesToHumanReadableMetric } from "../../helpers/formatters/bytes-to-human-readable-metric.mjs";
+import { getAverageByProp } from "#helpers/reducers/avg-by-prop.mjs";
+import { bytesToHumanReadableMetric } from "#helpers/formatters/bytes-to-human-readable-metric.mjs";
 
 /**
  * @async
