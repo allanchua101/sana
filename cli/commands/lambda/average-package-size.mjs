@@ -1,4 +1,3 @@
-import { getAccountLambdaFunctions } from "../../helpers/get-account-lambda-functions.mjs";
 import { getAverageByProp } from "../../helpers/reducers/avg-by-prop.mjs";
 import { bytesToHumanReadableMetric } from "../../helpers/formatters/bytes-to-human-readable-metric.mjs";
 
@@ -6,17 +5,17 @@ import { bytesToHumanReadableMetric } from "../../helpers/formatters/bytes-to-hu
  * @async
  * @function getAveragePackageSize
  * @description Method used for retrieving the average package size in an account/region(s)
- * @param {Object} params
- * @param {AwsCredentialIdentityProvider} credentials AWS credentials
- * @param {Object} logger Logger instance
+ * @param {object} params CLI-parameters (For future enhancements)
+ * @param {object[]} functions List of lambda functions
+ * @param {object} logger Logger instance
  * @returns {Promise<number>} Account/region(s) average package size.
  */
-export async function getAveragePackageSize(params, credentials, logger) {
-  const functions = await getAccountLambdaFunctions(params, credentials);
+export async function getAveragePackageSize(params, functions, logger) {
   const avgPackageSize = getAverageByProp(functions, "CodeSize");
   const strAvg = bytesToHumanReadableMetric(avgPackageSize);
 
   logger.logResults(`Average Package Size: ${strAvg}`);
+  logger.logSeparator();
 
   return avgPackageSize;
 }

@@ -1,4 +1,3 @@
-import { getAllDynamoDBTables } from "../../helpers/get-account-ddbs.mjs";
 import { reduceByProp } from "../../helpers/reducers/reduce-by-prop.mjs";
 import { displayDistributionChart } from "../../helpers/visualizers/chart.mjs";
 
@@ -6,12 +5,11 @@ import { displayDistributionChart } from "../../helpers/visualizers/chart.mjs";
  * @async
  * @function getDDBDistributionByRegion
  * @description Method used for retrieving DynamoDB table distribution by region for an AWS account.
- * @param {Object} params
- * @param {AwsCredentialIdentityProvider} credentials AWS credentials
- * @param {Object} logger Logger instance
+ * @param {object} params CLI-parameters (For future enhancements)
+ * @param {object[]} tables DynamoDB tables
+ * @param {object} logger Logger instance
  */
-export async function getDDBDistributionByRegion(params, credentials, logger) {
-  const tables = await getAllDynamoDBTables(params, credentials);
+export async function getDDBDistributionByRegion(params, tables, logger) {
   const distribution = reduceByProp(tables, "sana.region");
 
   if (params.output === "chart") {
@@ -21,13 +19,16 @@ export async function getDDBDistributionByRegion(params, credentials, logger) {
       array: tables,
       logger,
     });
+    logger.logSeparator();
 
     return distribution;
   }
 
+  logger.logResults("Distribution by Region");
   distribution.forEach((d) => {
     logger.logResults(`${d.lbl}: ${d.count} tables.`);
   });
+  logger.logSeparator();
 
   return distribution;
 }

@@ -1,4 +1,3 @@
-import { getAllDynamoDBTablesWithDesc } from "../../helpers/get-account-ddbs-with-desc.mjs";
 import { reduceByProp } from "../../helpers/reducers/reduce-by-prop.mjs";
 import { displayDistributionChart } from "../../helpers/visualizers/chart.mjs";
 const BUCKETS = [
@@ -12,16 +11,15 @@ const BUCKETS = [
  * @async
  * @function getDDBDistributionByTableStatus
  * @description Method used for retrieving DynamoDB table distribution by table status.
- * @param {Object} params
- * @param {AwsCredentialIdentityProvider} credentials AWS credentials
- * @param {Object} logger Logger instance
+ * @param {object} params CLI-parameters (For future enhancements)
+ * @param {object[]} tables DynamoDB tables
+ * @param {object} logger Logger instance
  */
 export async function getDDBDistributionByTableStatus(
   params,
-  credentials,
+  tables = [],
   logger
 ) {
-  const tables = await getAllDynamoDBTablesWithDesc(params, credentials);
   const temp = reduceByProp(tables, "sana.table.TableStatus");
   const distribution = BUCKETS.map((b) => {
     const bucketRow = temp.find((t) => t.lbl === b);
@@ -40,13 +38,16 @@ export async function getDDBDistributionByTableStatus(
       array: tables,
       logger,
     });
+    logger.logSeparator();
 
     return distribution;
   }
 
+  logger.logResults("Distribution by Table Status");
   distribution.forEach((d) => {
     logger.logResults(`${d.lbl}: ${d.count} tables.`);
   });
+  logger.logSeparator();
 
   return distribution;
 }

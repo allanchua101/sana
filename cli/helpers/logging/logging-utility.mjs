@@ -26,6 +26,10 @@ export function buildLogger(isSilentMode) {
       console.log(chalk.greenBright(str));
     },
 
+    logSeparator() {
+      console.log(awsNavBlue("--------------------------------------------"));
+    },
+
     async printHeader() {
       if (!this.isLoggerEnabled) {
         return;

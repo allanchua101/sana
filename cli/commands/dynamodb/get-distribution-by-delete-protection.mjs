@@ -1,4 +1,3 @@
-import { getAllDynamoDBTablesWithDesc } from "../../helpers/get-account-ddbs-with-desc.mjs";
 import { reduceByProp } from "../../helpers/reducers/reduce-by-prop.mjs";
 import { displayDistributionChart } from "../../helpers/visualizers/chart.mjs";
 const BUCKETS = ["Delete Protection Enabled", "Delete Protection Disabled"];
@@ -7,16 +6,15 @@ const BUCKETS = ["Delete Protection Enabled", "Delete Protection Disabled"];
  * @async
  * @function getDDBDistributionByDeleteProtection
  * @description Method used for retrieving DynamoDB table distribution by delete protection.
- * @param {Object} params
- * @param {AwsCredentialIdentityProvider} credentials AWS credentials
- * @param {Object} logger Logger instance
+ * @param {object} params CLI-parameters (For future enhancements)
+ * @param {object[]} tables DynamoDB tables
+ * @param {object} logger Logger instance
  */
 export async function getDDBDistributionByDeleteProtection(
   params,
-  credentials,
+  tables = [],
   logger
 ) {
-  const tables = await getAllDynamoDBTablesWithDesc(params, credentials);
   const temp = reduceByProp(tables, "sana.table.DeletionProtectionEnabled").map(
     (rt) => {
       return {
@@ -42,13 +40,16 @@ export async function getDDBDistributionByDeleteProtection(
       array: tables,
       logger,
     });
+    logger.logSeparator();
 
     return distribution;
   }
 
+  logger.logResults("Distribution by Delete Protection");
   distribution.forEach((d) => {
     logger.logResults(`${d.lbl}: ${d.count} tables.`);
   });
+  logger.logSeparator();
 
   return distribution;
 }

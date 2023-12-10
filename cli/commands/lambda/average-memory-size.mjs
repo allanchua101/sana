@@ -1,4 +1,3 @@
-import { getAccountLambdaFunctions } from "../../helpers/get-account-lambda-functions.mjs";
 import { getAverageByProp } from "../../helpers/reducers/avg-by-prop.mjs";
 import { mbToHumanReadableMetric } from "../../helpers/formatters/mb-to-human-readable-metric.mjs";
 
@@ -6,17 +5,17 @@ import { mbToHumanReadableMetric } from "../../helpers/formatters/mb-to-human-re
  * @async
  * @function getAverageMemorySize
  * @description Method used for retrieving the average memory size.
- * @param {Object} params
- * @param {AwsCredentialIdentityProvider} credentials AWS credentials
- * @param {Object} logger Logger instance
+ * @param {object} params CLI-parameters (For future enhancements)
+ * @param {object[]} functions List of lambda functions
+ * @param {object} logger Logger instance
  * @returns {Promise<number>} Account/region(s) average function memory size.
  */
-export async function getAverageMemorySize(params, credentials, logger) {
-  const functions = await getAccountLambdaFunctions(params, credentials);
+export async function getAverageMemorySize(params, functions, logger) {
   const avgMemorySize = getAverageByProp(functions, "MemorySize");
   const strAvg = mbToHumanReadableMetric(avgMemorySize);
 
   logger.logResults(`Average Memory Size: ${strAvg}`);
+  logger.logSeparator();
 
   return avgMemorySize;
 }

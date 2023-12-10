@@ -1,16 +1,14 @@
 import { DynamoDBClient, ListTablesCommand } from "@aws-sdk/client-dynamodb";
-import { getAccountRegions } from "./get-account-regions.mjs";
 import {
   startProgress,
   incrementProgress,
   stopProgressBar,
 } from "./progress-bar/global-progress-bar.mjs";
 
-export async function getAllDynamoDBTables(params, credentials) {
-  const regions = await getAccountRegions(params, credentials);
+export async function getAllDynamoDBTables(credentials, regions = []) {
   const tables = [];
 
-  startProgress(regions.length);
+  startProgress(regions.length, "DynamoDB Tables");
 
   for (let i = 0, len = regions.length; i < len; i++) {
     const region = regions[i];

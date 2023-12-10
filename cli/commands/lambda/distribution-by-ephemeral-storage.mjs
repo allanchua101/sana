@@ -6,16 +6,15 @@ import { displayDistributionChart } from "../../helpers/visualizers/chart.mjs";
  * @async
  * @function getFunctionDistributionByEphemeralStorage
  * @description Method used for retrieving the function distribution by ephemeral storage size for an AWS account.
- * @param {Object} params
- * @param {AwsCredentialIdentityProvider} credentials AWS credentials
- * @param {Object} logger Logger instance
+ * @param {object} params CLI-parameters (For future enhancements)
+ * @param {object[]} functions List of lambda functions
+ * @param {object} logger Logger instance
  */
 export async function getFunctionDistributionByEphemeralStorage(
   params,
-  credentials,
+  functions,
   logger
 ) {
-  const functions = await getAccountLambdaFunctions(params, credentials);
   const distribution = reduceByProp(functions, "EphemeralStorage.Size");
 
   if (params.output === "chart") {
@@ -25,13 +24,16 @@ export async function getFunctionDistributionByEphemeralStorage(
       array: functions,
       logger,
     });
+    logger.logSeparator();
 
     return distribution;
   }
 
+  logger.logResults("Lambda Distribution by Ephemeral Storage");
   distribution.forEach((d) => {
     logger.logResults(`${d.lbl}: ${d.count} functions.`);
   });
+  logger.logSeparator();
 
   return distribution;
 }

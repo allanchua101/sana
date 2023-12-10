@@ -1,16 +1,14 @@
 import { LambdaClient, ListFunctionsCommand } from "@aws-sdk/client-lambda";
-import { getAccountRegions } from "./get-account-regions.mjs";
 import {
   startProgress,
   incrementProgress,
   stopProgressBar,
 } from "./progress-bar/global-progress-bar.mjs";
 
-export async function getAccountLambdaFunctions(params, credentials) {
+export async function getAccountLambdaFunctions(credentials, regions = []) {
   const functionList = [];
-  const regions = await getAccountRegions(params, credentials);
 
-  startProgress(regions.length);
+  startProgress(regions.length, "Lambda Functions");
 
   for (let i = 0, len = regions.length; i < len; i++) {
     const region = regions[i];

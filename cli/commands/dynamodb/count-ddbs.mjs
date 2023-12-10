@@ -1,18 +1,14 @@
-import { getAllDynamoDBTables } from "../../helpers/get-account-ddbs.mjs";
-
 /**
  * @async
  * @function countDynamoDBs
- * @description Method used for retrieving the total number of DynamoDBs in an AWS account.
- * @param {Object} params
- * @param {AwsCredentialIdentityProvider} credentials AWS credentials
- * @param {Object} logger Logger instance
- * @returns {Promise<number>} Account-wide Lambda function count.
+ * @description Method used for retrieving the total number of DynamoDBs
+ * @param {object} params CLI-parameters (For future enhancements)
+ * @param {object[]} tables DynamoDB tables
+ * @param {object} logger Logger instance
  */
-export async function countDynamoDBs(params, credentials, logger) {
-  const tables = await getAllDynamoDBTables(params, credentials);
-
-  logger.logResults(`Found ${tables.length} dynamo db tables in the account.`);
+export async function countDynamoDBs(params, tables = [], logger) {
+  logger.logResults(`DynamoDB Table Count: ${tables.length}`);
+  logger.logSeparator();
 
   return tables.length;
 }

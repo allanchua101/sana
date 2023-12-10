@@ -8,6 +8,8 @@ A command-line interface for analyzing an AWS account's serverless resources. De
 
 - [Why sana?](#why-sana)
 - [Installation](#installation)
+- [Full Service Analysis](#full-service-analysis)
+- [Multi-command Prompts](#multi-command-prompts)
 - [Global flags](#global-flags)
   - [Authentication modes](#authentication-modes)
   - [Scanning specific regions](#scanning-specific-regions)
@@ -61,6 +63,28 @@ npm i -g @serverless-ninja/sana
 sana --version
 
 @serverless-ninja/sana 1.1.x
+```
+
+## Full Service Analysis
+
+You can easily run full service analysis using the following commands:
+
+```sh
+sana ddb # Full DynamoDB Table Analysis
+
+sana lambda # Full Lambda Function Analysis
+```
+
+## Multi-command Prompts
+
+You can also run multiple analysis in a single prompt using comma-separated commands.
+
+```sh
+# Runs full analysis for DynamoDB and Lambda
+sana ddb,lambda
+
+# Runs both average memory and timeout commands
+sana lambda-avg-memory,lambda-avg-timeout
 ```
 
 ## Global Flags
@@ -131,7 +155,60 @@ sana lambda-count --no-progress-bar
 
 ## Lambda Functions
 
-Use `sana` to run basic analysis of Lambda function distribution in an AWS account.
+`sana lambda` is used to run full analysis of all lambda functions in the specified account.
+
+```sh
+$ sana lambda
+
+Running Full Lambda Analysis
+--------------------------------------------
+Found 16 functions in the account.
+--------------------------------------------
+Lambda Distribution by Runtime
+nodejs14.x: 5 functions (31.25%)
+nodejs16.x: 4 functions (25.00%)
+nodejs18.x: 3 functions (18.75%)
+nodejs20.x: 4 functions (25.00%)
+--------------------------------------------
+Lambda Distribution by Package Type
+Zip: 16 functions.
+--------------------------------------------
+Lambda Distribution by Region
+ap-southeast-1: 4 functions.
+us-east-1: 8 functions.
+us-east-2: 4 functions.
+--------------------------------------------
+Lambda Distribution by Memory
+128: 15 functions.
+1024: 1 functions.
+--------------------------------------------
+Lambda Distribution by Ephemeral Storage
+512: 16 functions.
+--------------------------------------------
+Lambda Distribution by Tracing Mode
+PassThrough: 16 functions.
+--------------------------------------------
+Lambda Distribution by Architecture
+ARMv7: 0 functions.
+ARMv8: 0 functions.
+x86_64: 16 functions.
+--------------------------------------------
+Lambda Distribution by Number of Attached Layers
+0 Layers: 12 functions.
+1 Layers: 3 functions.
+3 Layers: 1 functions.
+--------------------------------------------
+Lambda Distribution by DLQ
+arn:aws:sqs:us-east-2:494971102270:my-app-dlq: 4 functions.
+No DLQ: 12 functions.
+--------------------------------------------
+Average Package Size: 535 Bytes
+--------------------------------------------
+Average Function Timeout: 8.25 seconds
+--------------------------------------------
+Average Memory Size: 184 MB
+--------------------------------------------
+```
 
 #### Total Count
 
@@ -321,7 +398,30 @@ Notes:
 
 ## DynamoDB Tables
 
-Use `sana` to run basic analysis of DynamoDB table count and distribution in an AWS account.
+`sana ddb` is used to run full analysis of DynamoDB tables.
+
+```sh
+$ sana ddb
+
+Running Full DynamoDB Analysis
+--------------------------------------------
+DynamoDB Table Count: 3
+--------------------------------------------
+Distribution by Region
+us-east-1: 3 tables.
+--------------------------------------------
+Distribution by Delete Protection
+Delete Protection Enabled: 3 tables.
+Delete Protection Disabled: 0 tables.
+--------------------------------------------
+Distribution by Table Status
+ACTIVE: 3 tables.
+CREATING: 0 tables.
+UPDATING: 0 tables.
+DELETING: 0 tables.
+INACCESSIBLE_ENCRYPTION_CREDENTIALS: 0 tables.
+--------------------------------------------
+```
 
 #### Total Count
 

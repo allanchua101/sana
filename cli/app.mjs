@@ -1,19 +1,26 @@
 #! /usr/bin/env node
-
 process.removeAllListeners("warning");
-
+// Libraries
 import { program } from "commander";
 import { readFile } from "fs/promises";
+// Utilities
 import { buildLogger } from "./helpers/logging/logging-utility.mjs";
 import { configureProgressBar } from "./helpers/progress-bar/global-progress-bar.mjs";
+import { parseCommands } from "./helpers/parsers/parse-commands.mjs";
+import { loadAWSCredentials } from "./helpers/aws/credential-loader.mjs";
+import { getAccountRegions } from "./helpers/get-account-regions.mjs";
+// Command-handling strategies loading
+import {
+  LAMBDA_STRATEGIES,
+  LAMBDA_EXTRACTORS,
+} from "./commands/lambda/lambda.mjs";
+import { DYNAMO_STRATEGIES, DDB_EXTRACTORS } from "./commands/dynamodb/ddb.mjs";
+// Commands
+const cmdHandlers = [...LAMBDA_STRATEGIES, ...DYNAMO_STRATEGIES];
+const extractionStrategies = [...LAMBDA_EXTRACTORS, ...DDB_EXTRACTORS];
 const packageInfo = JSON.parse(
   await readFile(new URL("./package.json", import.meta.url))
 );
-import { loadAWSCredentials } from "./helpers/aws/credential-loader.mjs";
-import { LAMBDA_STRATEGIES } from "./commands/lambda/lambda.mjs";
-import { DYNAMO_STRATEGIES } from "./commands/dynamodb/ddb.mjs";
-// Commands
-const strategies = [...LAMBDA_STRATEGIES, ...DYNAMO_STRATEGIES];
 
 program
   .name(packageInfo.name)
@@ -37,18 +44,50 @@ program
 
       await logger.printHeader();
 
-      const strategy = strategies.find((s) => s.key === command);
+      const commands = parseCommands(command, cmdHandlers, logger);
+      const profileName = params.profile || "";
+      const credentials = loadAWSCredentials(commands, profileName, logger);
+      const transformers = commands.map((cmd) =>
+        cmdHandlers.find((chs) => chs.key === cmd)
+      );
+      const extractors = transformers.reduce((agg, item) => {
+        // Skip item if loader is already found
+        if (agg.some((trf) => trf.key === item.extractorKey)) {
+          return agg;
+        }
 
-      if (!strategy) {
-        logger.error(`Command ${command} not found`);
-        process.exit(1);
-        return;
+        const loader = extractionStrategies.find(
+          (ls) => ls.key === item.extractorKey
+        );
+
+        if (!loader) {
+          logger.error(`Unsupported data loader: ${item.extractorKey}`);
+          process.exit(1);
+        }
+
+        return [...agg, loader];
+      }, []);
+      const regions = await getAccountRegions(params, credentials);
+      const dataStore = [];
+
+      for (let i = 0, len = extractors.length; i < len; i++) {
+        const extractor = extractors[i];
+        const results = await extractor.execute(credentials, regions);
+
+        dataStore.push({
+          key: extractor.key,
+          data: results,
+        });
       }
 
-      const profileName = params.profile || "";
-      const credentials = loadAWSCredentials(command, profileName, logger);
+      for (let t = 0, len = transformers.length; t < len; t++) {
+        const transformer = transformers[t];
+        const { data } = dataStore.find(
+          (d) => d.key === transformer.extractorKey
+        );
 
-      await strategy.execute(params, credentials, logger);
+        await transformer.execute(params, data, logger);
+      }
 
       logger.log(`Done!`);
       process.exit(0);

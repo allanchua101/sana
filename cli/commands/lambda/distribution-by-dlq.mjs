@@ -1,4 +1,3 @@
-import { getAccountLambdaFunctions } from "../../helpers/get-account-lambda-functions.mjs";
 import { reduceByProp } from "../../helpers/reducers/reduce-by-prop.mjs";
 import { displayDistributionChart } from "../../helpers/visualizers/chart.mjs";
 
@@ -6,12 +5,11 @@ import { displayDistributionChart } from "../../helpers/visualizers/chart.mjs";
  * @async
  * @function getFunctionDLQDistribution
  * @description Method used for retrieving function distribution by DLQ.
- * @param {Object} params
- * @param {AwsCredentialIdentityProvider} credentials AWS credentials
- * @param {Object} logger Logger instance
+ * @param {object} params CLI-parameters (For future enhancements)
+ * @param {object[]} functions List of lambda functions
+ * @param {object} logger Logger instance
  */
-export async function getFunctionDLQDistribution(params, credentials, logger) {
-  const functions = await getAccountLambdaFunctions(params, credentials);
+export async function getFunctionDLQDistribution(params, functions, logger) {
   const distribution = reduceByProp(functions, "sana.dlqArn").map((d) => {
     return {
       ...d,
@@ -26,13 +24,16 @@ export async function getFunctionDLQDistribution(params, credentials, logger) {
       array: functions,
       logger,
     });
+    logger.logSeparator();
 
     return distribution;
   }
 
+  logger.logResults("Lambda Distribution by DLQ");
   distribution.forEach((d) => {
     logger.logResults(`${d.lbl}: ${d.count} functions.`);
   });
+  logger.logSeparator();
 
   return distribution;
 }
