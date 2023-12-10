@@ -70,9 +70,9 @@ sana --version
 You can easily run full service analysis using the following commands:
 
 ```sh
-sana ddb# Full DynamoDB Table Analysis
-
 sana lambda # Full Lambda Function Analysis
+
+sana ddb # Full DynamoDB Table Analysis
 ```
 
 ## Multi-command Prompts
