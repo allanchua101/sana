@@ -7,12 +7,12 @@ hero:
   text: "Analyze your AWS account's serverless resources"
   tagline: Designed by AWS serverless engineers, for AWS serverless engineers
   actions:
+    - theme: alt
+      text: Installation
+      link: /installation
     - theme: brand
       text: Get Started
       link: /get-started
-    # - theme: alt
-    #   text: API Examples
-    #   link: /api-examples
 # features:
 #   - title: Feature A
 #     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit

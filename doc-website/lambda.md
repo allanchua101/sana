@@ -1,4 +1,4 @@
-# Lambda Functions
+# `sana lambda`
 
 `sana lambda` is used to run a full analysis of Lambda functions.
 

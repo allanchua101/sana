@@ -1,1 +1,0 @@
-import{_ as a,o as s,c as i,R as n}from"./chunks/framework.2uT2EpQr.js";const F=JSON.parse('{"title":"Lambda Functions","description":"","frontmatter":{},"headers":[],"relativePath":"lambda.md","filePath":"lambda.md"}'),e={name:"lambda.md"},t=n("",6),l=[t];function h(p,d,k,o,c,r){return s(),i("div",null,l)}const m=a(e,[["render",h]]);export{F as __pageData,m as default};

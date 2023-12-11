@@ -1,0 +1,1 @@
+import{_ as a,o as s,c as i,R as n}from"./chunks/framework.2uT2EpQr.js";const F=JSON.parse('{"title":"sana lambda","description":"","frontmatter":{},"headers":[],"relativePath":"lambda.md","filePath":"lambda.md"}'),e={name:"lambda.md"},l=n("",6),t=[l];function h(p,d,k,o,r,c){return s(),i("div",null,t)}const u=a(e,[["render",h]]);export{F as __pageData,u as default};

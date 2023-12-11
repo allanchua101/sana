@@ -10,7 +10,7 @@ By default, `sana` utilizes a machine's default `aws-cli` profile. To use a [nam
 $ sana lambda --profile foo
 ```
 
-## `--region`, `r`
+## `--region`, `-r`
 
 By default, `sana` scans all the regions enabled in an AWS account to provide an account-wide analysis report. To target particular region/regions of interest, you can pass in the `--region` flag to reduce the time required by sana to produce an analysis.
 
@@ -26,9 +26,9 @@ $ sana lambda --region ap-southeast-1,us-east-1,us-east-2
 $ sana lambda -r ap-southeast-1,us-east-1,us-east-2
 ```
 
-## `--output chart`
+## `--output`, `-o`
 
-For distribution queries, you can pass the `--output chart` flag to get the results printed in horizontal charts
+Controls the output mode of queries.
 
 ```sh
 # long form syntax
@@ -37,6 +37,10 @@ $ sana lambda-runtime-distribution --output chart
 # short-hand syntax
 $ sana lambda-runtime-distribution -o chart
 ```
+
+Valid Inputs:
+
+- `chart`: prints out a cli-based horizontal chart for distribution commands
 
 ## `--no-progress-bar`
 

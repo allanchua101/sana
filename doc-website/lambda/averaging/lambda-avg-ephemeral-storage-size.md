@@ -1,6 +1,6 @@
-# `lambda-avg-ephemeral-storage-size`
+# `sana lambda-avg-ephemeral-storage-size`
 
-`lambda-avg-ephemeral-storage-size` is used to retrieve the average ephemeral storage size.
+is used to retrieve the average ephemeral storage size.
 
 ```sh
 $ sana lambda-avg-ephemeral-storage-size
