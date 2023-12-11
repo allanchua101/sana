@@ -102,6 +102,41 @@ export default defineConfig({
               },
             ],
           },
+          {
+            text: "sana ddb",
+            link: "/dynamodb",
+            collapsed: true,
+            items: [
+              {
+                text: "Aggregation",
+                collapsed: true,
+                items: [
+                  {
+                    text: "ddb-count",
+                    link: "/dynamodb/aggregation/ddb-count",
+                  },
+                ],
+              },
+              {
+                text: "Distribution Analysis",
+                collapsed: true,
+                items: [
+                  {
+                    text: "ddb-region-distribution",
+                    link: "/dynamodb/distribution/ddb-region-distribution",
+                  },
+                  {
+                    text: "ddb-delete-protection-distribution",
+                    link: "/dynamodb/distribution/ddb-delete-protection-distribution",
+                  },
+                  {
+                    text: "ddb-table-status-distribution",
+                    link: "/dynamodb/distribution/ddb-table-status-distribution",
+                  },
+                ],
+              },
+            ],
+          },
         ],
       },
     ],

@@ -10,7 +10,7 @@ You can use the service-level commands to run all supported analysis for particu
 $ sana lambda
 ```
 
-To learn more about lambda-specific commands, visit the [lambda-specific command page](/lambda).
+To learn more about Lambda-specific commands, visit the [Lambda-dedicated page](/lambda).
 
 ## DynamoDB Tables
 
@@ -19,6 +19,8 @@ To learn more about lambda-specific commands, visit the [lambda-specific command
 ```sh
 $ sana ddb
 ```
+
+To learn more about DynamoDB-specific commands, visit the [DynamoDB-dedicated page](/dynamodb).
 
 ## Analyzing Multiple Services
 

@@ -13,11 +13,11 @@ hero:
     - theme: brand
       text: Get Started
       link: /get-started
-# features:
-#   - title: Feature A
-#     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-#   - title: Feature B
-#     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-#   - title: Feature C
-#     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+features:
+  - title: Account-wide Scanning
+    details: Rapidly scan an entire account's serverless resources without leaving your VSCode
+  - title: Distribution Analysis
+    details: Uncover misconfigurations, outliers and anomalies using distribution analysis.
+  - title: Modern Web-based Documentation
+    details: Easy to read web-based documentation built on top of modern tooling.
 ---
