@@ -17,8 +17,21 @@ export default defineConfig({
       {
         text: "Intro to sana",
         items: [
+          { text: "Installation", link: "/installation" },
           { text: "Get Started", link: "/get-started" },
           { text: "Global Flags", link: "/global-flags" },
+          { text: "Full Service Analysis", link: "/full-service-analysis" },
+          {
+            text: "Lambda",
+            link: "/lambda",
+            items: [
+              { text: "lambda-count", link: "/lambda/lambda-count" },
+              {
+                text: "lambda-avg-ephemeral-storage-size",
+                link: "/lambda/lambda-avg-ephemeral-storage-size",
+              },
+            ],
+          },
         ],
       },
     ],
