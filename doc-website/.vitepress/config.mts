@@ -21,13 +21,20 @@ export default defineConfig({
           { text: "Get Started", link: "/get-started" },
           { text: "Global Flags", link: "/global-flags" },
           { text: "Full Service Analysis", link: "/full-service-analysis" },
+        ],
+      },
+      {
+        text: "CLI Reference",
+        items: [
           {
             text: "sana lambda",
             link: "/lambda",
+            collapsed: true,
             items: [
               { text: "lambda-count", link: "/lambda/lambda-count" },
               {
                 text: "Average",
+                collapsed: true,
                 items: [
                   {
                     text: "lambda-avg-ephemeral-storage-size",
@@ -49,6 +56,7 @@ export default defineConfig({
               },
               {
                 text: "Distribution Analysis",
+                collapsed: true,
                 items: [
                   {
                     text: "lambda-architecture-distribution",
