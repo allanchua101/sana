@@ -31,26 +31,29 @@ export default defineConfig({
             link: "/lambda",
             collapsed: true,
             items: [
-              { text: "lambda-count", link: "/lambda/lambda-count" },
               {
-                text: "Average",
+                text: "Aggregation",
                 collapsed: true,
                 items: [
                   {
                     text: "lambda-avg-ephemeral-storage-size",
-                    link: "/lambda/averaging/lambda-avg-ephemeral-storage-size",
+                    link: "/lambda/aggregation/lambda-avg-ephemeral-storage-size",
                   },
                   {
                     text: "lambda-avg-memory-size",
-                    link: "/lambda/averaging/lambda-avg-memory-size",
+                    link: "/lambda/aggregation/lambda-avg-memory-size",
                   },
                   {
                     text: "lambda-avg-package-size",
-                    link: "/lambda/averaging/lambda-avg-package-size",
+                    link: "/lambda/aggregation/lambda-avg-package-size",
                   },
                   {
                     text: "lambda-avg-timeout",
-                    link: "/lambda/averaging/lambda-avg-timeout",
+                    link: "/lambda/aggregation/lambda-avg-timeout",
+                  },
+                  {
+                    text: "lambda-count",
+                    link: "/lambda/aggregation/lambda-count",
                   },
                 ],
               },
