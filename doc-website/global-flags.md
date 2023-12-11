@@ -16,14 +16,14 @@ By default, `sana` scans all the regions enabled in an AWS account to provide an
 
 ```sh
 # Runs a single-region scan against Singapore region
-$ sana --region ap-southeast-1
+$ sana lambda --region ap-southeast-1
 
 # Runs multi-region scan
-$ sana --region ap-southeast-1,us-east-1,us-east-2
+$ sana lambda --region ap-southeast-1,us-east-1,us-east-2
 
 # You can also use the -r flag
 # as a shorthand syntax for this
-$ sana -r ap-southeast-1,us-east-1,us-east-2
+$ sana lambda -r ap-southeast-1,us-east-1,us-east-2
 ```
 
 ### `-o chart`
