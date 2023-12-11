@@ -10,6 +10,8 @@ You can use the service-level commands to run all supported analysis for particu
 $ sana lambda
 ```
 
+To learn more about lambda-specific commands, visit the [lambda-specific command page](/lambda).
+
 ## DynamoDB Tables
 
 `sana ddb` is used to run all analysis supported by sana.

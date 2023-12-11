@@ -14,6 +14,7 @@ export default defineConfig({
     ],
 
     sidebar: [
+      { text: "Home", link: "/" },
       {
         text: "Intro to sana",
         items: [

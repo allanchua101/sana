@@ -19,4 +19,21 @@ $ sana lambda -r ap-southeast-1
 $ sana lambda -r us-east-1,us-east-2,us-west-2
 ```
 
-### Sub-commands
+### KPI-Specific Commands
+
+- Aggregation
+  - [lambda-avg-ephemeral-storage-size](/lambda/aggregation/lambda-avg-ephemeral-storage-size)
+  - [lambda-avg-memory-size](/lambda/aggregation/lambda-avg-memory-size)
+  - [lambda-avg-package-size](/lambda/aggregation/lambda-avg-package-size)
+  - [lambda-avg-timeout](/lambda/aggregation/lambda-avg-timeout)
+  - [lambda-count](/lambda/aggregation/lambda-count)
+- Distribution Analysis
+  - [lambda-architecture-distribution](/lambda/distribution/lambda-architecture-distribution)
+  - [lambda-attached-layer-count-distribution](/lambda/distribution/lambda-attached-layer-count-distribution)
+  - [lambda-dlq-distribution](/lambda/distribution/lambda-dlq-distribution)
+  - [lambda-ephemeral-storage-distribution](/lambda/distribution/lambda-ephemeral-storage-distribution)
+  - [lambda-memory-distribution](/lambda/distribution/lambda-memory-distribution)
+  - [lambda-package-type-distribution](/lambda/distribution/lambda-package-type-distribution)
+  - [lambda-region-distribution](/lambda/distribution/lambda-region-distribution)
+  - [lambda-runtime-distribution](/lambda/distribution/lambda-runtime-distribution)
+  - [lambda-tracing-mode-distribution](/lambda/distribution/lambda-tracing-mode-distribution)

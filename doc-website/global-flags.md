@@ -4,15 +4,19 @@ This page describes the default flags that could be used to alter sana's behavio
 
 ## `--profile`, `-p`
 
-By default, `sana` utilizes a machine's default `aws-cli` profile. To use a [named profile](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html#cli-configure-files-using-profiles) instead of the default one, you can use the `--profile` flag to specify the named profile you'd like to use.
+By default, `sana` utilizes a machine's default `aws-cli` profile. To use a [named profile](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html#cli-configure-files-using-profiles), you can specify the `--profile` or `-p` flag.
 
 ```sh
+# Regular syntax
 $ sana lambda --profile foo
+
+# Short-hand syntax
+$ sana lambda -p foo
 ```
 
 ## `--region`, `-r`
 
-By default, `sana` scans all the regions enabled in an AWS account to provide an account-wide analysis report. To target particular region/regions of interest, you can pass in the `--region` flag to reduce the time required by sana to produce an analysis.
+By default, `sana` scans all the regions enabled in an AWS account to provide an account-wide analysis report. If you'd wish to target particular regions of interest, you can pass the `--region` or `-r` flag to reduce the time required by sana to produce an analysis.
 
 ```sh
 # Runs a single-region scan against Singapore region
@@ -44,11 +48,13 @@ Valid Inputs:
 
 ## `--no-progress-bar`
 
-You can use the `--no-progress-bar` flag to disable the progress bar. This flag is often used in build servers.
+You can use the `--no-progress-bar` flag to disable the progress bar.
 
 ```sh
 $ sana lambda-count --no-progress-bar
 ```
+
+> TIP: This flag is often used in automation servers.
 
 ## `--silent-mode`
 
