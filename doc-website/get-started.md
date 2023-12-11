@@ -23,7 +23,7 @@ $ sana lambda
 > \__ \ (_| | | | | (_| |
 > |___/\__,_|_| |_|\__,_|
 
-> Analyzing the following command(s) using the default profile ☕...
+> Running the following command(s) using the default profile ☕...
 > - lambda
 > Scanning Lambda Functions from account regions |████████████████████████████████████████| 100% | ETA: 0s | 17/17
 > Running Full Lambda Analysis

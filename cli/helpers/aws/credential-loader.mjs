@@ -8,7 +8,7 @@ export function loadAWSCredentials(commands, awsProfileName, logger) {
   // Use the provided profile name to load credentials
   if (awsProfileName) {
     logger.log(
-      `Analyzing the following command(s) using named profile (${awsProfileName}) ${emoji}...`
+      `Running the following command(s) using named profile (${awsProfileName}) ${emoji}...`
     );
 
     credentials = fromIni({ profile: awsProfileName });
@@ -20,7 +20,7 @@ export function loadAWSCredentials(commands, awsProfileName, logger) {
   // default credentials provider chain
   if (!awsProfileName) {
     logger.log(
-      `Analyzing the following command(s) using the default profile ${emoji}...`
+      `Running the following command(s) using the default profile ${emoji}...`
     );
 
     credentials = fromIni({});

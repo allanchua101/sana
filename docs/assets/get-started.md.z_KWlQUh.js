@@ -8,7 +8,7 @@ import{_ as s,o as a,c as i,R as n}from"./chunks/framework.2uT2EpQr.js";const F=
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">&gt; \\__ \\ (_| | | | | (_| |</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">&gt; |___/\\__,_|_| |_|\\__,_|</span></span>
 <span class="line"></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">&gt; Analyzing the following command(s) using the default profile ☕...</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">&gt; Running the following command(s) using the default profile ☕...</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">&gt; - lambda</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">&gt; Scanning Lambda Functions from account regions |████████████████████████████████████████| 100% | ETA: 0s | 17/17</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">&gt; Running Full Lambda Analysis</span></span>
