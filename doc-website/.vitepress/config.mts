@@ -27,7 +27,7 @@ export default defineConfig({
             items: [
               { text: "lambda-count", link: "/lambda/lambda-count" },
               {
-                text: "Averaging",
+                text: "Average",
                 items: [
                   {
                     text: "lambda-avg-ephemeral-storage-size",
@@ -49,13 +49,45 @@ export default defineConfig({
               },
               {
                 text: "Distribution Analysis",
-                items: [],
+                items: [
+                  {
+                    text: "lambda-architecture-distribution",
+                    link: "/lambda/distribution/lambda-architecture-distribution",
+                  },
+                  {
+                    text: "lambda-attached-layer-count-distribution",
+                    link: "/lambda/distribution/lambda-attached-layer-count-distribution",
+                  },
+                  {
+                    text: "lambda-dlq-distribution",
+                    link: "/lambda/distribution/lambda-dlq-distribution",
+                  },
+                  {
+                    text: "lambda-ephemeral-storage-distribution",
+                    link: "/lambda/distribution/lambda-ephemeral-storage-distribution",
+                  },
+                  {
+                    text: "lambda-memory-distribution",
+                    link: "/lambda/distribution/lambda-memory-distribution",
+                  },
+                  {
+                    text: "lambda-package-type-distribution",
+                    link: "/lambda/distribution/lambda-package-type-distribution",
+                  },
+                  {
+                    text: "lambda-region-distribution",
+                    link: "/lambda/distribution/lambda-region-distribution",
+                  },
+                  {
+                    text: "lambda-runtime-distribution",
+                    link: "/lambda/distribution/lambda-runtime-distribution",
+                  },
+                  {
+                    text: "lambda-tracing-mode-distribution",
+                    link: "/lambda/distribution/lambda-tracing-mode-distribution",
+                  },
+                ],
               },
-              // { text: "", link: "/lambda/" },
-              // { text: "", link: "/lambda/" },
-              // { text: "", link: "/lambda/" },
-              // { text: "", link: "/lambda/" },
-              // { text: "", link: "/lambda/" },
             ],
           },
         ],

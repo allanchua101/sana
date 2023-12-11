@@ -1,6 +1,6 @@
 # `sana lambda-avg-ephemeral-storage-size`
 
-is used to retrieve the average ephemeral storage size.
+is used to retrieve the average ephemeral storage size across all your Lambda functions.
 
 ```sh
 $ sana lambda-avg-ephemeral-storage-size

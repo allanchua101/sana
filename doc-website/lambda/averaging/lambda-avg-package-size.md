@@ -5,7 +5,7 @@ is used to retrieve the average Lambda function package size.
 ```sh
 $ sana lambda-avg-package-size
 
-Avg Package Size: 759.92 Bytes
+> Avg Package Size: 759.92 Bytes
 ```
 
 Tips:
