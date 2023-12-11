@@ -5,6 +5,7 @@ export default defineConfig({
   title: "@serverless-ninja/sana",
   description:
     "A command-line interface for analyzing an AWS account's serverless resources",
+  base: "sana",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
