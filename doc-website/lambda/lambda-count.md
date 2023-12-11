@@ -3,9 +3,9 @@
 `lambda-count` command is used to get the total number of Lambda functions.
 
 ```sh
-sana lambda-count
+$ sana lambda-count
 
-Found a total of 1,348 Lambda functions
+> Found a total of 1,348 Lambda functions
 ```
 
 ## Tips

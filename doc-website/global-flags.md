@@ -26,12 +26,16 @@ $ sana lambda --region ap-southeast-1,us-east-1,us-east-2
 $ sana lambda -r ap-southeast-1,us-east-1,us-east-2
 ```
 
-## `-o chart`
+## `--output chart`
 
-For distribution queries, you can pass the -o chart flag to get the results printed in horizontal charts
+For distribution queries, you can pass the `--output chart` flag to get the results printed in horizontal charts
 
 ```sh
-sana lambda-runtime-distribution -o chart
+# long form syntax
+$ sana lambda-runtime-distribution --output chart
+
+# short-hand syntax
+$ sana lambda-runtime-distribution -o chart
 ```
 
 ## `--no-progress-bar`

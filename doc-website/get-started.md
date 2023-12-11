@@ -6,6 +6,11 @@ To start using sana, you should install it using the command below.
 
 ```sh
 $ npm i -g @serverless-ninja/sana
+```
+
+After the installation completes, you can run the command below to check if you have the latest version of sana
+
+```sh
 $ sana --version
 
 > @serverless-ninja/sana 1.1.x

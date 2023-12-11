@@ -12,6 +12,11 @@ Run the following command to install
 
 ```sh
 $ npm i -g @serverless-ninja/sana
+```
+
+and you can check the version of your installed sana using the `sana --version` command:
+
+```sh
 $ sana --version
 
 > @serverless-ninja/sana 1.1.x
@@ -25,6 +30,4 @@ Run the following command to uninstall the old version of `sana` and install the
 $ npm uninstall -g @serverless-ninja/sana
 $ npm i -g @serverless-ninja/sana
 $ sana --version
-
-> @serverless-ninja/sana 1.1.x
 ```
