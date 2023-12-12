@@ -32,6 +32,7 @@ $ sana lambda -r us-east-1,us-east-2,us-west-2
   - [lambda-attached-layer-count-distribution](/lambda/distribution/lambda-attached-layer-count-distribution)
   - [lambda-dlq-distribution](/lambda/distribution/lambda-dlq-distribution)
   - [lambda-ephemeral-storage-distribution](/lambda/distribution/lambda-ephemeral-storage-distribution)
+  - [lambda-log-format-distribution](/lambda/distribution/lambda-log-format-distribution)
   - [lambda-memory-distribution](/lambda/distribution/lambda-memory-distribution)
   - [lambda-package-type-distribution](/lambda/distribution/lambda-package-type-distribution)
   - [lambda-region-distribution](/lambda/distribution/lambda-region-distribution)

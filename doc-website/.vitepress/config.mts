@@ -79,6 +79,10 @@ export default defineConfig({
                     link: "/lambda/distribution/lambda-ephemeral-storage-distribution",
                   },
                   {
+                    text: "lambda-log-format-distribution",
+                    link: "/lambda/distribution/lambda-log-format-distribution",
+                  },
+                  {
                     text: "lambda-memory-distribution",
                     link: "/lambda/distribution/lambda-memory-distribution",
                   },
