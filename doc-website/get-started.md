@@ -44,7 +44,7 @@ Avg Memory Size: 184 MB
 Avg Ephemeral Storage Size: 544 MB
 --------------------------------------------
 Lambda Distribution by Architecture
-arm64: 0 functions.
+arm64: 80 functions.
 x86_64: 16 functions.
 --------------------------------------------
 Lambda Distribution by Number of Attached Layers
@@ -83,7 +83,8 @@ nodejs18.x: 3 functions (18.75%)
 nodejs20.x: 4 functions (25.00%)
 --------------------------------------------
 Lambda Distribution by Tracing Mode
-PassThrough: 16 functions.
+PassThrough: 450 functions
+Active: 280 functions
 --------------------------------------------
 Lambda Distribution by VPC
 vpc-xxxxxx: 1 functions.

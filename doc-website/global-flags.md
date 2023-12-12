@@ -16,7 +16,7 @@ $ sana lambda -p foo
 
 ## `--region`, `-r`
 
-By default, `sana` scans all the regions enabled in an AWS account to provide an account-wide analysis report. If you'd wish to target particular regions of interest, you can pass the `--region` or `-r` flag to reduce the time required by sana to produce an analysis.
+By default, `sana` scans all the regions enabled in an AWS account to provide an account-wide analysis report. If you wish to target regions of interest, you can pass the `--region` or `-r` flag to reduce the time required by sana to produce an analysis report.
 
 ```sh
 # Runs a single-region scan against Singapore region
@@ -32,7 +32,7 @@ $ sana lambda -r ap-southeast-1,us-east-1,us-east-2
 
 ## `--output`, `-o`
 
-Controls the output mode of queries.
+Controls the output mode of commands.
 
 ```sh
 # long form syntax

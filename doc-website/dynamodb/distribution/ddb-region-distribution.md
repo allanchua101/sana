@@ -12,5 +12,5 @@ $ sana ddb-region-distribution
 
 ## Tips
 
-- Useful for searching for the main region used by engineers in an account.
+- Useful for searching the main region used by engineers in an account.
 - Useful for searching orphaned / misconfigured DynamoDB tables residing in seldomly used regions of an account.
