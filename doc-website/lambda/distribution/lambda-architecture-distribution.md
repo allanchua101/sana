@@ -9,7 +9,7 @@ $ sana lambda-architecture-distribution
 > x86_64: 220 functions.
 ```
 
-## Tips:
+## Use-cases
 
 - Useful for optimizing cost of systems. (ARM chips are cheaper than x86_64)
 - Useful for measuring migration progress.

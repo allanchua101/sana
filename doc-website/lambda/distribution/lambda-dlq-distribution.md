@@ -12,7 +12,7 @@ $ sana lambda-dlq-distribution -o chart
 >                            No DLQ (12/16 75.00%) **********
 ```
 
-## Tips:
+## Use-cases
 
 - Useful for measuring amount of functions with no dead-letter queue.
 - Useful for tracking progress of DLQ installation activities.

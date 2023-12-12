@@ -9,7 +9,7 @@ $ sana lambda-package-type-distribution
 > Image: 5 functions
 ```
 
-## Tips:
+## Use-cases
 
 - Use this command to identify the most common packaging type used in an account.
 - Use this command to search for outliers that comply with your packaging system.

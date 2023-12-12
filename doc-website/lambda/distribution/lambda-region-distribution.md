@@ -9,7 +9,7 @@ $ sana lambda-region-distribution
 > us-east-1: 1205 functions.
 ```
 
-## Tips:
+## Use-cases
 
 - Useful for identification of main and fallback regions used by an account.
 - Useful for identification of regions in an account that contains Lambda functions.

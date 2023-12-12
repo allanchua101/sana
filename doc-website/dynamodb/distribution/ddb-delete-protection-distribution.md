@@ -9,6 +9,6 @@ $ sana ddb-delete-protection-distribution
 > Delete Protection Disabled: 5 tables
 ```
 
-## Tips
+## Use-cases
 
 - Useful for identification of risk associated with future accidental deletion of DynamoDB tables.

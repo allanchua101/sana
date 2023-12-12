@@ -10,7 +10,7 @@ $ sana lambda-ephemeral-storage-distribution
 > 10240:  1 functions.
 ```
 
-## Tips
+## Use-cases
 
 - Useful for measuring the amount of functions that work with temporary file systems.
 - Useful for identification of misconfigured functions

@@ -37,6 +37,8 @@ Found 16 functions in the account.
 --------------------------------------------
 Avg Package Size: 561.75 Bytes
 --------------------------------------------
+Max Package Size: 54.72 MB
+--------------------------------------------
 Avg Function Timeout: 8.25 seconds
 --------------------------------------------
 Avg Memory Size: 184 MB
