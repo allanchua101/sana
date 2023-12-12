@@ -2,13 +2,13 @@
 
 `sana` is a command-line interface used for analyzing an AWS account's serverless resources. The CLI is used to provide metrics such as distribution of AWS Lambda functions by runtime, DynamoDB tables with no delete protections, what is the average package size of your functions and many more.
 
-To start using sana, you should install it using the command below.
+In order to start using `sana`, you need to install it using the npm by running the command below:
 
 ```sh
 $ npm i -g @serverless-ninja/sana
 ```
 
-After the installation completes, you can run the command below to check if you have the latest version of sana
+After the installation successfully completes, you can use the command below to check if you have the latest version of sana
 
 ```sh
 $ sana --version
@@ -18,7 +18,7 @@ $ sana --version
 
 ### Running your first scan
 
-The command below instructs sana to run a full analysis of lambda functions in all the regions enabled in the AWS account associated with the default AWS CLI profile of your machine.
+The command below instructs sana to run a full analysis of Lambda functions in an AWS account. By default, `sana` scans all the regions enabled in an AWS account to produce reports. The sample below uses the default AWS CLI profile or the IAM role attached to the automation server.
 
 ```sh
 $ sana lambda

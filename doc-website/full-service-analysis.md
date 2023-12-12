@@ -4,7 +4,7 @@ You can use the service-level commands to run all supported analysis for particu
 
 ## Lambda Functions
 
-`sana lambda` is used to run all analysis supported by sana.
+`sana lambda` is used to run all Lambda-specific analysis supported by sana.
 
 ```sh
 $ sana lambda
@@ -14,7 +14,7 @@ To learn more about Lambda-specific commands, visit the [Lambda-dedicated page](
 
 ## DynamoDB Tables
 
-`sana ddb` is used to run all analysis supported by sana.
+`sana ddb` is used to run all DynamoDB-specific analysis supported by sana.
 
 ```sh
 $ sana ddb
