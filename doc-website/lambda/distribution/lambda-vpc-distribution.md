@@ -12,5 +12,5 @@ $ sana lambda-vpc-distribution
 
 ## Use-cases
 
-- Useful for measuring percentile of Lambda functions running inside and outside VPCs
+- Useful for profiling percentile of Lambda functions running inside vs outside VPCs
 - Useful for security and compliance related reporting

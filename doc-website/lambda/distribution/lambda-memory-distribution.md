@@ -5,7 +5,6 @@ is used to get the Lambda function distribution by memory size.
 ```sh
 $ sana lambda-memory-distribution
 
-# Uncovers misconfigurations in the form of outliers
 > 128: 10 functions.
 > 256: 15 functions.
 > 512: 24 functions.
@@ -14,5 +13,5 @@ $ sana lambda-memory-distribution
 
 ## Tips
 
-- Useful for awareness about the existence of outliers in terms of memory configuration
-- Useful for identification of most common memory configurations used by an account.
+- Useful for raising awareness about the existence of outliers in terms of memory configuration
+- Useful for identification of most commonly used memory configurations.
