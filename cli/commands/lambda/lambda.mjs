@@ -15,6 +15,7 @@ import { getFunctionDistributionByTracingMode } from "./distribution-by-tracing-
 import { getFunctionDistributionByLayerCount } from "./distribution-by-attached-layer-count.mjs";
 import { getFunctionDLQDistribution } from "./distribution-by-dlq.mjs";
 import { getFunctionDistributionByLogFormat } from "./distribution-by-log-format.mjs";
+import { getFunctionVPCDistribution } from "./distribution-by-vpc.mjs";
 // Average strategies
 import { getAveragePackageSize } from "./average-package-size.mjs";
 import { getAverageTimeout } from "./average-timeout.mjs";
@@ -127,5 +128,11 @@ export const LAMBDA_STRATEGIES = [
     desc: "Get Lambda function distribution by X-ray tracing mode.",
     extractorKey: LAMBDAS_EXTRACTOR,
     execute: getFunctionDistributionByTracingMode,
+  },
+  {
+    key: "lambda-vpc-distribution",
+    desc: "Get Lambda function distribution by VPC",
+    extractorKey: LAMBDAS_EXTRACTOR,
+    execute: getFunctionVPCDistribution,
   },
 ];

@@ -38,3 +38,4 @@ $ sana lambda -r us-east-1,us-east-2,us-west-2
   - [lambda-region-distribution](/lambda/distribution/lambda-region-distribution)
   - [lambda-runtime-distribution](/lambda/distribution/lambda-runtime-distribution)
   - [lambda-tracing-mode-distribution](/lambda/distribution/lambda-tracing-mode-distribution)
+  - [lambda-vpc-distribution](/lambda/distribution/lambda-vpc-distribution)

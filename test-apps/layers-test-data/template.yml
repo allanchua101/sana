@@ -31,6 +31,11 @@ Resources:
     Properties:
       Handler: dummy-fn/handler.execute
       Runtime: nodejs20.x
+      VpcConfig:
+        SecurityGroupIds: 
+          - sg-4edf8025
+        SubnetIds: 
+          - subnet-0b7db271
       DeadLetterQueue:
         Type: SQS
         TargetArn: !GetAtt GlobalAppDLQ.Arn 

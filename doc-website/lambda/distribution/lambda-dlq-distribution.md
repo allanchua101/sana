@@ -15,8 +15,8 @@ $ sana lambda-dlq-distribution -o chart
 ## Tips:
 
 - Useful for measuring amount of functions with no dead-letter queue.
-- Useful for tracking progress of DQL installation activities.
-- Useful for installing CI-based quality gates.
+- Useful for tracking progress of DLQ installation activities.
+- Useful for installing CI-based quality gates
 
 ## Notes:
 
