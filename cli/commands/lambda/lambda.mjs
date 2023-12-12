@@ -14,6 +14,7 @@ import { getFunctionRuntimeDistribution } from "./distribution-by-runtime.mjs";
 import { getFunctionDistributionByTracingMode } from "./distribution-by-tracing-mode.mjs";
 import { getFunctionDistributionByLayerCount } from "./distribution-by-attached-layer-count.mjs";
 import { getFunctionDLQDistribution } from "./distribution-by-dlq.mjs";
+import { getFunctionDistributionByLogFormat } from "./distribution-by-log-format.mjs";
 // Average strategies
 import { getAveragePackageSize } from "./average-package-size.mjs";
 import { getAverageTimeout } from "./average-timeout.mjs";
@@ -68,42 +69,6 @@ export const LAMBDA_STRATEGIES = [
   },
   // Distributions
   {
-    key: "lambda-runtime-distribution",
-    desc: "Get Lambda function distribution by runtime.",
-    extractorKey: LAMBDAS_EXTRACTOR,
-    execute: getFunctionRuntimeDistribution,
-  },
-  {
-    key: "lambda-package-type-distribution",
-    desc: "Get Lambda function distribution by package type.",
-    extractorKey: LAMBDAS_EXTRACTOR,
-    execute: getFunctionDistributionByPackageType,
-  },
-  {
-    key: "lambda-region-distribution",
-    desc: "Get Lambda function distribution by AWS region.",
-    extractorKey: LAMBDAS_EXTRACTOR,
-    execute: getFunctionRegionDistribution,
-  },
-  {
-    key: "lambda-memory-distribution",
-    desc: "Get Lambda function distribution by memory configuration.",
-    extractorKey: LAMBDAS_EXTRACTOR,
-    execute: getFunctionDistributionByMemory,
-  },
-  {
-    key: "lambda-ephemeral-storage-distribution",
-    desc: "Get Lambda function distribution by ephemeral storage distribution.",
-    extractorKey: LAMBDAS_EXTRACTOR,
-    execute: getFunctionDistributionByEphemeralStorage,
-  },
-  {
-    key: "lambda-tracing-mode-distribution",
-    desc: "Get Lambda function distribution by X-ray tracing mode.",
-    extractorKey: LAMBDAS_EXTRACTOR,
-    execute: getFunctionDistributionByTracingMode,
-  },
-  {
     key: "lambda-architecture-distribution",
     desc: "Get Lambda function distribution by system architecture",
     extractorKey: LAMBDAS_EXTRACTOR,
@@ -120,5 +85,47 @@ export const LAMBDA_STRATEGIES = [
     desc: "Get Lambda function distribution by DLQ",
     extractorKey: LAMBDAS_EXTRACTOR,
     execute: getFunctionDLQDistribution,
+  },
+  {
+    key: "lambda-ephemeral-storage-distribution",
+    desc: "Get Lambda function distribution by ephemeral storage distribution.",
+    extractorKey: LAMBDAS_EXTRACTOR,
+    execute: getFunctionDistributionByEphemeralStorage,
+  },
+  {
+    key: "lambda-log-format-distribution",
+    desc: "Get Lambda function distribution by log format (JSON or Text)",
+    extractorKey: LAMBDAS_EXTRACTOR,
+    execute: getFunctionDistributionByLogFormat,
+  },
+  {
+    key: "lambda-memory-distribution",
+    desc: "Get Lambda function distribution by memory configuration.",
+    extractorKey: LAMBDAS_EXTRACTOR,
+    execute: getFunctionDistributionByMemory,
+  },
+  {
+    key: "lambda-package-type-distribution",
+    desc: "Get Lambda function distribution by package type.",
+    extractorKey: LAMBDAS_EXTRACTOR,
+    execute: getFunctionDistributionByPackageType,
+  },
+  {
+    key: "lambda-region-distribution",
+    desc: "Get Lambda function distribution by AWS region.",
+    extractorKey: LAMBDAS_EXTRACTOR,
+    execute: getFunctionRegionDistribution,
+  },
+  {
+    key: "lambda-runtime-distribution",
+    desc: "Get Lambda function distribution by runtime.",
+    extractorKey: LAMBDAS_EXTRACTOR,
+    execute: getFunctionRuntimeDistribution,
+  },
+  {
+    key: "lambda-tracing-mode-distribution",
+    desc: "Get Lambda function distribution by X-ray tracing mode.",
+    extractorKey: LAMBDAS_EXTRACTOR,
+    execute: getFunctionDistributionByTracingMode,
   },
 ];

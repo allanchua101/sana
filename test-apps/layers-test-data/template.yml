@@ -83,6 +83,8 @@ Resources:
       Handler: dummy-fn/handler.execute
       Runtime: nodejs16.x
       MemorySize: 1024
+      LoggingConfig:
+        LogFormat: "JSON"
       DeadLetterQueue:
         Type: SQS
         TargetArn: !GetAtt GlobalAppDLQ.Arn 
