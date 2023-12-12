@@ -5,9 +5,8 @@ is used to get the Lambda function distribution by underlying architecture.
 ```sh
 $ sana lambda-architecture-distribution
 
-> ARMv8: 500 functions.
-> ARMv7: 220 functions.
-> x86_64: 1405 functions.
+> arm64: 20 functions.
+> x86_64: 220 functions.
 ```
 
 ## Tips:

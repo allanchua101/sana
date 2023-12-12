@@ -1,6 +1,6 @@
 import { reduceByItemInArrayProp } from "#helpers/reducers/reduce-by-item-in-array.mjs";
 import { displayDistributionChart } from "#helpers/visualizers/chart.mjs";
-const BUCKETS = ["ARMv7", "ARMv8", "x86_64"];
+const BUCKETS = ["arm64", "x86_64"];
 
 /**
  * @async
