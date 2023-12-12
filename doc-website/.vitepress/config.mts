@@ -102,6 +102,10 @@ export default defineConfig({
                     text: "lambda-tracing-mode-distribution",
                     link: "/lambda/distribution/lambda-tracing-mode-distribution",
                   },
+                  {
+                    text: "lambda-vpc-distribution",
+                    link: "/lambda/distribution/lambda-vpc-distribution",
+                  },
                 ],
               },
             ],

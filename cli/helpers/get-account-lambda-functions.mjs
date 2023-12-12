@@ -33,6 +33,7 @@ export async function getAccountLambdaFunctions(credentials, regions = []) {
             const layerCount =
               f.Layers && f.Layers.length > 0 ? f.Layers.length : 0;
             const hasDLQ = !!f.DeadLetterConfig;
+            const hasVPCConfig = f.VpcConfig && f.VpcConfig.VpcId;
 
             return {
               ...f,
@@ -41,6 +42,7 @@ export async function getAccountLambdaFunctions(credentials, regions = []) {
                 layerCount,
                 hasDLQ,
                 dlqArn: hasDLQ ? f.DeadLetterConfig.TargetArn : null,
+                VpcID: hasVPCConfig ? f.VpcConfig.VpcId : null,
               },
             };
           })
