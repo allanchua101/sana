@@ -56,6 +56,10 @@ export default defineConfig({
                     text: "lambda-count",
                     link: "/lambda/aggregation/lambda-count",
                   },
+                  {
+                    text: "lambda-max-package-size",
+                    link: "/lambda/aggregation/lambda-max-package-size",
+                  },
                 ],
               },
               {

@@ -10,7 +10,7 @@ $ sana ddb-region-distribution
 > ap-southeast-1: 3 tables.
 ```
 
-## Tips
+## Use-cases
 
 - Useful for searching the main region used by engineers in an account.
 - Useful for searching orphaned / misconfigured DynamoDB tables residing in seldomly used regions of an account.

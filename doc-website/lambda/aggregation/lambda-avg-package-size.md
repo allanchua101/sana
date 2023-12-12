@@ -8,7 +8,7 @@ $ sana lambda-avg-package-size
 > Avg Package Size: 759.92 Bytes
 ```
 
-Tips:
+## Use-cases
 
 - Useful for package size and cold start optimization activities.
 - Useful for measuring the impact of `esbuild` to global / regional package size metrics.

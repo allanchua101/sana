@@ -21,6 +21,7 @@ import { getAveragePackageSize } from "./average-package-size.mjs";
 import { getAverageTimeout } from "./average-timeout.mjs";
 import { getAverageMemorySize } from "./average-memory-size.mjs";
 import { getAverageEphemeralStorageSize } from "./average-ephemeral-storage-size.mjs";
+import { getMaxPackageSize } from "./max-package-size.mjs";
 const LAMBDAS_EXTRACTOR = "get-all-lambdas";
 
 export const LAMBDA_EXTRACTORS = [
@@ -49,6 +50,12 @@ export const LAMBDA_STRATEGIES = [
     desc: "Get the average package size of Lambda functions.",
     extractorKey: LAMBDAS_EXTRACTOR,
     execute: getAveragePackageSize,
+  },
+  {
+    key: "lambda-max-package-size",
+    desc: "Get the maximum package size of Lambda functions.",
+    extractorKey: LAMBDAS_EXTRACTOR,
+    execute: getMaxPackageSize,
   },
   {
     key: "lambda-avg-timeout",

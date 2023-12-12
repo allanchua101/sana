@@ -27,6 +27,7 @@ $ sana lambda -r us-east-1,us-east-2,us-west-2
   - [lambda-avg-package-size](/lambda/aggregation/lambda-avg-package-size)
   - [lambda-avg-timeout](/lambda/aggregation/lambda-avg-timeout)
   - [lambda-count](/lambda/aggregation/lambda-count)
+  - [lambda-max-package-size](/lambda/aggregation/lambda-max-package-size)
 - Distribution Analysis
   - [lambda-architecture-distribution](/lambda/distribution/lambda-architecture-distribution)
   - [lambda-attached-layer-count-distribution](/lambda/distribution/lambda-attached-layer-count-distribution)

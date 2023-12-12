@@ -12,6 +12,6 @@ $ sana lambda-log-format-distribution
 > Done!
 ```
 
-## Tips:
+## Use-cases
 
 - Useful for measuring progress of logging format change rollout / migrations.

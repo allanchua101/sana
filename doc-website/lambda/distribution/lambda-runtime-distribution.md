@@ -11,7 +11,7 @@ $ sana lambda-runtime-distribution
 > nodejs20.x: 250 functions (12.50%)
 ```
 
-## Tips:
+## Use-cases
 
 - Useful for measuring the progress of your runtime migration initiatives.
 - Useful for identification of functions that are soon to be deprecated.

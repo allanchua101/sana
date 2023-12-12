@@ -8,7 +8,7 @@ $ sana lambda-count
 > Found a total of 1,348 Lambda functions
 ```
 
-## Tips
+## Use-cases
 
-- Useful when measuring the impact of deployments
-- Could be used for both pre-deployment, post-deployment and rollback steps.
+- Useful for measuring the impact of deployments to global function count.
+- Useful for comparing function count during pre-deployment, post-deployment and rollback steps.
