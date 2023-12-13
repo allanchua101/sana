@@ -7,6 +7,10 @@ export default defineConfig({
     "A command-line interface for analyzing an AWS account's serverless resources",
   base: "/sana/",
   themeConfig: {
+    search: {
+      provider: "local",
+    },
+
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: "Home", link: "/" },
