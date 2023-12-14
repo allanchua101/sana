@@ -24,6 +24,15 @@ import{_ as s,o as a,c as i,R as n}from"./chunks/framework.KK7BHIzh.js";const g=
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">--------------------------------------------</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">Avg Ephemeral Storage Size: 544 MB</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">--------------------------------------------</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">Lambda Distribution by Application Log Level</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">ALL: 322 functions.</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">DEBUG: 3 functions.</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">ERROR: 5 functions.</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">FATAL: 16 functions.</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">INFO: 9 functions.</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">TRACE: 5 functions.</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">WARN: 21 functions.</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">--------------------------------------------</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">Lambda Distribution by Architecture</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">arm64: 80 functions.</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">x86_64: 16 functions.</span></span>
@@ -71,4 +80,4 @@ import{_ as s,o as a,c as i,R as n}from"./chunks/framework.KK7BHIzh.js";const g=
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">vpc-xxxxxx: 1 functions.</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">No VPC: 15 functions.</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">--------------------------------------------</span></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">Done!</span></span></code></pre></div><h3 id="next-steps" tabindex="-1">Next Steps <a class="header-anchor" href="#next-steps" aria-label="Permalink to &quot;Next Steps&quot;">​</a></h3><p>Learn more about the most common flags that could be used to modify the default behaviors of sana.</p>`,11),e=[l];function p(h,k,r,c,d,F){return a(),i("div",null,e)}const y=s(t,[["render",p]]);export{g as __pageData,y as default};
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">Done!</span></span></code></pre></div><h3 id="next-steps" tabindex="-1">Next Steps <a class="header-anchor" href="#next-steps" aria-label="Permalink to &quot;Next Steps&quot;">​</a></h3><p>Learn more about the most common flags that could be used to modify the default behaviors of sana.</p>`,11),p=[l];function e(h,k,r,c,F,d){return a(),i("div",null,p)}const y=s(t,[["render",e]]);export{g as __pageData,y as default};

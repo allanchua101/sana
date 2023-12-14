@@ -31,6 +31,9 @@ Resources:
     Properties:
       Handler: dummy-fn/handler.execute
       Runtime: nodejs20.x
+      LoggingConfig:
+        LogFormat: "JSON"
+        ApplicationLogLevel: "INFO"
       DeadLetterQueue:
         Type: SQS
         TargetArn: !GetAtt GlobalAppDLQ.Arn 
@@ -48,6 +51,9 @@ Resources:
     Properties:
       Handler: dummy-fn/handler.execute
       Runtime: nodejs18.x
+      LoggingConfig:
+        LogFormat: "JSON"
+        ApplicationLogLevel: "WARN"
       DeadLetterQueue:
         Type: SQS
         TargetArn: !GetAtt GlobalAppDLQ.Arn 
@@ -65,6 +71,9 @@ Resources:
     Properties:
       Handler: dummy-fn/handler.execute
       Runtime: nodejs16.x
+      LoggingConfig:
+        LogFormat: "JSON"
+        ApplicationLogLevel: "ERROR"
       DeadLetterQueue:
         Type: SQS
         TargetArn: !GetAtt GlobalAppDLQ.Arn 
@@ -77,6 +86,46 @@ Resources:
             Path: /hello/v16
             Method: get
 
+  LayerConsumerCV1:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: dummy-fn/handler.execute
+      Runtime: nodejs20.x
+      LoggingConfig:
+        LogFormat: "JSON"
+        ApplicationLogLevel: "FATAL"
+      DeadLetterQueue:
+        Type: SQS
+        TargetArn: !GetAtt GlobalAppDLQ.Arn 
+      Layers:
+        - !Ref Node20Layer
+      Events:
+        HelloWorldApi:
+          Type: Api
+          Properties:
+            Path: /hello/v201
+            Method: get
+
+  LayerConsumerCV2:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: dummy-fn/handler.execute
+      Runtime: nodejs20.x
+      LoggingConfig:
+        LogFormat: "JSON"
+        ApplicationLogLevel: "TRACE"
+      DeadLetterQueue:
+        Type: SQS
+        TargetArn: !GetAtt GlobalAppDLQ.Arn 
+      Layers:
+        - !Ref Node20Layer
+      Events:
+        HelloWorldApi:
+          Type: Api
+          Properties:
+            Path: /hello/v202
+            Method: get
+
   LayerConsumerD:
     Type: AWS::Serverless::Function
     Properties:
@@ -85,6 +134,7 @@ Resources:
       MemorySize: 1024
       LoggingConfig:
         LogFormat: "JSON"
+        ApplicationLogLevel: "DEBUG"
       DeadLetterQueue:
         Type: SQS
         TargetArn: !GetAtt GlobalAppDLQ.Arn 

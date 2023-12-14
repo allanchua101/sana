@@ -45,6 +45,15 @@ Avg Memory Size: 184 MB
 --------------------------------------------
 Avg Ephemeral Storage Size: 544 MB
 --------------------------------------------
+Lambda Distribution by Application Log Level
+ALL: 322 functions.
+DEBUG: 3 functions.
+ERROR: 5 functions.
+FATAL: 16 functions.
+INFO: 9 functions.
+TRACE: 5 functions.
+WARN: 21 functions.
+--------------------------------------------
 Lambda Distribution by Architecture
 arm64: 80 functions.
 x86_64: 16 functions.
