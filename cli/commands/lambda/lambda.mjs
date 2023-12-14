@@ -5,6 +5,7 @@ import { runFullLambdaAnalysis } from "./lambda-all.mjs";
 // Counting strategies
 import { countAccountFunctions } from "./count-account-functions.mjs";
 // Distribution strategies
+import { getFunctionDistributionByAppLogLevel } from "./distribution-by-app-log-level.mjs";
 import { getFunctionDistributionByArchitecture } from "./distribution-by-architecture.mjs";
 import { getFunctionDistributionByEphemeralStorage } from "./distribution-by-ephemeral-storage.mjs";
 import { getFunctionDistributionByMemory } from "./distribution-by-memory.mjs";
@@ -76,6 +77,12 @@ export const LAMBDA_STRATEGIES = [
     execute: getAverageEphemeralStorageSize,
   },
   // Distributions
+  {
+    key: "lambda-app-log-lvl-distribution",
+    desc: "Get Lambda function distribution by application log-level distribution.",
+    extractorKey: LAMBDAS_EXTRACTOR,
+    execute: getFunctionDistributionByAppLogLevel,
+  },
   {
     key: "lambda-architecture-distribution",
     desc: "Get Lambda function distribution by system architecture",

@@ -66,10 +66,15 @@ export default defineConfig({
                   },
                 ],
               },
+              // Distribution Analysis
               {
                 text: "Distribution Analysis",
                 collapsed: true,
                 items: [
+                  {
+                    text: "lambda-app-log-lvl-distribution",
+                    link: "/lambda/distribution/lambda-app-log-lvl-distribution",
+                  },
                   {
                     text: "lambda-architecture-distribution",
                     link: "/lambda/distribution/lambda-architecture-distribution",
