@@ -1,4 +1,4 @@
-# sana (SErverless aNAlyzer)
+# sana (Serverless ANAlyzer)
 
 [![npm version](https://badge.fury.io/js/@serverless-ninja%2Fsana.svg)](https://badge.fury.io/js/@serverless-ninja%2Fsana)
 
