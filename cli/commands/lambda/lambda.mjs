@@ -16,6 +16,7 @@ import { getFunctionDistributionByTracingMode } from "./distribution-by-tracing-
 import { getFunctionDistributionByLayerCount } from "./distribution-by-attached-layer-count.mjs";
 import { getFunctionDLQDistribution } from "./distribution-by-dlq.mjs";
 import { getFunctionDistributionByLogFormat } from "./distribution-by-log-format.mjs";
+import { getFunctionDistributionBySysLogLevel } from "./distribution-by-sys-log-level.mjs";
 import { getFunctionVPCDistribution } from "./distribution-by-vpc.mjs";
 // Average strategies
 import { getAveragePackageSize } from "./average-package-size.mjs";
@@ -136,6 +137,12 @@ export const LAMBDA_STRATEGIES = [
     desc: "Get Lambda function distribution by runtime.",
     extractorKey: LAMBDAS_EXTRACTOR,
     execute: getFunctionRuntimeDistribution,
+  },
+  {
+    key: "lambda-sys-log-lvl-distribution",
+    desc: "Get Lambda function distribution by system log-level distribution.",
+    extractorKey: LAMBDAS_EXTRACTOR,
+    execute: getFunctionDistributionBySysLogLevel,
   },
   {
     key: "lambda-tracing-mode-distribution",

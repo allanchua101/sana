@@ -1,24 +1,21 @@
 import { reduceByProp } from "#helpers/reducers/reduce-by-prop.mjs";
 import { displayDistributionChart } from "#helpers/visualizers/chart.mjs";
-const OUTPUT_LABEL = "Lambda Distribution by Application Log Level";
+const OUTPUT_LABEL = "Lambda Distribution by System Log Level";
 
 /**
  * @async
- * @function getFunctionDistributionByAppLogLevel
- * @description Method used for retrieving the function distribution by application log level.
+ * @function getFunctionDistributionBySysLogLevel
+ * @description Method used for retrieving the function distribution by system log level.
  * @param {object} params CLI-parameters (For future enhancements)
  * @param {object[]} functions List of lambda functions
  * @param {object} logger Logger instance
  */
-export async function getFunctionDistributionByAppLogLevel(
+export async function getFunctionDistributionBySysLogLevel(
   params,
   functions = [],
   logger
 ) {
-  const distribution = reduceByProp(
-    functions,
-    "LoggingConfig.ApplicationLogLevel"
-  );
+  const distribution = reduceByProp(functions, "LoggingConfig.SystemLogLevel");
 
   if (params.output === "chart") {
     displayDistributionChart({
