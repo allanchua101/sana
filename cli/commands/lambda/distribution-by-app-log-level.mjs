@@ -15,10 +15,13 @@ export async function getFunctionDistributionByAppLogLevel(
   functions = [],
   logger
 ) {
-  const distribution = reduceByProp(
-    functions,
-    "LoggingConfig.ApplicationLogLevel"
-  );
+  const temp = reduceByProp(functions, "LoggingConfig.ApplicationLogLevel");
+  const distribution = temp.map((t) => {
+    return {
+      ...t,
+      lbl: t.lbl || null,
+    };
+  });
 
   if (params.output === "chart") {
     displayDistributionChart({
