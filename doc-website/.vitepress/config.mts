@@ -112,6 +112,10 @@ export default defineConfig({
                     link: "/lambda/distribution/lambda-runtime-distribution",
                   },
                   {
+                    text: "lambda-sys-log-lvl-distribution",
+                    link: "/lambda/distribution/lambda-sys-log-lvl-distribution",
+                  },
+                  {
                     text: "lambda-tracing-mode-distribution",
                     link: "/lambda/distribution/lambda-tracing-mode-distribution",
                   },

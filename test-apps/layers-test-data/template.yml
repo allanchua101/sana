@@ -34,6 +34,7 @@ Resources:
       LoggingConfig:
         LogFormat: "JSON"
         ApplicationLogLevel: "INFO"
+        SystemLogLevel: "WARN"
       DeadLetterQueue:
         Type: SQS
         TargetArn: !GetAtt GlobalAppDLQ.Arn 
@@ -54,6 +55,7 @@ Resources:
       LoggingConfig:
         LogFormat: "JSON"
         ApplicationLogLevel: "WARN"
+        SystemLogLevel: "DEBUG"
       DeadLetterQueue:
         Type: SQS
         TargetArn: !GetAtt GlobalAppDLQ.Arn 

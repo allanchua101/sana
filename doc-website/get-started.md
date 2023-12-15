@@ -46,7 +46,6 @@ Avg Memory Size: 184 MB
 Avg Ephemeral Storage Size: 544 MB
 --------------------------------------------
 Lambda Distribution by Application Log Level
-ALL: 322 functions.
 DEBUG: 3 functions.
 ERROR: 5 functions.
 FATAL: 16 functions.
@@ -92,6 +91,11 @@ nodejs14.x: 5 functions (31.25%)
 nodejs16.x: 4 functions (25.00%)
 nodejs18.x: 3 functions (18.75%)
 nodejs20.x: 4 functions (25.00%)
+--------------------------------------------
+Lambda Distribution by System Log Level
+DEBUG: 24 functions
+INFO: 32 functions
+WARN: 44 functions
 --------------------------------------------
 Lambda Distribution by Tracing Mode
 PassThrough: 450 functions
