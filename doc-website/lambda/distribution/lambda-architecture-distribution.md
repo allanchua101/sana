@@ -16,10 +16,10 @@ $ sana lambda-architecture-distribution
 
 ## Tips
 
-- ARM64 processors are generally more energy-efficient than their x86-64 counterparts, leading to lower energy costs.
-- ARM64 is based on a RISC (Reduced Instruction Set Computing) architecture, which is typically simpler and more power-efficient than the CISC (Complex Instruction Set Computing) architecture used in x86-64.
+- ARM64 functions are generally more energy-efficient than their x86_64 counterparts, leading to lower energy costs.
+- ARM64 is based on a RISC (Reduced Instruction Set Computing) architecture, which is typically simpler and more power-efficient than the CISC (Complex Instruction Set Computing) architecture used in x86_64.
 - Regardless of the lambda runtime you have, you'll gain performance while saving on cost.
-- If you are building latency constrained or memory-heavy workloads, stick with x86_x64.
+- If you are building latency constrained or memory-heavy workloads, stick with x86_64.
 
 ## Related Benchmarks and Materials
 

@@ -23,6 +23,10 @@ $ sana lambda-sys-log-lvl-distribution
 - Useful for analyzing account-level or region-level compliance to logging policies.
 - Useful for measuring system-level logging adoption rates across functions.
 
+## Analyze Logging KPIs
+
+Use the [`lambda-logging-kpis`](/lambda/concepts/logging-kpis) command to run all logging-related commands including.
+
 ## Tips
 
 - Without log level filtering, you will capture all log messages, including potentially verbose debugging information. This can result in a significant increase in log volume.
