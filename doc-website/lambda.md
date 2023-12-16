@@ -21,6 +21,8 @@ $ sana lambda -r us-east-1,us-east-2,us-west-2
 
 ### KPI-Specific Commands
 
+- Aliases
+  - [lambda-logging-kpis](/lambda/aliases/logging-kpis)
 - Aggregation
   - [lambda-avg-ephemeral-storage-size](/lambda/aggregation/lambda-avg-ephemeral-storage-size)
   - [lambda-avg-memory-size](/lambda/aggregation/lambda-avg-memory-size)

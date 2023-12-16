@@ -36,13 +36,14 @@ export default defineConfig({
             link: "/lambda",
             collapsed: true,
             items: [
-              // Concepts
+              // Aliases
               {
-                text: "Combined Commands",
+                text: "Aliases",
+                collapsed: true,
                 items: [
                   {
                     text: "lambda-logging-kpis",
-                    link: "/lambda/concepts/logging-kpis",
+                    link: "/lambda/aliases/logging-kpis",
                   },
                 ],
               },

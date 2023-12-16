@@ -1,6 +1,6 @@
 # `sana lambda-logging-kpis`
 
-Use this command to get a quick overview of logging-related metrics in your target account/region:
+Use this command to get a quick overview of logging-related metrics for Lambda functions in the target account/region.
 
 ```sh
 $ sana lambda-logging-kpis
@@ -35,3 +35,11 @@ null: 12 functions.
 --------------------------------------------
 Done!
 ```
+
+## Combined Commands
+
+This alias combines the following commands:
+
+- [lambda-app-log-lvl-distribution](/lambda/distribution/lambda-app-log-lvl-distribution)
+- [lambda-log-format-distribution](/lambda/distribution/lambda-log-format-distribution)
+- [lambda-sys-log-lvl-distribution](/lambda/distribution/lambda-sys-log-lvl-distribution)
