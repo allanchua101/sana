@@ -36,6 +36,17 @@ export default defineConfig({
             link: "/lambda",
             collapsed: true,
             items: [
+              // Concepts
+              {
+                text: "Combined Commands",
+                items: [
+                  {
+                    text: "lambda-logging-kpis",
+                    link: "/lambda/concepts/logging-kpis",
+                  },
+                ],
+              },
+              // Aggregation
               {
                 text: "Aggregation",
                 collapsed: true,
