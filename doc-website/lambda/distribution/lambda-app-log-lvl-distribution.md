@@ -28,7 +28,7 @@ $ sana lambda-app-log-lvl-distribution
 
 ## Analyze Logging KPIs
 
-Use the [`lambda-logging-kpis`](/lambda/concepts/logging-kpis) command to run all logging-related commands including.
+Use the [`lambda-logging-kpis`](/lambda/concepts/logging-kpis) command to run all logging-related commands.
 
 ## Tips
 
