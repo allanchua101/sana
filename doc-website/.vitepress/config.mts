@@ -116,6 +116,10 @@ export default defineConfig({
                     link: "/lambda/distribution/lambda-sys-log-lvl-distribution",
                   },
                   {
+                    text: "lambda-snapstart-status-distribution",
+                    link: "/lambda/distribution/lambda-snapstart-status-distribution",
+                  },
+                  {
                     text: "lambda-tracing-mode-distribution",
                     link: "/lambda/distribution/lambda-tracing-mode-distribution",
                   },

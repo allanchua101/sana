@@ -71,6 +71,10 @@ import{_ as s,o as a,c as i,R as n}from"./chunks/framework.KK7BHIzh.js";const g=
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">nodejs18.x: 3 functions (18.75%)</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">nodejs20.x: 4 functions (25.00%)</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">--------------------------------------------</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">Lambda Distribution by SnapStart</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">Off: 18 functions.</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">On: 0 functions.</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">--------------------------------------------</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">Lambda Distribution by System Log Level</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">DEBUG: 24 functions</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">INFO: 32 functions</span></span>

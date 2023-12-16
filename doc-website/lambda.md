@@ -39,6 +39,7 @@ $ sana lambda -r us-east-1,us-east-2,us-west-2
   - [lambda-package-type-distribution](/lambda/distribution/lambda-package-type-distribution)
   - [lambda-region-distribution](/lambda/distribution/lambda-region-distribution)
   - [lambda-runtime-distribution](/lambda/distribution/lambda-runtime-distribution)
+  - [lambda-snapstart-status-distribution](/lambda/distribution/lambda-snapstart-status-distribution)
   - [lambda-sys-log-lvl-distribution](/lambda/distribution/lambda-sys-log-lvl-distribution)
   - [lambda-tracing-mode-distribution](/lambda/distribution/lambda-tracing-mode-distribution)
   - [lambda-vpc-distribution](/lambda/distribution/lambda-vpc-distribution)
