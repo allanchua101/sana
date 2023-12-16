@@ -92,6 +92,10 @@ nodejs16.x: 4 functions (25.00%)
 nodejs18.x: 3 functions (18.75%)
 nodejs20.x: 4 functions (25.00%)
 --------------------------------------------
+Lambda Distribution by SnapStart
+Off: 18 functions.
+On: 0 functions.
+--------------------------------------------
 Lambda Distribution by System Log Level
 DEBUG: 24 functions
 INFO: 32 functions
