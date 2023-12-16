@@ -1,6 +1,6 @@
 # `sana lambda-logging-kpis`
 
-Use the this command to get a quick overview of Logging-related metrics in your target account/region:
+Use this command to get a quick overview of logging-related metrics in your target account/region:
 
 ```sh
 $ sana lambda-logging-kpis
