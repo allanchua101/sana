@@ -18,6 +18,7 @@ import { getFunctionDLQDistribution } from "./distribution-by-dlq.mjs";
 import { getFunctionDistributionByLogFormat } from "./distribution-by-log-format.mjs";
 import { getFunctionDistributionBySysLogLevel } from "./distribution-by-sys-log-level.mjs";
 import { getFunctionVPCDistribution } from "./distribution-by-vpc.mjs";
+import { getFunctionDistributionBySnapStartStatus } from "./distribution-by-snap-start-status.mjs";
 // Average strategies
 import { getAveragePackageSize } from "./average-package-size.mjs";
 import { getAverageTimeout } from "./average-timeout.mjs";
@@ -137,6 +138,12 @@ export const LAMBDA_STRATEGIES = [
     desc: "Get Lambda function distribution by runtime.",
     extractorKey: LAMBDAS_EXTRACTOR,
     execute: getFunctionRuntimeDistribution,
+  },
+  {
+    key: "lambda-snapstart-status-distribution",
+    desc: "Get Lambda function distribution by SnapStart status",
+    extractorKey: LAMBDAS_EXTRACTOR,
+    execute: getFunctionDistributionBySnapStartStatus,
   },
   {
     key: "lambda-sys-log-lvl-distribution",
