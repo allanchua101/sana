@@ -3,7 +3,7 @@ import { LAMBDA_STRATEGIES } from "./lambda.mjs";
 /**
  * @async
  * @function runFullDynamoDBAnalysis
- * @description Method used for running all DynamoDB analysis
+ * @description Method used for running all Lambda-related analysis
  * @param {object} params CLI-parameters (For future enhancements)
  * @param {object[]} functions Lambda functions
  * @param {object} logger Logger instance
