@@ -46,6 +46,10 @@ export default defineConfig({
                     text: "lambda-logging-kpis",
                     link: "/lambda/aliases/logging-kpis",
                   },
+                  {
+                    text: "lambda-vpc-kpis",
+                    link: "/lambda/aliases/vpc-kpis",
+                  },
                 ],
               },
               // Aggregation
@@ -123,6 +127,10 @@ export default defineConfig({
                   {
                     text: "lambda-runtime-distribution",
                     link: "/lambda/distribution/lambda-runtime-distribution",
+                  },
+                  {
+                    text: "lambda-security-group-distribution",
+                    link: "/lambda/distribution/lambda-security-group-distribution",
                   },
                   {
                     text: "lambda-sys-log-lvl-distribution",
