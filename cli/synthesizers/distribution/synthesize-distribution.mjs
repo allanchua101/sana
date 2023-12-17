@@ -4,7 +4,7 @@ import { synthesizeCliDistributionTable } from "#synthesizers/distribution/cli-t
 
 export function synthesizeDistribution(params) {
   const cleanInput = {
-    output: "",
+    output: "text",
     entity: "",
     ...params,
   };
@@ -27,7 +27,9 @@ export function synthesizeDistribution(params) {
     return;
   }
 
-  synthesizeCliDistributionText(title, entity, distribution, logger);
+  if (output === "text") {
+    synthesizeCliDistributionText(title, entity, distribution, logger);
+  }
 
   return;
 }

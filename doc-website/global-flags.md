@@ -40,11 +40,22 @@ $ sana lambda-runtime-distribution --output chart
 
 # short-hand syntax
 $ sana lambda-runtime-distribution -o chart
+
+# By not passing a value, raw text is printed in the console
+$ sana lambda-vpc-distribution
+
+# The previous command is equal to this syntax
+$ sana lambda-vpc-distribution -o text
+
+# By passing cli-table, you get a well formatted table in the terminal
+$ sana lambda-region-distribution -o cli-table
 ```
 
 Valid Inputs:
 
+- `text` (default): prints out results in raw text
 - `chart`: prints out a cli-based horizontal chart for distribution commands
+- `cli-table`: prints out a cli-based table for distribution commands.
 
 ## `--no-progress-bar`
 
