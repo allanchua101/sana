@@ -7,12 +7,12 @@ hero:
   text: "Analyze your AWS account's serverless resources"
   tagline: Designed by AWS serverless engineers, for AWS serverless engineers
   actions:
-    - theme: alt
-      text: Installation
-      link: /installation
     - theme: brand
       text: Get Started
       link: /get-started
+    - theme: alt
+      text: View on Github
+      link: https://github.com/allanchua101/sana
 features:
   - title: Account-wide Scanning
     details: Rapidly scan an entire account's serverless resources without leaving your VSCode
