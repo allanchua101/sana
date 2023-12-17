@@ -69,26 +69,34 @@ program
         return agg;
       }, []);
       const regions = await getAccountRegions(params, credentials);
-      const dataStore = [];
+      const dataCache = [];
 
       for (let i = 0, len = extractors.length; i < len; i++) {
         const extractor = extractors[i];
         const results = await extractor.execute(credentials, regions);
 
-        dataStore.push({
+        dataCache.push({
           key: extractor.key,
           data: results,
         });
       }
 
+      const transformedData = [];
+
       for (let t = 0, len = transformers.length; t < len; t++) {
         const transformer = transformers[t];
-        const { data } = dataStore.find(
+        const { data } = dataCache.find(
           (d) => d.key === transformer.extractorKey
         );
+        const result = await transformer.execute(params, data, logger);
 
-        await transformer.execute(params, data, logger);
+        transformedData.push({
+          key: transformer.extractorKey,
+          data: result,
+        });
       }
+
+      // TODO: Add support for JSON, CSV and PDF report later
 
       logger.log(`Done!`);
       process.exit(0);
