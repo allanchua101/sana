@@ -185,5 +185,18 @@ export default defineConfig({
     socialLinks: [
       { icon: "github", link: "https://github.com/allanchua101/sana" },
     ],
+
+    lastUpdated: {
+      text: "Updated at",
+      formatOptions: {
+        dateStyle: "full",
+        timeStyle: "medium",
+      },
+    },
+
+    footer: {
+      message: "Released under the Apache 2.0 License.",
+      copyright: "Copyright © 2023-present Allan Chua",
+    },
   },
 });

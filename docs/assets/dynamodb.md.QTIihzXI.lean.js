@@ -1,1 +1,0 @@
-import{_ as s,o as a,c as i,R as n}from"./chunks/framework.KK7BHIzh.js";const b=JSON.parse('{"title":"sana ddb","description":"","frontmatter":{},"headers":[],"relativePath":"dynamodb.md","filePath":"dynamodb.md"}'),t={name:"dynamodb.md"},e=n("",8),l=[e];function d(h,p,o,r,c,k){return a(),i("div",null,l)}const g=s(t,[["render",d]]);export{b as __pageData,g as default};
