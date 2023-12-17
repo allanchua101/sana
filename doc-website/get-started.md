@@ -33,81 +33,85 @@ Running the following command(s) using the default profile ☕...
 Scanning Lambda Functions from account regions |████████████████████████████████████████| 100% | ETA: 0s | 17/17
 Running Full Lambda Analysis
 --------------------------------------------
-Found 16 functions in the account.
+Found 18 functions in the account.
 --------------------------------------------
-Avg Package Size: 561.75 Bytes
+Avg Package Size: 695 Bytes
 --------------------------------------------
-Max Package Size: 54.72 MB
+Max Package Size: 1.53 KB
 --------------------------------------------
-Avg Function Timeout: 8.25 seconds
+Avg Function Timeout: 7.67 seconds
 --------------------------------------------
-Avg Memory Size: 184 MB
+Avg Memory Size: 177.78 MB
 --------------------------------------------
-Avg Ephemeral Storage Size: 544 MB
+Avg Ephemeral Storage Size: 540.44 MB
 --------------------------------------------
 Lambda Distribution by Application Log Level
-DEBUG: 3 functions.
-ERROR: 5 functions.
-FATAL: 16 functions.
-INFO: 9 functions.
-TRACE: 5 functions.
-WARN: 21 functions.
+DEBUG: 1 Lambda functions (5.56%)
+ERROR: 1 Lambda functions (5.56%)
+FATAL: 1 Lambda functions (5.56%)
+INFO: 1 Lambda functions (5.56%)
+TRACE: 1 Lambda functions (5.56%)
+WARN: 1 Lambda functions (5.56%)
+null: 12 Lambda functions (66.67%)
 --------------------------------------------
 Lambda Distribution by Architecture
-arm64: 80 functions.
-x86_64: 16 functions.
+arm64: 0 Lambda functions (0%)
+x86_64: 18 Lambda functions (100.00%)
 --------------------------------------------
-Lambda Distribution by Number of Attached Layers
-0 Layers: 12 functions.
-1 Layers: 3 functions.
-3 Layers: 1 functions.
+Lambda Distribution by Number of Attached Lambda Layers
+0 Layers: 12 Lambda functions (66.67%)
+1 Layers: 5 Lambda functions (27.78%)
+3 Layers: 1 Lambda functions (5.56%)
 --------------------------------------------
 Lambda Distribution by DLQ
-arn:aws:sqs:us-east-2::my-app-dlq: 4 functions.
-No DLQ: 12 functions.
+arn:aws:sqs:us-east-2::my-app-dlq: 6 Lambda functions (33.33%)
+No DLQ: 12 Lambda functions (66.67%)
 --------------------------------------------
 Lambda Distribution by Ephemeral Storage
-512: 15 functions.
-1024: 1 functions.
+512 (512 MB): 17 Lambda functions (94.44%)
+1024 (1 GB): 1 Lambda functions (5.56%)
 --------------------------------------------
 Lambda Distribution by Log Format
-JSON: 1 functions.
-Text: 15 functions.
+JSON: 6 Lambda functions (33.33%)
+Text: 12 Lambda functions (66.67%)
 --------------------------------------------
 Lambda Distribution by Memory
-128: 15 functions.
-1024: 1 functions.
+128 MB: 17 Lambda functions (94.44%)
+1 GB: 1 Lambda functions (5.56%)
 --------------------------------------------
 Lambda Distribution by Package Type
-Zip: 16 functions.
+Zip: 18 Lambda functions (100.00%)
 --------------------------------------------
 Lambda Distribution by Region
-ap-southeast-1: 4 functions.
-us-east-1: 8 functions.
-us-east-2: 4 functions.
+ap-southeast-1: 4 Lambda functions (22.22%)
+us-east-1: 8 Lambda functions (44.44%)
+us-east-2: 6 Lambda functions (33.33%)
 --------------------------------------------
 Lambda Distribution by Runtime
-nodejs14.x: 5 functions (31.25%)
-nodejs16.x: 4 functions (25.00%)
-nodejs18.x: 3 functions (18.75%)
-nodejs20.x: 4 functions (25.00%)
+nodejs14.x: 5 Lambda functions (27.78%)
+nodejs16.x: 4 Lambda functions (22.22%)
+nodejs18.x: 3 Lambda functions (16.67%)
+nodejs20.x: 6 Lambda functions (33.33%)
+--------------------------------------------
+Lambda Distribution by Security Groups
+sg-xxxxxxv3: 2 Lambda functions (11.11%)
 --------------------------------------------
 Lambda Distribution by SnapStart
-Off: 18 functions.
-On: 0 functions.
+Off: 18 Lambda functions (100.00%)
+On: 0 Lambda functions (0%)
 --------------------------------------------
 Lambda Distribution by System Log Level
-DEBUG: 24 functions
-INFO: 32 functions
-WARN: 44 functions
+DEBUG: 1 Lambda functions (5.56%)
+INFO: 4 Lambda functions (22.22%)
+WARN: 1 Lambda functions (5.56%)
+null: 12 Lambda functions (66.67%)
 --------------------------------------------
 Lambda Distribution by Tracing Mode
-PassThrough: 450 functions
-Active: 280 functions
+PassThrough: 18 Lambda functions (100.00%)
 --------------------------------------------
 Lambda Distribution by VPC
-vpc-xxxxxx: 1 functions.
-No VPC: 15 functions.
+vpc-xxxxx32: 2 Lambda functions (11.11%)
+No VPC: 16 Lambda functions (88.89%)
 --------------------------------------------
 Done!
 ```
