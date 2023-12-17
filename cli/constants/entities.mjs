@@ -1,4 +1,4 @@
 export default {
-  LAMBDA_FUNCTIONS: "Lambda functions",
-  DYNAMODB_TABLES: "DynamoDB tables",
+  LAMBDA_FUNCTIONS: "Lambda function",
+  DYNAMODB_TABLES: "DynamoDB table",
 };

@@ -1,6 +1,5 @@
 import { reduceByProp } from "#helpers/reducers/reduce-by-prop.mjs";
-import { displayDistributionChart } from "#helpers/visualizers/chart.mjs";
-import { synthesizeCliDistributionText } from "#synthesizers/distribution/cli-text-synthesizer.mjs";
+import { synthesizeDistribution } from "#synthesizers/distribution/synthesize-distribution.mjs";
 import { mbToHumanReadableMetric } from "#helpers/formatters/mb-to-human-readable-metric.mjs";
 import ENTITIES from "#constants/entities.mjs";
 const OUTPUT_LABEL = "Lambda Distribution by Ephemeral Storage";
@@ -28,24 +27,14 @@ export async function getFunctionDistributionByEphemeralStorage(
     }
   );
 
-  if (params.output === "chart") {
-    displayDistributionChart({
-      title: OUTPUT_LABEL,
-      distribution,
-      array: functions,
-      logger,
-    });
-    logger.logSeparator();
-
-    return distribution;
-  }
-
-  synthesizeCliDistributionText(
-    OUTPUT_LABEL,
-    ENTITIES.LAMBDA_FUNCTIONS,
+  synthesizeDistribution({
+    title: OUTPUT_LABEL,
     distribution,
-    logger
-  );
+    array: functions,
+    logger,
+    entity: ENTITIES.LAMBDA_FUNCTIONS,
+    output: params.output,
+  });
 
   return distribution;
 }
