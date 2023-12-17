@@ -1,5 +1,7 @@
 import { reduceByProp } from "#helpers/reducers/reduce-by-prop.mjs";
-import { displayDistributionChart } from "#helpers/visualizers/chart.mjs";
+import { synthesizeDistribution } from "#synthesizers/distribution/synthesize-distribution.mjs";
+import ENTITIES from "#constants/entities.mjs";
+const OUTPUT_LABEL = "DynamoDB Table Distribution by Region";
 
 /**
  * @async
@@ -12,23 +14,14 @@ import { displayDistributionChart } from "#helpers/visualizers/chart.mjs";
 export async function getDDBDistributionByRegion(params, tables, logger) {
   const distribution = reduceByProp(tables, "sana.region");
 
-  if (params.output === "chart") {
-    displayDistributionChart({
-      title: "DynamoDB Table Distribution by Region",
-      distribution,
-      array: tables,
-      logger,
-    });
-    logger.logSeparator();
-
-    return distribution;
-  }
-
-  logger.logResults("Distribution by Region");
-  distribution.forEach((d) => {
-    logger.logResults(`${d.lbl}: ${d.count} tables.`);
+  synthesizeDistribution({
+    title: OUTPUT_LABEL,
+    distribution,
+    array: tables,
+    logger,
+    entity: ENTITIES.LAMBDA_FUNCTIONS,
+    output: params.output,
   });
-  logger.logSeparator();
 
   return distribution;
 }

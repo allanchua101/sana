@@ -1,5 +1,6 @@
 import { reduceByProp } from "#helpers/reducers/reduce-by-prop.mjs";
-import { displayDistributionChart } from "#helpers/visualizers/chart.mjs";
+import { synthesizeDistribution } from "#synthesizers/distribution/synthesize-distribution.mjs";
+import ENTITIES from "#constants/entities.mjs";
 const BUCKETS = [
   "ACTIVE",
   "CREATING",
@@ -7,6 +8,8 @@ const BUCKETS = [
   "DELETING",
   "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
 ];
+const OUTPUT_LABEL = "DynamoDB Table Distribution by Status";
+
 /**
  * @async
  * @function getDDBDistributionByTableStatus
@@ -31,23 +34,14 @@ export async function getDDBDistributionByTableStatus(
     };
   });
 
-  if (params.output === "chart") {
-    displayDistributionChart({
-      title: "DynamoDB Table Distribution by Status",
-      distribution,
-      array: tables,
-      logger,
-    });
-    logger.logSeparator();
-
-    return distribution;
-  }
-
-  logger.logResults("Distribution by Table Status");
-  distribution.forEach((d) => {
-    logger.logResults(`${d.lbl}: ${d.count} tables.`);
+  synthesizeDistribution({
+    title: OUTPUT_LABEL,
+    distribution,
+    array: tables,
+    logger,
+    entity: ENTITIES.LAMBDA_FUNCTIONS,
+    output: params.output,
   });
-  logger.logSeparator();
 
   return distribution;
 }
