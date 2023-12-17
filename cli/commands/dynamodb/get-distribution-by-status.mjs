@@ -39,7 +39,7 @@ export async function getDDBDistributionByTableStatus(
     distribution,
     array: tables,
     logger,
-    entity: ENTITIES.LAMBDA_FUNCTIONS,
+    entity: ENTITIES.DYNAMODB_TABLES,
     output: params.output,
   });
 
