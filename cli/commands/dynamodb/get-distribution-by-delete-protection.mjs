@@ -1,6 +1,8 @@
 import { reduceByProp } from "#helpers/reducers/reduce-by-prop.mjs";
-import { displayDistributionChart } from "#helpers/visualizers/chart.mjs";
+import { synthesizeDistribution } from "#synthesizers/distribution/synthesize-distribution.mjs";
+import ENTITIES from "#constants/entities.mjs";
 const BUCKETS = ["Delete Protection Enabled", "Delete Protection Disabled"];
+const OUTPUT_LABEL = "DynamoDB Table Distribution by Delete Protection";
 
 /**
  * @async
@@ -33,23 +35,14 @@ export async function getDDBDistributionByDeleteProtection(
     };
   });
 
-  if (params.output === "chart") {
-    displayDistributionChart({
-      title: "DynamoDB Table Distribution by Delete Protection",
-      distribution,
-      array: tables,
-      logger,
-    });
-    logger.logSeparator();
-
-    return distribution;
-  }
-
-  logger.logResults("Distribution by Delete Protection");
-  distribution.forEach((d) => {
-    logger.logResults(`${d.lbl}: ${d.count} tables.`);
+  synthesizeDistribution({
+    title: OUTPUT_LABEL,
+    distribution,
+    array: tables,
+    logger,
+    entity: ENTITIES.DYNAMODB_TABLES,
+    output: params.output,
   });
-  logger.logSeparator();
 
   return distribution;
 }

@@ -1,6 +1,5 @@
 import { reduceByItemInArrayProp } from "#helpers/reducers/reduce-by-item-in-array.mjs";
-import { displayDistributionChart } from "#helpers/visualizers/chart.mjs";
-import { synthesizeCliDistributionText } from "#synthesizers/distribution/cli-text-synthesizer.mjs";
+import { synthesizeDistribution } from "#synthesizers/distribution/synthesize-distribution.mjs";
 import ENTITIES from "#constants/entities.mjs";
 const BUCKETS = ["arm64", "x86_64"];
 const OUTPUT_LABEL = "Lambda Distribution by Architecture";
@@ -31,24 +30,14 @@ export async function getFunctionDistributionByArchitecture(
     return a.lbl > b.lbl ? 1 : -1;
   });
 
-  if (params.output === "chart") {
-    displayDistributionChart({
-      title: OUTPUT_LABEL,
-      distribution,
-      array: functions,
-      logger,
-    });
-    logger.logSeparator();
-
-    return distribution;
-  }
-
-  synthesizeCliDistributionText(
-    OUTPUT_LABEL,
-    ENTITIES.LAMBDA_FUNCTIONS,
+  synthesizeDistribution({
+    title: OUTPUT_LABEL,
     distribution,
-    logger
-  );
+    array: functions,
+    logger,
+    entity: ENTITIES.LAMBDA_FUNCTIONS,
+    output: params.output,
+  });
 
   return distribution;
 }
