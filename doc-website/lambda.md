@@ -23,6 +23,7 @@ $ sana lambda -r us-east-1,us-east-2,us-west-2
 
 - Aliases
   - [lambda-logging-kpis](/lambda/aliases/logging-kpis)
+  - [lambda-vpc-kpis](/lambda/aliases/vpc-kpis)
 - Aggregation
   - [lambda-avg-ephemeral-storage-size](/lambda/aggregation/lambda-avg-ephemeral-storage-size)
   - [lambda-avg-memory-size](/lambda/aggregation/lambda-avg-memory-size)
@@ -41,6 +42,7 @@ $ sana lambda -r us-east-1,us-east-2,us-west-2
   - [lambda-package-type-distribution](/lambda/distribution/lambda-package-type-distribution)
   - [lambda-region-distribution](/lambda/distribution/lambda-region-distribution)
   - [lambda-runtime-distribution](/lambda/distribution/lambda-runtime-distribution)
+  - [lambda-security-group-distribution](/lambda/distribution/lambda-security-group-distribution)
   - [lambda-snapstart-status-distribution](/lambda/distribution/lambda-snapstart-status-distribution)
   - [lambda-sys-log-lvl-distribution](/lambda/distribution/lambda-sys-log-lvl-distribution)
   - [lambda-tracing-mode-distribution](/lambda/distribution/lambda-tracing-mode-distribution)
