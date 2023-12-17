@@ -4,29 +4,31 @@ import { getAccountLambdaFunctions } from "#helpers/get-account-lambda-functions
 import { runFullLambdaAnalysis } from "./lambda-all.mjs";
 // Aliases
 import { getLambdaLogKPIs } from "./lambda-logs.mjs";
+import { getLambdaVpcKPIs } from "./lambda-vpc.mjs";
 // Counting strategies
-import { countAccountFunctions } from "./count-account-functions.mjs";
+import { countAccountFunctions } from "./aggregators/count-account-functions.mjs";
 // Distribution strategies
-import { getFunctionDistributionByAppLogLevel } from "./distribution-by-app-log-level.mjs";
-import { getFunctionDistributionByArchitecture } from "./distribution-by-architecture.mjs";
-import { getFunctionDistributionByEphemeralStorage } from "./distribution-by-ephemeral-storage.mjs";
-import { getFunctionDistributionByMemory } from "./distribution-by-memory.mjs";
-import { getFunctionDistributionByPackageType } from "./distribution-by-package-type.mjs";
-import { getFunctionRegionDistribution } from "./distribution-by-region.mjs";
-import { getFunctionRuntimeDistribution } from "./distribution-by-runtime.mjs";
-import { getFunctionDistributionByTracingMode } from "./distribution-by-tracing-mode.mjs";
-import { getFunctionDistributionByLayerCount } from "./distribution-by-attached-layer-count.mjs";
-import { getFunctionDLQDistribution } from "./distribution-by-dlq.mjs";
-import { getFunctionDistributionByLogFormat } from "./distribution-by-log-format.mjs";
-import { getFunctionDistributionBySysLogLevel } from "./distribution-by-sys-log-level.mjs";
-import { getFunctionVPCDistribution } from "./distribution-by-vpc.mjs";
-import { getFunctionDistributionBySnapStartStatus } from "./distribution-by-snap-start-status.mjs";
+import { getFunctionDistributionByAppLogLevel } from "./distribution/by-app-log-level.mjs";
+import { getFunctionDistributionByArchitecture } from "./distribution/by-architecture.mjs";
+import { getFunctionDistributionByEphemeralStorage } from "./distribution/by-ephemeral-storage.mjs";
+import { getFunctionDistributionByMemory } from "./distribution/by-memory.mjs";
+import { getFunctionDistributionByPackageType } from "./distribution/by-package-type.mjs";
+import { getFunctionRegionDistribution } from "./distribution/by-region.mjs";
+import { getFunctionRuntimeDistribution } from "./distribution/by-runtime.mjs";
+import { getFunctionDistributionBySG } from "./distribution/by-security-group.mjs";
+import { getFunctionDistributionByTracingMode } from "./distribution/by-tracing-mode.mjs";
+import { getFunctionDistributionByLayerCount } from "./distribution/by-attached-layer-count.mjs";
+import { getFunctionDLQDistribution } from "./distribution/by-dlq.mjs";
+import { getFunctionDistributionByLogFormat } from "./distribution/by-log-format.mjs";
+import { getFunctionDistributionBySysLogLevel } from "./distribution/by-sys-log-level.mjs";
+import { getFunctionVPCDistribution } from "./distribution/by-vpc.mjs";
+import { getFunctionDistributionBySnapStartStatus } from "./distribution/by-snap-start-status.mjs";
 // Average strategies
-import { getAveragePackageSize } from "./average-package-size.mjs";
-import { getAverageTimeout } from "./average-timeout.mjs";
-import { getAverageMemorySize } from "./average-memory-size.mjs";
-import { getAverageEphemeralStorageSize } from "./average-ephemeral-storage-size.mjs";
-import { getMaxPackageSize } from "./max-package-size.mjs";
+import { getAveragePackageSize } from "./aggregators/average-package-size.mjs";
+import { getAverageTimeout } from "./aggregators/average-timeout.mjs";
+import { getAverageMemorySize } from "./aggregators/average-memory-size.mjs";
+import { getAverageEphemeralStorageSize } from "./aggregators/average-ephemeral-storage-size.mjs";
+import { getMaxPackageSize } from "./aggregators/max-package-size.mjs";
 // Constants
 import GLOBAL_TAGS from "#constants/global-tags.mjs";
 const LAMBDAS_EXTRACTOR = "get-all-lambdas";
@@ -53,6 +55,14 @@ export const LAMBDA_STRATEGIES = [
     execute: getLambdaLogKPIs,
     tags: [GLOBAL_TAGS.LAMBDA, GLOBAL_TAGS.ALIAS],
   },
+  {
+    key: "lambda-vpc-kpis",
+    desc: "Run VPC-related analysis of Lambda functions",
+    extractorKey: LAMBDAS_EXTRACTOR,
+    execute: getLambdaVpcKPIs,
+    tags: [GLOBAL_TAGS.LAMBDA, GLOBAL_TAGS.ALIAS],
+  },
+  // Aggregators
   {
     key: "lambda-count",
     desc: "Count Lambda function count.",
@@ -168,6 +178,13 @@ export const LAMBDA_STRATEGIES = [
     tags: [GLOBAL_TAGS.LAMBDA],
   },
   {
+    key: "lambda-security-group-distribution",
+    desc: "Get Lambda function distribution by security group",
+    extractorKey: LAMBDAS_EXTRACTOR,
+    execute: getFunctionDistributionBySG,
+    tags: [GLOBAL_TAGS.LAMBDA, GLOBAL_TAGS.VPC],
+  },
+  {
     key: "lambda-snapstart-status-distribution",
     desc: "Get Lambda function distribution by SnapStart status",
     extractorKey: LAMBDAS_EXTRACTOR,
@@ -193,6 +210,6 @@ export const LAMBDA_STRATEGIES = [
     desc: "Get Lambda function distribution by VPC",
     extractorKey: LAMBDAS_EXTRACTOR,
     execute: getFunctionVPCDistribution,
-    tags: [GLOBAL_TAGS.LAMBDA],
+    tags: [GLOBAL_TAGS.LAMBDA, GLOBAL_TAGS.VPC],
   },
 ];

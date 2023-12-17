@@ -1,21 +1,23 @@
 import { reduceByProp } from "#helpers/reducers/reduce-by-prop.mjs";
 import { displayDistributionChart } from "#helpers/visualizers/chart.mjs";
-const OUTPUT_LABEL = "Lambda Distribution by Application Log Level";
+import { synthesizeCliDistributionText } from "#synthesizers/distribution/cli-text-synthesizer.mjs";
+import ENTITIES from "#constants/entities.mjs";
+const OUTPUT_LABEL = "Lambda Distribution by System Log Level";
 
 /**
  * @async
- * @function getFunctionDistributionByAppLogLevel
- * @description Method used for retrieving the function distribution by application log level.
+ * @function getFunctionDistributionBySysLogLevel
+ * @description Method used for retrieving the function distribution by system log level.
  * @param {object} params CLI-parameters (For future enhancements)
  * @param {object[]} functions List of lambda functions
  * @param {object} logger Logger instance
  */
-export async function getFunctionDistributionByAppLogLevel(
+export async function getFunctionDistributionBySysLogLevel(
   params,
   functions = [],
   logger
 ) {
-  const temp = reduceByProp(functions, "LoggingConfig.ApplicationLogLevel");
+  const temp = reduceByProp(functions, "LoggingConfig.SystemLogLevel");
   const distribution = temp.map((t) => {
     return {
       ...t,
@@ -35,11 +37,12 @@ export async function getFunctionDistributionByAppLogLevel(
     return distribution;
   }
 
-  logger.logResults(OUTPUT_LABEL);
-  distribution.forEach((d) => {
-    logger.logResults(`${d.lbl}: ${d.count} functions.`);
-  });
-  logger.logSeparator();
+  synthesizeCliDistributionText(
+    OUTPUT_LABEL,
+    ENTITIES.LAMBDA_FUNCTIONS,
+    distribution,
+    logger
+  );
 
   return distribution;
 }

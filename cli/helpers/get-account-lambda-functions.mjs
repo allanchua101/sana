@@ -43,6 +43,9 @@ export async function getAccountLambdaFunctions(credentials, regions = []) {
                 hasDLQ,
                 dlqArn: hasDLQ ? f.DeadLetterConfig.TargetArn : null,
                 VpcID: hasVPCConfig ? f.VpcConfig.VpcId : null,
+                SecurityGroupIds: hasVPCConfig
+                  ? f.VpcConfig.SecurityGroupIds
+                  : null,
               },
             };
           })

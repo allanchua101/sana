@@ -1,6 +1,8 @@
 import { reduceByProp } from "#helpers/reducers/reduce-by-prop.mjs";
 import { displayDistributionChart } from "#helpers/visualizers/chart.mjs";
-const OUTPUT_HEADER = "Lambda Distribution by VPC";
+import { synthesizeCliDistributionText } from "#synthesizers/distribution/cli-text-synthesizer.mjs";
+import ENTITIES from "#constants/entities.mjs";
+const OUTPUT_LABEL = "Lambda Distribution by VPC";
 
 /**
  * @async
@@ -20,7 +22,7 @@ export async function getFunctionVPCDistribution(params, functions, logger) {
 
   if (params.output === "chart") {
     displayDistributionChart({
-      title: OUTPUT_HEADER,
+      title: OUTPUT_LABEL,
       distribution,
       array: functions,
       logger,
@@ -30,11 +32,12 @@ export async function getFunctionVPCDistribution(params, functions, logger) {
     return distribution;
   }
 
-  logger.logResults(OUTPUT_HEADER);
-  distribution.forEach((d) => {
-    logger.logResults(`${d.lbl}: ${d.count} functions.`);
-  });
-  logger.logSeparator();
+  synthesizeCliDistributionText(
+    OUTPUT_LABEL,
+    ENTITIES.LAMBDA_FUNCTIONS,
+    distribution,
+    logger
+  );
 
   return distribution;
 }

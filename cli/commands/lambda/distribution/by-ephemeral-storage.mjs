@@ -1,6 +1,9 @@
-import { getAccountLambdaFunctions } from "#helpers/get-account-lambda-functions.mjs";
 import { reduceByProp } from "#helpers/reducers/reduce-by-prop.mjs";
 import { displayDistributionChart } from "#helpers/visualizers/chart.mjs";
+import { synthesizeCliDistributionText } from "#synthesizers/distribution/cli-text-synthesizer.mjs";
+import { mbToHumanReadableMetric } from "#helpers/formatters/mb-to-human-readable-metric.mjs";
+import ENTITIES from "#constants/entities.mjs";
+const OUTPUT_LABEL = "Lambda Distribution by Ephemeral Storage";
 
 /**
  * @async
@@ -15,11 +18,19 @@ export async function getFunctionDistributionByEphemeralStorage(
   functions,
   logger
 ) {
-  const distribution = reduceByProp(functions, "EphemeralStorage.Size");
+  const distribution = reduceByProp(functions, "EphemeralStorage.Size").map(
+    (category) => {
+      const lbl = mbToHumanReadableMetric(parseInt(category.lbl));
+      return {
+        ...category,
+        lbl: `${category.lbl} (${lbl})`,
+      };
+    }
+  );
 
   if (params.output === "chart") {
     displayDistributionChart({
-      title: "Lambda Distribution by Ephemeral Storage",
+      title: OUTPUT_LABEL,
       distribution,
       array: functions,
       logger,
@@ -29,11 +40,12 @@ export async function getFunctionDistributionByEphemeralStorage(
     return distribution;
   }
 
-  logger.logResults("Lambda Distribution by Ephemeral Storage");
-  distribution.forEach((d) => {
-    logger.logResults(`${d.lbl}: ${d.count} functions.`);
-  });
-  logger.logSeparator();
+  synthesizeCliDistributionText(
+    OUTPUT_LABEL,
+    ENTITIES.LAMBDA_FUNCTIONS,
+    distribution,
+    logger
+  );
 
   return distribution;
 }
