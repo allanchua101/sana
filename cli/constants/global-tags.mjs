@@ -1,5 +1,6 @@
 export default {
   LOGGING: "logs",
+  VPC: "vpc",
   ALIAS: "alias",
   // Services tags
   LAMBDA: "lambda",

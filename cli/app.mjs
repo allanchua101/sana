@@ -55,16 +55,18 @@ program
           return agg;
         }
 
-        const loader = extractionStrategies.find(
+        const extractor = extractionStrategies.find(
           (ls) => ls.key === item.extractorKey
         );
 
-        if (!loader) {
+        if (!extractor) {
           logger.error(`Unsupported data loader: ${item.extractorKey}`);
           process.exit(1);
         }
 
-        return [...agg, loader];
+        agg.push(extractor);
+
+        return agg;
       }, []);
       const regions = await getAccountRegions(params, credentials);
       const dataStore = [];

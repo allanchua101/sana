@@ -1,5 +1,8 @@
 import { reduceByProp } from "#helpers/reducers/reduce-by-prop.mjs";
 import { displayDistributionChart } from "#helpers/visualizers/chart.mjs";
+import { synthesizeCliDistributionText } from "#synthesizers/distribution/cli-text-synthesizer.mjs";
+import ENTITIES from "#constants/entities.mjs";
+const OUTPUT_LABEL = "Lambda Distribution by Region";
 
 /**
  * @async
@@ -18,7 +21,7 @@ export async function getFunctionRegionDistribution(
 
   if (params.output === "chart") {
     displayDistributionChart({
-      title: "Lambda Distribution by Region",
+      title: OUTPUT_LABEL,
       distribution,
       array: functions,
       logger,
@@ -28,11 +31,12 @@ export async function getFunctionRegionDistribution(
     return distribution;
   }
 
-  logger.logResults("Lambda Distribution by Region");
-  distribution.forEach((d) => {
-    logger.logResults(`${d.lbl}: ${d.count} functions.`);
-  });
-  logger.logSeparator();
+  synthesizeCliDistributionText(
+    OUTPUT_LABEL,
+    ENTITIES.LAMBDA_FUNCTIONS,
+    distribution,
+    logger
+  );
 
   return distribution;
 }

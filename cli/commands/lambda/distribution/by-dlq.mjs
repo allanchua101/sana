@@ -1,5 +1,8 @@
 import { reduceByProp } from "#helpers/reducers/reduce-by-prop.mjs";
 import { displayDistributionChart } from "#helpers/visualizers/chart.mjs";
+import { synthesizeCliDistributionText } from "#synthesizers/distribution/cli-text-synthesizer.mjs";
+import ENTITIES from "#constants/entities.mjs";
+const OUTPUT_LABEL = "Lambda Distribution by DLQ";
 
 /**
  * @async
@@ -19,7 +22,7 @@ export async function getFunctionDLQDistribution(params, functions, logger) {
 
   if (params.output === "chart") {
     displayDistributionChart({
-      title: "Lambda Distribution by DLQ",
+      title: OUTPUT_LABEL,
       distribution,
       array: functions,
       logger,
@@ -29,11 +32,12 @@ export async function getFunctionDLQDistribution(params, functions, logger) {
     return distribution;
   }
 
-  logger.logResults("Lambda Distribution by DLQ");
-  distribution.forEach((d) => {
-    logger.logResults(`${d.lbl}: ${d.count} functions.`);
-  });
-  logger.logSeparator();
+  synthesizeCliDistributionText(
+    OUTPUT_LABEL,
+    ENTITIES.LAMBDA_FUNCTIONS,
+    distribution,
+    logger
+  );
 
   return distribution;
 }

@@ -1,5 +1,8 @@
 import { reduceByProp } from "#helpers/reducers/reduce-by-prop.mjs";
 import { displayDistributionChart } from "#helpers/visualizers/chart.mjs";
+import { synthesizeCliDistributionText } from "#synthesizers/distribution/cli-text-synthesizer.mjs";
+import ENTITIES from "#constants/entities.mjs";
+const OUTPUT_LABEL = "Lambda Distribution by Runtime";
 
 /**
  * @async
@@ -18,7 +21,7 @@ export async function getFunctionRuntimeDistribution(
 
   if (params.output === "chart") {
     displayDistributionChart({
-      title: "Lambda Distribution by Runtime",
+      title: OUTPUT_LABEL,
       distribution,
       array: functions,
       logger,
@@ -28,13 +31,12 @@ export async function getFunctionRuntimeDistribution(
     return distribution;
   }
 
-  logger.logResults("Lambda Distribution by Runtime");
-  distribution.forEach((d) => {
-    const strPct = d.pct > 0 ? `${(d.pct * 100).toFixed(2)}%` : "0%";
-
-    logger.logResults(`${d.lbl}: ${d.count} functions (${strPct})`);
-  });
-  logger.logSeparator();
+  synthesizeCliDistributionText(
+    OUTPUT_LABEL,
+    ENTITIES.LAMBDA_FUNCTIONS,
+    distribution,
+    logger
+  );
 
   return distribution;
 }

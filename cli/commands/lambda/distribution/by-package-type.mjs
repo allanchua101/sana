@@ -1,27 +1,23 @@
 import { reduceByProp } from "#helpers/reducers/reduce-by-prop.mjs";
 import { displayDistributionChart } from "#helpers/visualizers/chart.mjs";
-const OUTPUT_LABEL = "Lambda Distribution by System Log Level";
+import { synthesizeCliDistributionText } from "#synthesizers/distribution/cli-text-synthesizer.mjs";
+import ENTITIES from "#constants/entities.mjs";
+const OUTPUT_LABEL = "Lambda Distribution by Package Type";
 
 /**
  * @async
- * @function getFunctionDistributionBySysLogLevel
- * @description Method used for retrieving the function distribution by system log level.
+ * @function getFunctionDistributionByPackageType
+ * @description Method used for retrieving the function distribution by package type for an AWS account.
  * @param {object} params CLI-parameters (For future enhancements)
  * @param {object[]} functions List of lambda functions
  * @param {object} logger Logger instance
  */
-export async function getFunctionDistributionBySysLogLevel(
+export async function getFunctionDistributionByPackageType(
   params,
   functions = [],
   logger
 ) {
-  const temp = reduceByProp(functions, "LoggingConfig.SystemLogLevel");
-  const distribution = temp.map((t) => {
-    return {
-      ...t,
-      lbl: t.lbl || null,
-    };
-  });
+  const distribution = reduceByProp(functions, "PackageType");
 
   if (params.output === "chart") {
     displayDistributionChart({
@@ -35,11 +31,12 @@ export async function getFunctionDistributionBySysLogLevel(
     return distribution;
   }
 
-  logger.logResults(OUTPUT_LABEL);
-  distribution.forEach((d) => {
-    logger.logResults(`${d.lbl}: ${d.count} functions.`);
-  });
-  logger.logSeparator();
+  synthesizeCliDistributionText(
+    OUTPUT_LABEL,
+    ENTITIES.LAMBDA_FUNCTIONS,
+    distribution,
+    logger
+  );
 
   return distribution;
 }

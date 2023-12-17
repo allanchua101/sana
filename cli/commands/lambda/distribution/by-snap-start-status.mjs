@@ -1,21 +1,24 @@
-import { reduceByItemInArrayProp } from "#helpers/reducers/reduce-by-item-in-array.mjs";
+import { reduceByProp } from "#helpers/reducers/reduce-by-prop.mjs";
 import { displayDistributionChart } from "#helpers/visualizers/chart.mjs";
-const BUCKETS = ["arm64", "x86_64"];
+import { synthesizeCliDistributionText } from "#synthesizers/distribution/cli-text-synthesizer.mjs";
+import ENTITIES from "#constants/entities.mjs";
+const OUTPUT_LABEL = "Lambda Distribution by SnapStart";
+const BUCKETS = ["On", "Off"];
 
 /**
  * @async
- * @function getFunctionDistributionByArchitecture
- * @description Method used for retrieving the function distribution by architecture.
+ * @function getFunctionDistributionBySnapStartStatus
+ * @description Method used for retrieving the function distribution by SnapStart status.
  * @param {object} params CLI-parameters (For future enhancements)
  * @param {object[]} functions List of lambda functions
  * @param {object} logger Logger instance
  */
-export async function getFunctionDistributionByArchitecture(
+export async function getFunctionDistributionBySnapStartStatus(
   params,
-  functions,
+  functions = [],
   logger
 ) {
-  const temp = reduceByItemInArrayProp(functions, "Architectures");
+  const temp = reduceByProp(functions, "SnapStart.OptimizationStatus");
   const distribution = BUCKETS.map((b) => {
     const dist = temp.find((t) => t.lbl === b);
 
@@ -30,7 +33,7 @@ export async function getFunctionDistributionByArchitecture(
 
   if (params.output === "chart") {
     displayDistributionChart({
-      title: "Lambda Distribution by Architecture",
+      title: OUTPUT_LABEL,
       distribution,
       array: functions,
       logger,
@@ -40,11 +43,12 @@ export async function getFunctionDistributionByArchitecture(
     return distribution;
   }
 
-  logger.logResults("Lambda Distribution by Architecture");
-  distribution.forEach((d) => {
-    logger.logResults(`${d.lbl}: ${d.count} functions.`);
-  });
-  logger.logSeparator();
+  synthesizeCliDistributionText(
+    OUTPUT_LABEL,
+    ENTITIES.LAMBDA_FUNCTIONS,
+    distribution,
+    logger
+  );
 
   return distribution;
 }

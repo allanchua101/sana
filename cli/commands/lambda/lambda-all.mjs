@@ -1,4 +1,5 @@
 import { LAMBDA_STRATEGIES } from "./lambda.mjs";
+import GLOBAL_TAGS from "#constants/global-tags.mjs";
 
 /**
  * @async
@@ -12,12 +13,12 @@ export async function runFullLambdaAnalysis(params, functions = [], logger) {
   logger.log(`Running Full Lambda Analysis`);
   logger.logSeparator();
 
-  for (let i = 0, len = LAMBDA_STRATEGIES.length; i < len; i++) {
-    const strategy = LAMBDA_STRATEGIES[i];
+  const nonAliasCommands = LAMBDA_STRATEGIES.filter(
+    (ls) => !ls.tags || !ls.tags.some((tag) => tag === GLOBAL_TAGS.ALIAS)
+  );
 
-    if (strategy.key === "lambda") {
-      continue;
-    }
+  for (let i = 0, len = nonAliasCommands.length; i < len; i++) {
+    const strategy = nonAliasCommands[i];
 
     await strategy.execute(params, functions, logger);
   }
