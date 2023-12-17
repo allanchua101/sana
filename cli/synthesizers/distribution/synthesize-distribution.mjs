@@ -4,11 +4,17 @@ import { synthesizeCliDistributionTable } from "#synthesizers/distribution/cli-t
 
 export function synthesizeDistribution(params) {
   const cleanInput = {
-    output: "text",
     entity: "",
     ...params,
   };
-  const { title, distribution, array, logger, entity, output } = cleanInput;
+  const {
+    title,
+    distribution,
+    array,
+    logger,
+    entity,
+    output = "text",
+  } = cleanInput;
 
   if (output === "chart") {
     displayDistributionChart({
