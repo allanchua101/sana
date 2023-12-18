@@ -1,16 +1,21 @@
 # Global Flags
 
-This page describes the default flags that could be used to alter sana's behavior.
+This page describes the global flags used to alter sana's behavior.
 
 ## `--profile`, `-p`
 
 By default, `sana` utilizes a machine's default `aws-cli` profile. To use a [named profile](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html#cli-configure-files-using-profiles), you can specify the `--profile` or `-p` flag.
 
 ```sh
-# Regular syntax
+# Uses default aws-cli profile
+$ sana lambda
+
+# Regular syntax for using
+# named profiles
 $ sana lambda --profile foo
 
-# Short-hand syntax
+# Short-hand syntax for
+# named profiles
 $ sana lambda -p foo
 ```
 

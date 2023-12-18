@@ -4,7 +4,7 @@
 
 ![Sample Function Distribution by Runtime](https://imgur.com/2ne53o0.gif, "Charted Function Distribution by Runtime")
 
-A command-line interface for analyzing an AWS account's serverless resources. Designed by AWS serverless engineers, for AWS serverless engineers.
+A command-line interface for analyzing an AWS account's serverless resources. Made by frugal engineers for AWS serverless engineers.
 
 [Visit Documentation Website](https://allanchua101.github.io/sana/)
 
