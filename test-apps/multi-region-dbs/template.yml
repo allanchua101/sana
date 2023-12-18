@@ -49,3 +49,31 @@ Resources:
         WriteCapacityUnits: 5
       SSESpecification:
         SSEEnabled: true
+
+  MyLookupDBA:
+    Type: 'AWS::DynamoDB::Table'
+    Properties:
+      TableName: "my-lookup-db-a"
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: 'id'
+          AttributeType: 'S'
+      KeySchema:
+        - AttributeName: 'id'
+          KeyType: 'HASH'
+      PointInTimeRecoverySpecification:
+        PointInTimeRecoveryEnabled: true
+
+  MyLookupDBB:
+    Type: 'AWS::DynamoDB::Table'
+    Properties:
+      TableName: "my-lookup-db-b"
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: 'id'
+          AttributeType: 'S'
+      KeySchema:
+        - AttributeName: 'id'
+          KeyType: 'HASH'
+      PointInTimeRecoverySpecification:
+        PointInTimeRecoveryEnabled: true

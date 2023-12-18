@@ -51,11 +51,14 @@ export async function getAllDynamoDBTablesWithDesc(credentials, regions = []) {
       return new Promise(async (resolve) => {
         const descCmd = new DescribeTableCommand({ TableName: rt });
         const response = await ddbClient.send(descCmd);
+        const billingMode =
+          response?.Table?.BillingModeSummary?.BillingMode || "PROVISIONED";
 
         tables.push({
           name: rt,
           sana: {
             region,
+            billingMode,
             table: response.Table,
           },
         });

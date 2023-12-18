@@ -1,10 +1,13 @@
 // Data-loading strategies
 import { getAllDynamoDBTablesWithDesc } from "#helpers/get-account-ddbs-with-desc.mjs";
 // DynamoDB
-import { countDynamoDBs } from "./count-ddbs.mjs";
-import { getDDBDistributionByRegion } from "./get-distribution-by-region.mjs";
-import { getDDBDistributionByDeleteProtection } from "./get-distribution-by-delete-protection.mjs";
-import { getDDBDistributionByTableStatus } from "./get-distribution-by-status.mjs";
+import { countDynamoDBs } from "./aggregation/count-ddbs.mjs";
+// Distribution
+import { getDDBDistributionByRegion } from "./distribution/by-region.mjs";
+import { getDDBDistributionByDeleteProtection } from "./distribution/by-delete-protection.mjs";
+import { getDDBDistributionByTableStatus } from "./distribution/by-status.mjs";
+import { getDDBDistributionByBillingMode } from "./distribution/by-billing-mode.mjs";
+// Aliases
 import { runFullDynamoDBAnalysis } from "./ddb-all.mjs";
 
 // Constants
@@ -27,19 +30,25 @@ export const DYNAMO_STRATEGIES = [
   },
   {
     key: "ddb-region-distribution",
-    desc: "Count account-wide DynamoDB table distribution by AWS region.",
+    desc: "DynamoDB table distribution by AWS region.",
     extractorKey: DYNAMO_DB_TABLE_META_EXTRACTOR,
     execute: getDDBDistributionByRegion,
   },
   {
     key: "ddb-delete-protection-distribution",
-    desc: "Count account-wide DynamoDB table distribution by table protection status.",
+    desc: "DynamoDB table distribution by table protection status.",
     extractorKey: DYNAMO_DB_TABLE_META_EXTRACTOR,
     execute: getDDBDistributionByDeleteProtection,
   },
   {
+    key: "ddb-billing-mode-distribution",
+    desc: "DynamoDB table distribution by billing mode",
+    extractorKey: DYNAMO_DB_TABLE_META_EXTRACTOR,
+    execute: getDDBDistributionByBillingMode,
+  },
+  {
     key: "ddb-table-status-distribution",
-    desc: "Count account-wide DynamoDB table distribution by table status.",
+    desc: "DynamoDB table distribution by table status.",
     extractorKey: DYNAMO_DB_TABLE_META_EXTRACTOR,
     execute: getDDBDistributionByTableStatus,
   },
