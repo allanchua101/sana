@@ -4,7 +4,7 @@ This page describes how to install or update the latest release of sana cli.
 
 ## Pre-requisites
 
-Sana is built on top of NodeJS and requires it as a pre-requisite.
+Sana is built on top of [NodeJS](https://nodejs.org/en) and requires it to function.
 
 ## Initial Installation
 
@@ -14,7 +14,7 @@ Run the following command to install
 $ npm i -g @serverless-ninja/sana
 ```
 
-and you can check the version of your installed sana using the `sana --version` command:
+you can check the version of your the sana installed in your machine using the `sana --version` command:
 
 ```sh
 $ sana --version
