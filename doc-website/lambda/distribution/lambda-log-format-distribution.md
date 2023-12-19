@@ -16,7 +16,7 @@ $ sana lambda-log-format-distribution
 
 `LoggingConfig.LogFormat` property indicates the format in which Lambda sends your function's application and system logs to CloudWatch.
 
-## Use-cases
+## Command Use-cases
 
 - Useful for measuring progress of logging format change rollout / migrations.
 - Useful for quantifying the amount of functions that uses Text vs JSON log format.

@@ -8,7 +8,7 @@ $ sana ddb-count
 > DynamoDB Table Count: 45 DynamoDB
 ```
 
-## Use-cases
+## Command Use-cases
 
 - Useful when measuring the impact of deployments
 - Useful for generating DynamoDB KPIs during pre-deployment, post-deployment and rollback steps.

@@ -172,6 +172,10 @@ export default defineConfig({
                 collapsed: true,
                 items: [
                   {
+                    text: "ddb-billing-mode-distribution",
+                    link: "/dynamodb/distribution/ddb-billing-mode-distribution",
+                  },
+                  {
                     text: "ddb-region-distribution",
                     link: "/dynamodb/distribution/ddb-region-distribution",
                   },

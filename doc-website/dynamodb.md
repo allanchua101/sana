@@ -26,6 +26,7 @@ $ sana ddb -r us-east-1,us-east-2,us-west-2
 - Aggregation
   - [ddb-count](/dynamodb/aggregation/ddb-count)
 - Distribution
-  - [ddb-region-distribution](/dynamodb/distribution/ddb-region-distribution)
+  - [ddb-billing-mode-distribution](/dynamodb/distribution/ddb-billing-mode-distribution)
   - [ddb-delete-protection-distribution](/dynamodb/distribution/ddb-delete-protection-distribution)
+  - [ddb-region-distribution](/dynamodb/distribution/ddb-region-distribution)
   - [ddb-table-status-distribution](/dynamodb/distribution/ddb-table-status-distribution)

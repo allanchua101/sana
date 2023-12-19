@@ -15,7 +15,7 @@ $ sana lambda-security-group-distribution
 
 `VpcConfig.SecurityGroupIds` property is the list of security group IDs attached to each Lambda function. Attaching a security group to an AWS Lambda function is necessary when it needs to interact with resources inside a VPC.
 
-## Use-cases
+## Command Use-cases
 
 - Useful for performing security audits and compliance checks.
 - Useful for risk assessments and identification for misconfigurations that generates potential vulnerabilities.

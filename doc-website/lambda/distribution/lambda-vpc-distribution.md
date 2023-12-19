@@ -10,7 +10,7 @@ $ sana lambda-vpc-distribution
 > No VPC:    15 functions.
 ```
 
-## Use-cases
+## Command Use-cases
 
 - Useful for profiling percentile of Lambda functions running inside vs outside VPCs
 - Useful for security and compliance related reporting
