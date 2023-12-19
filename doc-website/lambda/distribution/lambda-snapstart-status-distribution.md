@@ -16,7 +16,7 @@ $ sana lambda-snapstart-status-distribution
 
 `SnapStart.OptimizationStatus` property indicates whether SnapStart is activated for the specified function version.
 
-## Use-cases
+## Command Use-cases
 
 - Useful for analyzing account-level or region-level SnapStart adoption rates
 - Useful for measuring optimization of latency-sensitive workloads built on top of Java-functions

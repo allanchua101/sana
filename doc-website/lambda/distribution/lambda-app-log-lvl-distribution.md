@@ -21,7 +21,7 @@ $ sana lambda-app-log-lvl-distribution
 
 `LoggingConfig.ApplicationLogLevel` property is used to filter the application logs for your function that Lambda sends to CloudWatch. Lambda only sends application logs at the selected level and lower. The default configuration for this property is `null`, which means that no log filtering is applied by default.
 
-## Use-cases
+## Command Use-cases
 
 - Useful for analyzing account-level or region-level compliance to logging policies.
 - Useful for measuring application-level logging adoption rates across functions.

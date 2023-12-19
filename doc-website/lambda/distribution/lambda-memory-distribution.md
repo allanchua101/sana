@@ -11,7 +11,7 @@ $ sana lambda-memory-distribution
 > 10240: 1 functions.
 ```
 
-## Use-cases
+## Command Use-cases
 
 - Useful for raising awareness about the existence of outliers in terms of memory configuration
 - Useful for identification of most commonly used memory configurations.

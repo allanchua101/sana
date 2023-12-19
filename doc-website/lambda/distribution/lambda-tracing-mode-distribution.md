@@ -9,7 +9,7 @@ $ sana lambda-tracing-mode-distribution
 > Active: 280 functions
 ```
 
-## Use-cases
+## Command Use-cases
 
 - Useful for identification of non-compliance to tracing policies
 - Useful for measuring the observable functions in an account.
