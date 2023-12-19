@@ -1,4 +1,4 @@
-name: Run Unit tests
+name: Unit Tests
 
 on:
   push:
@@ -20,8 +20,6 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: cd ./cli
-    - run: npm ci
-    - run: cd ../cli-tests
-    - run: npm ci
-    - run: npm test
+    - run: cd cli && npm ci
+    - run: cd cli-tests && npm ci
+    - run: cd cli-tests && npm test

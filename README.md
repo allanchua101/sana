@@ -1,7 +1,7 @@
 # sana (Serverless ANAlyzer)
 
 [![npm version](https://badge.fury.io/js/@serverless-ninja%2Fsana.svg)](https://badge.fury.io/js/@serverless-ninja%2Fsana)
-
+[![Unit Tests](https://github.com/allanchua101/sana/actions/workflows/feature-branch-tests.yml/badge.svg?branch=main)](https://github.com/allanchua101/sana/actions/workflows/feature-branch-tests.yml)
 ![Sample Function Distribution by Runtime](https://imgur.com/2ne53o0.gif, "Charted Function Distribution by Runtime")
 
 A command-line interface for analyzing an AWS account's serverless resources. Made by frugal engineers for AWS serverless engineers.
