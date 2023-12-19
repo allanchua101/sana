@@ -1,7 +1,7 @@
 name: Run Unit tests
 
 on:
-  workflow_dispatch:
+  push:
     branches: 
       - 'feature/**'
   pull_request:
