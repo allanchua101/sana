@@ -5,8 +5,9 @@
  * @returns {string} Pluralize form of the noun.
  */
 export function pluralizeNoun(noun) {
-  // Nouns ending in 'y' change 'y' to 'ies'
-  if (noun.endsWith("y")) {
+  // Nouns ending in 'y' after a consonant change 'y' to 'ies'
+  const vowels = ["a", "e", "i", "o", "u"];
+  if (noun.endsWith("y") && !vowels.includes(noun[noun.length - 2])) {
     return noun.slice(0, -1) + "ies";
   }
 
