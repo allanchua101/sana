@@ -64,6 +64,35 @@ Resources:
       PointInTimeRecoverySpecification:
         PointInTimeRecoveryEnabled: true
 
+  MyStreamerTableA:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: "my-streamer-table-1"
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      BillingMode: PAY_PER_REQUEST
+      StreamSpecification:
+        StreamViewType: NEW_AND_OLD_IMAGES
+
+  MyStreamerTableB:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: "my-streamer-table-2"
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      BillingMode: PAY_PER_REQUEST
+      StreamSpecification:
+        StreamViewType: NEW_AND_OLD_IMAGES
+
+
   MyLookupDBB:
     Type: 'AWS::DynamoDB::Table'
     Properties:
