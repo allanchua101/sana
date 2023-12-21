@@ -17,7 +17,6 @@ export async function getDDBDistributionByStreamStatus(
   tables = [],
   logger
 ) {
-  tables.map((t) => console.log(t));
   const temp = reduceByProp(
     tables,
     "sana.table.StreamSpecification.StreamEnabled"
