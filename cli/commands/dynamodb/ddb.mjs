@@ -7,6 +7,7 @@ import { getDDBDistributionByRegion } from "./distribution/by-region.mjs";
 import { getDDBDistributionByDeleteProtection } from "./distribution/by-delete-protection.mjs";
 import { getDDBDistributionByTableStatus } from "./distribution/by-status.mjs";
 import { getDDBDistributionByBillingMode } from "./distribution/by-billing-mode.mjs";
+import { getDDBDistributionByStreamStatus } from "./distribution/by-stream-status.mjs";
 // Aliases
 import { runFullDynamoDBAnalysis } from "./ddb-all.mjs";
 
@@ -52,6 +53,13 @@ export const DYNAMO_STRATEGIES = [
     extractorKey: DYNAMO_DB_TABLE_META_EXTRACTOR,
     execute: getDDBDistributionByTableStatus,
   },
+  {
+    key: "ddb-stream-status-distribution",
+    desc: "DynamoDB table distribution by stream status.",
+    extractorKey: DYNAMO_DB_TABLE_META_EXTRACTOR,
+    execute: getDDBDistributionByStreamStatus,
+  },
+  // Alias
   {
     key: "ddb",
     desc: "Run full analysis on DynamoDB tables",
