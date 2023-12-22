@@ -19,7 +19,7 @@ The `StreamSpecification.StreamEnabled` property is used to indicate whether Dyn
 ## Command Use-cases
 
 - Useful for optimizing resource allocation and managing cost of integrations
-- Useful for data-engineers engineers installing streams used for delivering data to their own microservices and generate reports
+- Useful for data engineers installing streams used for delivering data to their own microservices and generate reports
 - Useful for operations engineers who need to implement cross-region backups using DynamoDB streams.
 - Useful for newly installed engineering managers who needs to understand the landscape of infrastructure he/she will be taking over.
 
