@@ -184,6 +184,10 @@ export default defineConfig({
                     link: "/dynamodb/distribution/ddb-delete-protection-distribution",
                   },
                   {
+                    text: "ddb-stream-status-distribution",
+                    link: "/dynamodb/distribution/ddb-stream-status-distribution",
+                  },
+                  {
                     text: "ddb-table-status-distribution",
                     link: "/dynamodb/distribution/ddb-table-status-distribution",
                   },
