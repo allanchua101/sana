@@ -7,6 +7,18 @@
  * @returns {any} Value of the specified path
  */
 export function getNestedProperty(obj, path) {
+  if (typeof path !== "string") {
+    throw new Error("Path is required.");
+  }
+
+  if (path === "") {
+    throw new Error("Path is required.");
+  }
+
+  if (typeof obj === "undefined" || !obj) {
+    throw new Error("Path is required.");
+  }
+
   const keys = path.split(".");
 
   return keys.reduce(
