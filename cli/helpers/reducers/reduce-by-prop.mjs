@@ -2,14 +2,22 @@ import { getNestedProperty } from "../json/get-nested-property.mjs";
 
 /**
  * @function
- * @description Method used for generating distribution by the provided property
+ * @description Method used for generating distribution by the target property.
  * @param {object[]} array List of input objects
- * @param {string} property JSON notation path of property that will be used for grouping the aggregated results.
+ * @param {string} dotNotation JSON notation of property that will be used for grouping the aggregated results.
  */
-export function reduceByProp(array, property) {
+export function reduceByProp(array, dotNotation) {
+  if (typeof dotNotation !== "string") {
+    throw new Error("JSON dot notation is required.");
+  }
+
+  if (!dotNotation) {
+    throw new Error("JSON dot notation is required.");
+  }
+
   return (array || [])
     .reduce((agg, item) => {
-      const itemPropVal = getNestedProperty(item, property);
+      const itemPropVal = getNestedProperty(item, dotNotation);
       const existingIndex = agg.findIndex((f) => f.lbl === itemPropVal);
 
       if (existingIndex > -1) {
