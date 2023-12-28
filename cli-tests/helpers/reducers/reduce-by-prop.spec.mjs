@@ -1,5 +1,4 @@
 import { reduceByProp } from "#helpers/reducers/reduce-by-prop.mjs";
-import { getNestedProperty } from "#helpers/json/get-nested-property.mjs";
 const FUNCTIONS = [
   {
     runtime: "nodejs18.x",
